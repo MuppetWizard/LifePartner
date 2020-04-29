@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.muppet.lifepartner">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application
+        android:name=".util.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".activity.ActExCompany"></activity>
+        <activity android:name=".activity.ActExpressInfo" />
+        <activity android:name=".activity.ActCityList"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.ActaddCity" />
+        <activity android:name=".activity.ActMyFeadback" />
+        <activity android:name=".activity.ActAboutUs" />
+        <activity android:name=".activity.ActCalendar" />
+        <activity android:name=".activity.ActNews" />
+        <activity android:name=".activity.ActWebview" />
+        <activity android:name=".activity.ActGuide" />
+        <activity android:name=".activity.ActStart">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleTask"/>
+    </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

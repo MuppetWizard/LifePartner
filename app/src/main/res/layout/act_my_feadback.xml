@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ActMyFeadback"
+    android:background="@mipmap/bgimg">
+
+    <LinearLayout
+        android:background="@color/transparency60"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+            <ImageView
+                android:id="@+id/go_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/back"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="反馈"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textSize="20dp"/>
+            <TextView
+                android:id="@+id/save_opinion"
+                android:text="提交"
+                android:textColor="#61766d"
+                android:textSize="20sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/app_mainColor"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+
+
+        <EditText
+            android:id="@+id/et_content"
+            android:background="#E0DEDE"
+            android:hint="输入内容"
+            android:maxLength="200"
+            android:textSize="18sp"
+            android:gravity="top"
+            android:textColor="#3A3434"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+    </LinearLayout>
+</LinearLayout>

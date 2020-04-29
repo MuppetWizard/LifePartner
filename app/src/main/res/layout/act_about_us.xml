@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ActAboutUs"
+    android:background="@mipmap/bgimg">
+
+    <LinearLayout
+        android:background="@color/transparency60"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+            <ImageView
+                android:id="@+id/goback"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/back"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="关于我们"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textSize="20dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/app_mainColor"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_marginLeft="40dp"
+            android:background="#e8edf1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="4dp" />
+
+        <ImageView
+            android:layout_marginTop="50dp"
+            android:background="@mipmap/login_logo"
+            android:layout_marginLeft="120dp"
+            android:layout_width="180dp"
+            android:layout_height="150dp" />
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="20dp"
+            android:text="1.1.1.0"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:textSize="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="#000000"
+            android:text="生活伴侣APP是一款依托于Android平台开发的一款生活类APP，为人们提供生活上的便利以及各种服务娱乐的相关类容。其主要包括了内容有：新闻资讯、实时天气、日历、查询快递等多个常用功能以及其他娱乐服务功能。"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:textColor="#000000"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="50dp"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="QQ交流：1398675786 版权归生活伴侣APP所有"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

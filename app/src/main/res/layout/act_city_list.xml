@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ActCityList"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/transparency60">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/back"/>
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_margin="5dp"
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/textview_border"
+            android:paddingLeft="10dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/icon_search"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/search"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <com.muppet.lifepartner.view.CitySearchEdittext
+                android:id="@+id/city_search"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:maxLines="1"
+                android:layout_toRightOf="@id/icon_search"
+                android:hint="输入首字母查询"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_mainColor"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.muppet.lifepartner.view.WaveSideBar
+            android:id="@+id/sideBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:chooseTextColor="@android:color/white"
+            app:textColor="#969696"
+            app:backgroundColor="@color/app_mainColor"
+            app:textSize="10sp"
+            app:hintTextSize="32sp"
+            app:radius="20dp"
+            app:circleRadius="24dp"/>
+        <ProgressBar
+            android:id="@+id/progress02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+</LinearLayout>
