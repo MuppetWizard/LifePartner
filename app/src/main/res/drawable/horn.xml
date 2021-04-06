@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按下点击背景 -->
+
+
+
+    <!--默认的背景 -->
+
+    <item>
+
+        <shape >
+
+            <solid android:color="#fff"/>
+
+            <corners android:radius="20dp"/>
+
+        </shape>
+
+    </item>
+
+
+</selector>

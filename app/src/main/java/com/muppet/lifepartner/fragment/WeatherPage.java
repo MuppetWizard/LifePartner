@@ -126,7 +126,7 @@ public class WeatherPage extends SupportFragment {
     private String strStart = "/";
     private String strEnd = "℃";
     private SQLiteDatabase db;
-    private String mcity = "泸州";
+    private String mcity = "成都";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

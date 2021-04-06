@@ -17,10 +17,19 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
+    signingConfigs {
+        kwmotorcycle {
+            keyAlias 'key0'
+            keyPassword '23192399'
+            storeFile file('lifepartner.jks')
+            storePassword '23192399'
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

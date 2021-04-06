@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="新闻"
+            android:text="更多动态"
             android:gravity="center"
             android:layout_centerInParent="true"
             android:textSize="20dp"/>

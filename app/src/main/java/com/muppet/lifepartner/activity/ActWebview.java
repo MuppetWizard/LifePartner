@@ -39,7 +39,7 @@ public class ActWebview extends AppCompatActivity {
         if (intent != null && intent.hasExtra("URL")) {
             String url = intent.getStringExtra("URL");
             webview.loadUrl(url);
-            Log.d(Constant.TAG, "initWebView: "+url);
+//            Log.d(Constant.TAG, "initWebView: "+url);
         }
     }
 

@@ -2,6 +2,7 @@ package com.muppet.lifepartner.fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ActAboutUs;
 import com.muppet.lifepartner.activity.ActMyFeadback;
+import com.muppet.lifepartner.activity.ActWebview;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,6 +34,8 @@ public class MePage extends SupportFragment {
     LinearLayout myAboutAs;
     @BindView(R.id.my_feedback)
     LinearLayout myFeedback;
+    @BindView(R.id.protocol)
+    LinearLayout protocol;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -41,7 +45,7 @@ public class MePage extends SupportFragment {
         return view;
     }
 
-    @OnClick({R.id.my_about_as, R.id.my_feedback})
+    @OnClick({R.id.my_about_as, R.id.my_feedback, R.id.protocol})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.my_about_as:
@@ -50,6 +54,11 @@ public class MePage extends SupportFragment {
             case R.id.my_feedback:
                 startActivity(new Intent(getContext(), ActMyFeadback.class));
                 break;
+            case R.id.protocol:
+
+                Intent intent = new Intent(getContext(), ActWebview.class);
+                intent.putExtra("URL","https://www.hlhjapp.com/website/agreement/137");
+                startActivity(intent);
         }
     }
 }
