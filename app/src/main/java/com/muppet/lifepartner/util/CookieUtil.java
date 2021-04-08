@@ -3,6 +3,8 @@ package com.muppet.lifepartner.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.muppet.lifepartner.App;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

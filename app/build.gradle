@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 28
-    buildToolsVersion "29.0.0"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.muppet.lifepartner"
@@ -16,8 +16,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            shrinkResources false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -34,13 +34,34 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-}
 
+    configurations {
+        implementation.exclude module: 'gson'
+        cleanedAnnotations
+        compile.exclude group: 'org.jetbrains' , module:'annotations'
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation files('libs/pinyin4j-2.5.0.jar')
+
+    implementation (name: 'GDTSDK.unionNormal', ext: 'aar')
+    implementation (name: 'open_ad_sdk', ext: 'aar')
+    implementation (name: 'yesdk-release', ext: 'aar')
+
+    implementation 'com.google.code.gson:gson:2.8.4'
+
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -68,5 +89,5 @@ dependencies {
     implementation 'org.jetbrains:annotations-java5:15.0'
     //事件通知
     implementation 'org.greenrobot:eventbus:3.1.1'
-    implementation files('libs/pinyin4j-2.5.0.jar')
+
 }

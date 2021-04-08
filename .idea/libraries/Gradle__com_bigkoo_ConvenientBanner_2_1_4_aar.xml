@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.bigkoo:ConvenientBanner:2.1.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a857bdf51b25386dade78cf4267a2217/jetified-ConvenientBanner-2.1.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a857bdf51b25386dade78cf4267a2217/jetified-ConvenientBanner-2.1.4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a857bdf51b25386dade78cf4267a2217/jetified-ConvenientBanner-2.1.4/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28bb0e4a209aeb26a17bbcfebd62ae60/jetified-ConvenientBanner-2.1.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28bb0e4a209aeb26a17bbcfebd62ae60/jetified-ConvenientBanner-2.1.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28bb0e4a209aeb26a17bbcfebd62ae60/jetified-ConvenientBanner-2.1.4/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bigkoo/ConvenientBanner/2.1.4/db963fafcac16ff7f71108490ae0c1c740fbfbaf/ConvenientBanner-2.1.4-javadoc.jar!/" />

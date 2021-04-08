@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,15 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ActAboutUs;
 import com.muppet.lifepartner.activity.ActMyFeadback;
 import com.muppet.lifepartner.activity.ActWebview;
+import com.muppet.lifepartner.util.Constant;
+import com.youyi.yesdk.ad.RewardVideoAd;
+import com.youyi.yesdk.business.UERewardManager;
+import com.youyi.yesdk.business.YOUEAdConstants;
+import com.youyi.yesdk.listener.RewardListener;
+
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,16 +46,81 @@ public class MePage extends SupportFragment {
     LinearLayout myFeedback;
     @BindView(R.id.protocol)
     LinearLayout protocol;
+    @BindView(R.id.ll_reward_csj)
+    LinearLayout llRewardCsj;
+    @BindView(R.id.ll_reward_gdt)
+    LinearLayout llRewardGdt;
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.me_page, null);
         ButterKnife.bind(this,view);
+
         return view;
     }
 
-    @OnClick({R.id.my_about_as, R.id.my_feedback, R.id.protocol})
+    private void loadRewardVideo(String id) {
+        RewardVideoAd ad = new RewardVideoAd();
+        ad.setRewardConfig(getActivity(),new UERewardManager()
+                .setUserID("hahaha")
+                .setCustomData("11111")
+                .setScenes(YOUEAdConstants.RitScenes.CUSTOMIZE_SCENES)
+                .setOrientation(YOUEAdConstants.VERTICAL)
+                .build()
+        ).loadRewardVideo(id, new RewardListener() {
+            @Override
+            public void onError(@Nullable Integer integer, @Nullable String s) {
+                Log.d(Constant.TAG,"onError : code: "+ integer+" msg : "+ s);
+            }
+
+            @Override
+            public void onVideoCached() {
+                Log.d(Constant.TAG,"onVideoCached");
+                ad.show();
+            }
+
+            @Override
+            public void onADLoaded() {
+                Log.d(Constant.TAG,"onADLoaded");
+            }
+
+            @Override
+            public void onADShow() {
+
+            }
+
+            @Override
+            public void onReward(@Nullable Boolean aBoolean, @Nullable Integer integer, @Nullable String s, @Nullable Integer integer1, @Nullable String s1, @Nullable Map<String, Object> map) {
+
+            }
+
+            @Override
+            public void onADComplete() {
+
+            }
+
+            @Override
+            public void onVideoBarClick() {
+
+            }
+
+            @Override
+            public void onSKipVideo() {
+
+            }
+
+            @Override
+            public void onClosed() {
+
+            }
+        });
+
+    }
+
+    @OnClick({R.id.my_about_as, R.id.my_feedback, R.id.protocol,R.id.ll_reward_csj,R.id.ll_reward_gdt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.my_about_as:
@@ -55,10 +130,16 @@ public class MePage extends SupportFragment {
                 startActivity(new Intent(getContext(), ActMyFeadback.class));
                 break;
             case R.id.protocol:
-
                 Intent intent = new Intent(getContext(), ActWebview.class);
                 intent.putExtra("URL","https://www.hlhjapp.com/website/agreement/137");
                 startActivity(intent);
+                break;
+            case R.id.ll_reward_csj:
+                loadRewardVideo("0000000034");
+                break;
+            case R.id.ll_reward_gdt:
+                loadRewardVideo("0000000033");
+                break;
         }
     }
 }

@@ -13,7 +13,7 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.adapter.HolidayAdapter;
 import com.muppet.lifepartner.mode.Calendar;
 import com.muppet.lifepartner.mode.Holiday;
-import com.muppet.lifepartner.util.App;
+import com.muppet.lifepartner.App;
 import com.muppet.lifepartner.util.Constant;
 
 import org.xutils.common.Callback;

@@ -25,7 +25,7 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ActaddCity;
 import com.muppet.lifepartner.mode.MessageEvent;
 import com.muppet.lifepartner.mode.Weather;
-import com.muppet.lifepartner.util.App;
+import com.muppet.lifepartner.App;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.MySQliteHelper;
 

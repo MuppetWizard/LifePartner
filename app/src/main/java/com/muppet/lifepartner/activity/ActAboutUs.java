@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.muppet.lifepartner.R;
+import com.youyi.yesdk.ad.SplashAd;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

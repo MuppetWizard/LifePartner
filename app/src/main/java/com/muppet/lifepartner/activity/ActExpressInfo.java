@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.adapter.ExInfo;
 import com.muppet.lifepartner.mode.ExpressInfo;
-import com.muppet.lifepartner.util.App;
+import com.muppet.lifepartner.App;
 
 import java.util.Collections;
 import java.util.List;

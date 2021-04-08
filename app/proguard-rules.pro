@@ -1,8 +1,25 @@
 
-
--optimizationpasses 5
+# 不混淆第三方引用的库
 -dontskipnonpubliclibraryclasses
+
+-dontoptimize
+# 表示不进行校验,这个校验作用 在java平台上的
+-dontpreverify
+-optimizationpasses 5
+
 -dontskipnonpubliclibraryclassmembers
+-keep class androidx.annotation.**{*;}
+# platform version.  We know about them, and they are safe.
+-dontwarn android.support.**
+-dontshrink
+#保护泛型
+-keepattributes Signature
+
+-keepattributes *Annotation*
+
+-keepattributes Exceptions
+
+
 # 保持基本组件不被混淆
 -keep public class * extends android.app.Fragment
 -keep public class * extends android.app.Activity
@@ -27,6 +44,17 @@
 -keep public class * extends android.support.v4.**
 -keep public class * extends android.support.v7.**
 -keep public class * extends android.support.annotation.**
+
+# We want to keep methods in Activity that could be used in the XML attribute onClick
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
 
 # 保持 native 方法不被混淆
 -keepclasseswithmembernames class * {
@@ -58,7 +86,38 @@
      public void *(android.webkit.WebView,java.lang.String);
 }
 
--keep class **.R$* { *; }
+
 -keep class com.muppet.lifepartner.mode.** { *; }
 
--keep public class **.*model*.** {*;}
+-keep public class **.*mode*.** {*;}
+
+-keep class **.R$* {*;}
+-keepclassmembers enum * { *;}
+
+# Gson
+-keepattributes EnclosingMethod
+-keep class com.google.gson.** {*;}
+-keep class com.google.**{*;}
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+-keep class com.google.gson.examples.android.model.** { *; }
+#-libraryjars jars/libs/gson-2.8.5.jar
+
+ # Prevent R8 from leaving Data object members always null
+ -keepclassmembers,allowobfuscation class * {
+   @com.google.gson.annotations.SerializedName <fields>;
+ }
+
+# 穿山甲
+-keep class com.bytedance.sdk.openadsdk.** { *; }
+-keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
+-keep class com.pgl.sys.ces.** {*;}
+-keep class com.bytedance.embed_dr.** {*;}
+-keep class com.bytedance.embedapplog.** {*;}
+
+#广点通
+-keep class com.qq.e.** { *;}
+
+-dontwarn sun.misc.**
+
+-keep class com.youyi.yesdk.**{*;}

@@ -14,7 +14,7 @@ import com.muppet.lifepartner.IpAddress;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.adapter.ExCompanyAdapter;
 import com.muppet.lifepartner.mode.ExCompany;
-import com.muppet.lifepartner.util.App;
+import com.muppet.lifepartner.App;
 import com.muppet.lifepartner.util.Constant;
 
 import org.xutils.common.Callback;

@@ -1,6 +1,9 @@
-package com.muppet.lifepartner.util;
+package com.muppet.lifepartner;
 
 import android.app.Application;
+
+import com.youyi.yesdk.YOUEAdSdk;
+import com.youyi.yesdk.business.YOUEAdManager;
 
 import org.xutils.x;
 
@@ -18,6 +21,15 @@ public class App extends Application {
                 .stackViewMode(Fragmentation.BUBBLE)
                 .debug(BuildConfig.DEBUG)
                 .install();*/
+        YOUEAdSdk.INSTANCE.initSDK(application,
+                new YOUEAdManager()
+                        .appId("000012")
+                        .appName("游易-测试")
+                        .deBug(true)
+                        .setChannel(10)
+                        .supportMultiProcess(false)
+                        .build()
+        );
     }
 
     //获取项目上下文
