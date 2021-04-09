@@ -55,7 +55,7 @@ dependencies {
 
     implementation (name: 'GDTSDK.unionNormal', ext: 'aar')
     implementation (name: 'open_ad_sdk', ext: 'aar')
-    implementation (name: 'yesdk-release', ext: 'aar')
+    implementation (name: 'youe_ad_sdk_1.1.1', ext: 'aar')
 
     implementation 'com.google.code.gson:gson:2.8.4'
 

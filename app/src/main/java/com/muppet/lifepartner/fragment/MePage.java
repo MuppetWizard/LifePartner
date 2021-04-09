@@ -65,10 +65,11 @@ public class MePage extends SupportFragment {
     private void loadRewardVideo(String id) {
         RewardVideoAd ad = new RewardVideoAd();
         ad.setRewardConfig(getActivity(),new UERewardManager()
-                .setUserID("hahaha")
-                .setCustomData("11111")
-                .setScenes(YOUEAdConstants.RitScenes.CUSTOMIZE_SCENES)
-                .setOrientation(YOUEAdConstants.VERTICAL)
+//                .setUserID("youe_TEST")
+//                .setCustomData("youe_data")
+                .setExpressViewAcceptedSize(500f,500f)
+                .setScenes(YOUEAdConstants.RitScenes.CUSTOMIZE_SCENES,"scenes_test")
+                .setOrientation(YOUEAdConstants.HORIZONTAL)
                 .build()
         ).loadRewardVideo(id, new RewardListener() {
             @Override
@@ -89,32 +90,32 @@ public class MePage extends SupportFragment {
 
             @Override
             public void onADShow() {
-
+                Log.d(Constant.TAG,"onADShow");
             }
 
             @Override
             public void onReward(@Nullable Boolean aBoolean, @Nullable Integer integer, @Nullable String s, @Nullable Integer integer1, @Nullable String s1, @Nullable Map<String, Object> map) {
-
+                Log.d(Constant.TAG,"onReward " + aBoolean +" id: "+integer+" msg: "+ s+ " errorC: "+ integer+ " errorM: "+ s1);
             }
 
             @Override
             public void onADComplete() {
-
+                Log.d(Constant.TAG,"onADComplete");
             }
 
             @Override
             public void onVideoBarClick() {
-
+                Log.d(Constant.TAG,"onADComplete");
             }
 
             @Override
             public void onSKipVideo() {
-
+                Log.d(Constant.TAG,"onADComplete");
             }
 
             @Override
             public void onClosed() {
-
+                Log.d(Constant.TAG,"onADComplete");
             }
         });
 
