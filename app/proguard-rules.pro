@@ -9,6 +9,8 @@
 
 -dontskipnonpubliclibraryclassmembers
 -keep class androidx.annotation.**{*;}
+-keep class androidx.**{*;}
+
 # platform version.  We know about them, and they are safe.
 -dontwarn android.support.**
 -dontshrink
@@ -94,6 +96,33 @@
 -keep class **.R$* {*;}
 -keepclassmembers enum * { *;}
 
+##kotlin
+#-keep class kotlin.** { *; }
+#-keep class kotlin.Metadata { *; }
+#-dontwarn kotlin.**
+#-keepclassmembers class **$WhenMappings {
+#    <fields>;
+#}
+#-keepclassmembers class kotlin.Metadata {
+#    public <methods>;
+#}
+#-assumenosideeffects class kotlin.jvm.internal.Intrinsics {
+#    static void checkParameterIsNotNull(java.lang.Object, java.lang.String);
+#}
+#
+#-keepclasseswithmembernames class * {
+#    native <methods>;
+#}
+#
+#-keepclassmembers class * extends android.app.Activity {
+#   public void *(android.view.View);
+#}
+#-keepclassmembers class * implements android.os.Parcelable {
+#  public static final android.os.Parcelable$Creator *;
+#}
+#-keep class **.R$* {*;}
+#-keepclassmembers enum * { *;}
+
 # Gson
 -keepattributes EnclosingMethod
 -keep class com.google.gson.** {*;}
@@ -107,6 +136,17 @@
  -keepclassmembers,allowobfuscation class * {
    @com.google.gson.annotations.SerializedName <fields>;
  }
+
+#Glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
+    **[] $VALUES;
+    public *;
+}
+# for DexGuard only
+#-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
+-dontwarn com.bumptech.glide.**
 
 # 穿山甲
 -keep class com.bytedance.sdk.openadsdk.** { *; }

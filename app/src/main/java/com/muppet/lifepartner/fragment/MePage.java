@@ -1,8 +1,6 @@
 package com.muppet.lifepartner.fragment;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,12 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ActAboutUs;
 import com.muppet.lifepartner.activity.ActMyFeadback;
 import com.muppet.lifepartner.activity.ActWebview;
+import com.muppet.lifepartner.activity.ad.DrawStreamAdActivity;
+import com.muppet.lifepartner.activity.ad.DrawStreamListActivity;
+import com.muppet.lifepartner.activity.ad.StreamAdActivity;
 import com.muppet.lifepartner.util.Constant;
 import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.ad.FullVideoAd;
@@ -59,6 +59,14 @@ public class MePage extends SupportFragment {
     FrameLayout flBanner;
     @BindView(R.id.ll_full_video)
     LinearLayout llFullVideo;
+    @BindView(R.id.ll_stream_ad)
+    LinearLayout llStreamAd;
+    @BindView(R.id.ll_draw_stream_ad)
+    LinearLayout llDrawStreamAd;
+    @BindView(R.id.ll_test_stream_ad)
+    LinearLayout llStreamAdTest;
+    @BindView(R.id.ll_test_draw_stream_ad)
+    LinearLayout llDrawStreamAdTest;
 
     private BannerAd bannerAd;
     private FullVideoAd fullVideoAd;
@@ -81,7 +89,7 @@ public class MePage extends SupportFragment {
 
     private void loadBanner() {
         bannerAd = new BannerAd();
-        bannerAd.setBannerConfig(getActivity(),"0000000040",500,108,false);
+        bannerAd.setBannerConfig(getActivity(),"0000000039",500,108,false);
         bannerAd.loadAdBanner(flBanner, new BannerAdListener() {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
@@ -243,7 +251,8 @@ public class MePage extends SupportFragment {
     }
 
     @OnClick({R.id.my_about_as, R.id.my_feedback, R.id.protocol,R.id.ll_reward_csj,
-            R.id.ll_reward_gdt,R.id.ll_full_video})
+            R.id.ll_reward_gdt,R.id.ll_full_video, R.id.ll_stream_ad,R.id.ll_draw_stream_ad,
+            R.id.ll_test_stream_ad,R.id.ll_test_draw_stream_ad})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.my_about_as:
@@ -265,6 +274,19 @@ public class MePage extends SupportFragment {
                 break;
             case R.id.ll_full_video:
                 loadFullScreenVideo("0000000046");
+                break;
+            case R.id.ll_stream_ad:
+                startActivity(new Intent(getContext(), StreamAdActivity.class));
+                break;
+            case R.id.ll_draw_stream_ad:
+                startActivity(new Intent(getContext(), DrawStreamAdActivity.class));
+                break;
+            case R.id.ll_test_stream_ad:
+
+                break;
+            case R.id.ll_test_draw_stream_ad:
+                startActivity(new Intent(getContext(), DrawStreamListActivity.class));
+                break;
         }
     }
 

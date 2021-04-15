@@ -5,10 +5,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
     <application
         android:name=".App"
@@ -17,11 +16,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo2"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.ActExCompany"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activity.ad.DrawStreamListActivity"></activity>
+        <activity android:name=".activity.ad.DrawStreamAdActivity" />
+        <activity android:name=".activity.ad.StreamAdActivity" />
+        <activity android:name=".activity.ActExCompany" />
         <activity android:name=".activity.ActExpressInfo" />
-        <activity android:name=".activity.ActCityList"
+        <activity
+            android:name=".activity.ActCityList"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activity.ActaddCity" />
         <activity android:name=".activity.ActMyFeadback" />
@@ -34,27 +37,23 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"   />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:launchMode="singleTask"/>
-
         <activity
-            tools:replace="android:screenOrientation"
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name="com.qq.e.ads.PortraitADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+            tools:replace="android:screenOrientation" />
         <activity
-            tools:replace="android:screenOrientation"
             android:name="com.qq.e.ads.LandscapeADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-
-
-
+            tools:replace="android:screenOrientation" />
     </application>
-
 
 </manifest>

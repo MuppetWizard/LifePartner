@@ -51,18 +51,20 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+
     implementation files('libs/pinyin4j-2.5.0.jar')
 
     implementation (name: 'GDTSDK.unionNormal', ext: 'aar')
     implementation (name: 'open_ad_sdk', ext: 'aar')
 //    implementation (name: 'youe_ad_sdk_1.1.1', ext: 'aar')
     implementation (name: 'youe_ad_sdk_release', ext: 'aar')
-
+    implementation (name: 'LayoutManagerGroup', ext: 'aar')
     implementation 'com.google.code.gson:gson:2.8.4'
 
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
