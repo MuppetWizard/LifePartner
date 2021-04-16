@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/tt_splash_express_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/tt_splash_video_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.bytedance.sdk.openadsdk.core.widget.gif.GifView
+        android:id="@+id/tt_splash_ad_gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/tt_splash_video_ad_mute"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/tt_splash_mute" />
+
+    <com.bytedance.sdk.openadsdk.core.widget.TTCountdownView
+        android:id="@+id/tt_splash_skip_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp" />
+
+    <ImageView
+        android:id="@+id/tt_ad_logo"
+        android:layout_width="30dp"
+        android:layout_height="14dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="start|bottom"
+        android:background="@drawable/tt_splash_ad_logo"
+        android:gravity="center"
+        tools:ignore="RtlSymmetry" />
+
+    <RelativeLayout
+        android:id="@+id/tt_full_splash_bar_layout"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/tt_splash_click_bar_style"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/tt_splash_bar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:singleLine="true"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:shadowColor="#4D000000"
+                android:shadowDx="0"
+                android:shadowDy="0.5"
+                android:shadowRadius="2"
+                android:text="@string/tt_splash_click_bar_text"/>
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="16dp"
+                android:background="@drawable/tt_splash_click_bar_go"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical"
+                android:layout_toRightOf="@id/tt_splash_bar_text" />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>

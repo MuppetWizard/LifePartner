@@ -47,7 +47,7 @@ public class StreamAdActivity extends AppCompatActivity {
         super.onDestroy();
         if (adInfo != null) {
             flAdView.removeAllViews();
-            adInfo.destroy();
+//            adInfo.destroy();
         }
     }
 

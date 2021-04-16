@@ -14,6 +14,7 @@ import com.muppet.lifepartner.fragment.WeatherPage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportActivity;
 

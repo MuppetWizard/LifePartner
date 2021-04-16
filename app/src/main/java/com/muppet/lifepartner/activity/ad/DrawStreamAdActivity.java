@@ -48,7 +48,7 @@ public class DrawStreamAdActivity extends AppCompatActivity {
         super.onDestroy();
         if (adInfo != null) {
             flAdContainer.removeAllViews();
-            adInfo.destroy();
+//            adInfo.destroy();
         }
     }
 
@@ -72,10 +72,10 @@ public class DrawStreamAdActivity extends AppCompatActivity {
             public void onAdLoaded(@NotNull ArrayList<StreamAdExpress> arrayList) {
                 mList = new ArrayList<>();
                 mList.addAll(arrayList);
-                adInfo = arrayList.get(2);
+                adInfo = arrayList.get(0);
                 Log.d(Constant.TAG,"onAdLoaded "+ mList.size());
                 bindAdListener(adInfo);
-                adInfo.render();
+//                adInfo.render();
             }
         });
     }

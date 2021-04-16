@@ -2,33 +2,23 @@ package com.muppet.lifepartner.activity.ad;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.OrientationHelper;
-import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.VideoView;
 
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.dingmouren.layoutmanagergroup.viewpager.OnViewPagerListener;
 import com.dingmouren.layoutmanagergroup.viewpager.ViewPagerLayoutManager;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.UIUtils;
-import com.muppet.lifepartner.view.FullScreenVideoView;
 import com.youyi.yesdk.ad.DrawStreamAd;
 import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.StreamAdExpress;
