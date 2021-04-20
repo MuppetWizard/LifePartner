@@ -123,8 +123,6 @@ public class WeatherPage extends SupportFragment {
 
     private Weather.ResultBean.RealtimeBean weather;
     private List<String> futureC;
-    private String strStart = "/";
-    private String strEnd = "℃";
     private SQLiteDatabase db;
     private String mcity = "成都";
 
@@ -146,6 +144,9 @@ public class WeatherPage extends SupportFragment {
      * @param futureC
      */
     public void setChart(List<String> futureC) {
+        String strStart = "/";
+        String strEnd = "℃";
+
         FutureTemp = new ArrayList<>();
         for (int i = 0; i < futureC.size(); i++) {
             String oC = futureC.get(i);

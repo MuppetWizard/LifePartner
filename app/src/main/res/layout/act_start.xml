@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".activity.ActStart"
     android:orientation="vertical">
-
+    <FrameLayout
+        android:id="@+id/fl_splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:visibility="visible"/>
     <ImageView
         android:id="@+id/start_page"
         android:layout_width="match_parent"

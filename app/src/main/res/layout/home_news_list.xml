@@ -31,15 +31,16 @@
             android:id="@+id/news_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="12dp"
             android:textColor="@color/gray"
-            android:textSize="10sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/news_img"
         android:layout_width="96dp"
-        android:layout_height="72dp" />
+        android:layout_height="72dp"
+        android:layout_gravity="center_vertical"/>
 
 </LinearLayout>
     <View

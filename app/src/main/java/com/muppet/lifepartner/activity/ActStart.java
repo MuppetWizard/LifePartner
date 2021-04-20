@@ -4,40 +4,76 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.CookieUtil;
 import com.muppet.lifepartner.view.UserA;
+import com.youyi.yesdk.ad.SplashAd;
+import com.youyi.yesdk.listener.SplashListener;
 
-public class ActStart extends AppCompatActivity implements Runnable{
+public class ActStart extends AppCompatActivity{
 
     private int mCount;
+
+    private SplashAd splashAd;
+    private FrameLayout flSplash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_start);
+        flSplash = findViewById(R.id.fl_splash);
         mCount = (int) CookieUtil.get("isFirst",0);
         if (mCount == 0) {
             UserA dialog = new UserA(this);
             dialog.show();
         }else {
-            new Thread(this).start();
+            loadBanner();
         }
     }
 
-    @Override
-    public void run() {
-        try {
-            Thread.sleep(1500);
+    private void loadBanner() {
+        splashAd = new SplashAd();
+        splashAd.setSplashConfig(this, "0000000032", false, 3500);
+                splashAd.loadSplashAd(flSplash, new SplashListener() {
+                    @Override
+                    public void onError(Integer integer, String s) {
+                        Log.d("demo","code: "+integer+" msg: "+s );
+                        Toast.makeText(ActStart.this,"code: "+integer+" msg: "+s,Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ActStart.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
 
-            Intent intent = new Intent();
-            intent.setClass(this,MainActivity.class);
-            startActivity(intent);
-            finish();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+                    @Override
+                    public void onTimeOut() {
+                        Log.d("demo","onTimeOut");
+                        Intent intent = new Intent(ActStart.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                    @Override
+                    public void onAdShow() {
+                        Log.d("demo","onAdShow");
+                    }
+
+                    @Override
+                    public void onAdCanceled() {
+                        Intent intent = new Intent(ActStart.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                    @Override
+                    public void onAdClicked() {
+                        Log.d("demo","onAdClicked");
+                    }
+                });
+
     }
 
 }
