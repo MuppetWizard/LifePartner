@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">游易</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_sdk_version">SDK V1.2.1</string>
+    <string name="ad_splash">开屏广告</string>
+    <string name="ad_banner">Banner</string>
+    <string name="ad_Interstitial">插屏广告</string>
+    <string name="ad_csj_reward">穿山甲激励视频</string>
+    <string name="ad_gdt_reward">广点通激励视频</string>
+    <string name="ad_fullscreen_video">全屏视频</string>
+    <string name="ad_stream">信息流</string>
+    <string name="ad_draw_stream">Draw 信息流</string>
 </resources>

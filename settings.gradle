@@ -1,4 +1,3 @@
-include ':ShellCSJ'
-include ':gdtShell'
+
 rootProject.name='LifePartner'
 include ':app'

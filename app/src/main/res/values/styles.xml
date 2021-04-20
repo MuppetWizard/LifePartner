@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/transparency</item>
+        <item name="colorPrimary">@color/app_black</item>
         <item name="colorPrimaryDark">@color/transparency</item>
         <item name="colorAccent">@color/transparency</item>
     </style>
@@ -23,5 +23,18 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowBackground">@drawable/horn</item><!-- 背景图片的大小也影响窗口的大小 -->
+    </style>
+    <style name="PrimaryButton" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">#fff</item>
+        <item name="colorControlHighlight">@color/app_tranColor</item>
+        <!--        <item name="actionButtonStyle" ></item>-->
+        <item name="borderlessButtonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <item name="background">@drawable/bg_main_btn</item>
+        <!--        <item name="selectableItemBackground">@drawable/item_background_material</item>-->
+        <!--        <item name="selectableItemBackgroundBorderless">@drawable/item_background_borderless_material</item>-->
+        <!--        <item name="borderlessButtonStyle">@style/Widget.Material.Light.Button.Borderless</item>-->
+        <!--        <item name="buttonBarButtonStyle">@style/Widget.Material.Light.Button.ButtonBar.AlertDialog</item>-->
+
+
     </style>
 </resources>

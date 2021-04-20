@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
+import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.DrawStreamAd;
 import com.youyi.yesdk.business.UEAdManager;
@@ -16,6 +19,7 @@ import com.youyi.yesdk.listener.StreamAdExpress;
 import com.youyi.yesdk.listener.StreamAdInteractionListener;
 import com.youyi.yesdk.listener.StreamAdListener;
 import com.youyi.yesdk.listener.UEVideoListener;
+//import com.bytedance.sdk.openadsdk.*;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -40,7 +44,8 @@ public class DrawStreamAdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw_stream_ad);
         ButterKnife.bind(this);
-        loadDrawStreamAd();
+        initStatusBar();
+        loadDrawStreamAd("0000000063");
     }
 
     @Override
@@ -48,11 +53,17 @@ public class DrawStreamAdActivity extends AppCompatActivity {
         super.onDestroy();
         if (adInfo != null) {
             flAdContainer.removeAllViews();
-//            adInfo.destroy();
+            adInfo.destroy();
         }
     }
 
-    private void loadDrawStreamAd() {
+    private void initStatusBar() {
+        StatusUtils.setSystemStatus(this, true, true);
+        RelativeLayout rlTop = findViewById(R.id.main_top);
+        rlTop.setPadding(0, StatusUtils.getStatusBarHeight(this), 0, 0);
+    }
+
+        private void loadDrawStreamAd(String id) {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         float expressViewHeight = UIUtils.getHeight(this);
         drawStreamAd = new DrawStreamAd();
@@ -62,7 +73,7 @@ public class DrawStreamAdActivity extends AppCompatActivity {
                         .setCanInterruptVideoPlay(true)
                         .setExpressViewAcceptedSize(expressViewWidth,expressViewHeight)
                         .build());
-        drawStreamAd.loadDrawStreamAd("0000000063", new StreamAdListener() {
+        drawStreamAd.loadDrawStreamAd(id, new StreamAdListener() {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.d(Constant.TAG,"onError : code: "+ integer+" msg : "+ s);
@@ -75,7 +86,7 @@ public class DrawStreamAdActivity extends AppCompatActivity {
                 adInfo = arrayList.get(0);
                 Log.d(Constant.TAG,"onAdLoaded "+ mList.size());
                 bindAdListener(adInfo);
-//                adInfo.render();
+                adInfo.render();
             }
         });
     }

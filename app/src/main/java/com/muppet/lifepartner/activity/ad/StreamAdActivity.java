@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
+import com.muppet.lifepartner.util.StatusUtils;
+import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.StreamAd;
 import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.DislikeListener;
@@ -39,6 +42,7 @@ public class StreamAdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad_test);
         ButterKnife.bind(this);
+        initStatusBar();
         loadStream("0000000058");
     }
 
@@ -47,15 +51,22 @@ public class StreamAdActivity extends AppCompatActivity {
         super.onDestroy();
         if (adInfo != null) {
             flAdView.removeAllViews();
-//            adInfo.destroy();
+            adInfo.destroy();
         }
     }
 
+    private void initStatusBar() {
+        StatusUtils.setSystemStatus(this,true,true);
+        LinearLayout llTop = findViewById(R.id.top);
+        llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
+    }
+
     private void loadStream(String id) {
+        float expressViewWidth = UIUtils.getScreenWidthDp(this);
         streamAd = new StreamAd();
         streamAd.setStreamConfig(this,
                 new UEAdManager()
-                        .setExpressViewAcceptedSize(350f,350f)
+                        .setExpressViewAcceptedSize(expressViewWidth,350f)
                         .setAdCount(3)
                         .build());
         streamAd.loadStreamAd(id, new StreamAdListener() {

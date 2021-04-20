@@ -57,7 +57,6 @@ public class DrawStreamListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_draw_stream_list);
         ButterKnife.bind(this);
         mContext = this;
-
         initView();
         loadExpressDrawNativeAd();
 
@@ -121,7 +120,7 @@ public class DrawStreamListActivity extends AppCompatActivity {
                 for (StreamAdExpress ad : arrayList) {
                     bindInteractionListener(ad);
                     bindVideoAdListener(ad);
-                    ad.render();
+//                    ad.render();
                 }
             }
         });

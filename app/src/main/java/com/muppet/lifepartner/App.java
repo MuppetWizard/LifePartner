@@ -1,14 +1,25 @@
 package com.muppet.lifepartner;
 
+import android.app.AppOpsManager;
 import android.app.Application;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.muppet.lifepartner.activity.ad.AdMob.AppOpenManager;
 import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.business.YOUEAdManager;
 
 import org.xutils.x;
 
+import java.util.Arrays;
+
 public class App extends Application {
     public static Application application;
+//    private AppOpenManager openManager;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -25,11 +36,13 @@ public class App extends Application {
                 new YOUEAdManager()
                         .appId("000012")
                         .appName("游易-测试")
-                        .deBug(true)
+                        .deBug(false)
                         .setChannel(10)
                         .supportMultiProcess(false)
                         .build()
         );
+
+//        openManager = new AppOpenManager(this);
     }
 
     //获取项目上下文
