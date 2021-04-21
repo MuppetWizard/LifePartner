@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.muppet.lifepartner.R;
+import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.CookieUtil;
 import com.muppet.lifepartner.view.UserA;
 import com.youyi.yesdk.ad.SplashAd;
@@ -38,41 +39,42 @@ public class ActStart extends AppCompatActivity{
     private void loadBanner() {
         splashAd = new SplashAd();
         splashAd.setSplashConfig(this, "0000000032", false, 3500);
-                splashAd.loadSplashAd(flSplash, new SplashListener() {
-                    @Override
-                    public void onError(Integer integer, String s) {
-                        Log.d("demo","code: "+integer+" msg: "+s );
-                        Toast.makeText(ActStart.this,"code: "+integer+" msg: "+s,Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ActStart.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+        splashAd.loadSplashAd(flSplash, new SplashListener() {
+            @Override
+            public void onError(Integer integer, String s) {
+                Log.d(Constant.TAG,"code: "+integer+" msg: "+s );
+                Toast.makeText(ActStart.this,"code: "+integer+" msg: "+s,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ActStart.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
 
-                    @Override
-                    public void onTimeOut() {
-                        Log.d("demo","onTimeOut");
-                        Intent intent = new Intent(ActStart.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+            @Override
+            public void onTimeOut() {
+                Log.d(Constant.TAG,"onTimeOut");
+                Intent intent = new Intent(ActStart.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
 
-                    @Override
-                    public void onAdShow() {
-                        Log.d("demo","onAdShow");
-                    }
+            @Override
+            public void onAdShow() {
+                Log.d(Constant.TAG,"onAdShow");
+            }
 
-                    @Override
-                    public void onAdCanceled() {
-                        Intent intent = new Intent(ActStart.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+            @Override
+            public void onAdCanceled() {
+                Log.d(Constant.TAG,"onAdCanceled");
+                Intent intent = new Intent(ActStart.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
 
-                    @Override
-                    public void onAdClicked() {
-                        Log.d("demo","onAdClicked");
-                    }
-                });
+            @Override
+            public void onAdClicked() {
+                Log.d(Constant.TAG,"onAdClicked");
+            }
+        });
 
     }
 
