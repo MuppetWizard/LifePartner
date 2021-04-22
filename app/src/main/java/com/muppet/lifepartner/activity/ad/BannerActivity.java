@@ -61,7 +61,9 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.btn_csj_banner) {
-                    loadBanner("0000000039");
+//                    loadBanner("0000000039");
+                    //162
+                    loadBanner("0000000110");
                 }
                 if (v.getId() == R.id.btn_gdt_banner){
                     loadBanner("0000000040");
@@ -129,7 +131,7 @@ public class BannerActivity extends AppCompatActivity {
     private void loadBanner(String id) {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         bannerAd = new BannerAd();
-        bannerAd.setBannerConfig(this,id, (int) expressViewWidth,108,false);
+        bannerAd.setBannerConfig(this,id, (int) expressViewWidth,120,false);
         bannerAd.loadAdBanner(flBanner, new BannerAdListener() {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
