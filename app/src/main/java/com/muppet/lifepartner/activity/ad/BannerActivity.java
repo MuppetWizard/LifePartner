@@ -85,7 +85,7 @@ public class BannerActivity extends AppCompatActivity {
     private void loadGGBanner() {
         AdView mAdView = new AdView(this);
         mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
 
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);

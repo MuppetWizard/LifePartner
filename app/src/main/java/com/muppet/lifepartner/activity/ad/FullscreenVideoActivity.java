@@ -29,7 +29,8 @@ public class FullscreenVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fullscreen_video);
         initStatusBar();
-        initView();
+        bindView(R.id.btn_vertical_video);
+        bindView(R.id.btn_horizontal_video);
     }
 
     private void initStatusBar() {
@@ -38,20 +39,25 @@ public class FullscreenVideoActivity extends AppCompatActivity {
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
     }
 
-    private void initView() {
-        findViewById(R.id.btn_fullscreen_video).setOnClickListener(new View.OnClickListener() {
-            @Override
+    private void bindView(@IdRes int id) {
+        findViewById(id).setOnClickListener(new View.OnClickListener() {
+                @Override
             public void onClick(View v) {
-                loadFullScreenVideo("0000000046");
+                if (v.getId() == R.id.btn_vertical_video){
+                    loadFullScreenVideo("0000000046",YOUEAdConstants.VERTICAL);
+                }
+                if (v.getId() == R.id.btn_horizontal_video){
+                    loadFullScreenVideo("0000000113",YOUEAdConstants.HORIZONTAL);
+                }
             }
         });
     }
-    private void loadFullScreenVideo(String id) {
+    private void loadFullScreenVideo(String id, int orientation) {
         fullVideoAd = new FullVideoAd();
         fullVideoAd.setVideoConfig(this,
                 new UEAdManager()
                         .setExpressViewAcceptedSize(500,500)
-                        .setOrientation(YOUEAdConstants.VERTICAL)
+                        .setOrientation(orientation)
                         .setMinVideoDuration(5)
                         .setMaxVideoDuration(61)
                         .build());

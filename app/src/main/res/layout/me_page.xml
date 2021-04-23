@@ -154,7 +154,8 @@
                 android:layout_height="60dp"
                 android:background="@drawable/selector_green_bg"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="34dp"

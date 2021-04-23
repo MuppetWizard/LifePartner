@@ -35,7 +35,7 @@ public class ActAdMain extends AppCompatActivity {
     private void initView() {
         bindItem(R.id.btn_splash, SplashAdActivity.class);
         bindItem(R.id.btn_banner, BannerActivity.class);
-//        bindItem(R.id.btn_interstitial, );
+        bindItem(R.id.btn_interstitial, InterstitialActivity.class);
         bindItem(R.id.btn_full_screen_video, FullscreenVideoActivity.class);
         bindItem(R.id.btn_csj_reward, RewardVideoActivity.class);
         bindItem(R.id.btn_gdt_reward, RewardVideoActivity.class);

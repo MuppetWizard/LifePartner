@@ -14,6 +14,14 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.muppet.lifepartner.IpAddress;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ActCalendar;
@@ -35,6 +43,7 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,6 +65,8 @@ public class HomePage extends SupportFragment implements OnBannerListener {
     RelativeLayout homeNews;
     @BindView(R.id.home_calender)
     RelativeLayout homeCalender;
+    @BindView(R.id.adView)
+    AdView adView;
 
     private int pageIndex = 0;//页码
     private HomeNewsAdapter homeNewsAdapter;
@@ -79,9 +90,53 @@ public class HomePage extends SupportFragment implements OnBannerListener {
         getList();
         initRecyclerView();
         unbinder = ButterKnife.bind(this, view);
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        loadGGBanner();
         return view;
     }
+    private void loadGGBanner() {
+        AdView mAdView = new AdView(getActivity());
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
 
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+            }
+
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+            }
+
+            @Override
+            public void onAdImpression() {
+                super.onAdImpression();
+            }
+        });
+    }
     /**
      * 初始化recyclerview
      */
