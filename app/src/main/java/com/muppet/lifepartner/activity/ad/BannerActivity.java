@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -18,6 +20,11 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.inmobi.ads.InMobiAdRequestStatus;
+import com.inmobi.ads.InMobiBanner;
+import com.inmobi.ads.listeners.BannerAdEventListener;
+import com.inmobi.sdk.InMobiSdk;
+import com.inmobi.sdk.SdkInitializationListener;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -26,6 +33,10 @@ import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.listener.BannerAdListener;
 
 import org.jetbrains.annotations.Nullable;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +49,9 @@ public class BannerActivity extends AppCompatActivity {
     @BindView(R.id.adView)
     AdView adView;
 
+
     private BannerAd bannerAd;
+    private InMobiBanner iBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +64,11 @@ public class BannerActivity extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+
         bindView(R.id.btn_csj_banner);
         bindView(R.id.btn_gdt_banner);
         bindView(R.id.btn_gg_banner);
+        bindView(R.id.btn_imb_banner);
     }
 
     private void bindView(@IdRes int id) {
@@ -71,6 +86,11 @@ public class BannerActivity extends AppCompatActivity {
                 if (v.getId() == R.id.btn_gg_banner) {
                     loadGGBanner();
                 }
+                if (v.getId() == R.id.btn_imb_banner) {
+//                    loadInMoBi(1621364045212L);
+                    //测试
+                    loadInMoBi(1473189489298L);
+                }
             }
         });
     }
@@ -78,48 +98,15 @@ public class BannerActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        bannerAd.destroy();
-
-    }
-
-    private void loadGGBanner() {
-        AdView mAdView = new AdView(this);
-        mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-            }
-
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                super.onAdFailedToLoad(loadAdError);
-            }
-
-            @Override
-            public void onAdOpened() {
-                super.onAdOpened();
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-            }
-
-            @Override
-            public void onAdClicked() {
-                super.onAdClicked();
-            }
-
-            @Override
-            public void onAdImpression() {
-                super.onAdImpression();
-            }
-        });
+        if (bannerAd != null) {
+            bannerAd.destroy();
+        }
+        if (adView != null) {
+            adView.destroy();
+        }
+        if (iBanner != null) {
+            iBanner.destroy();
+        }
     }
 
     private void initStatusBar() {
@@ -180,5 +167,95 @@ public class BannerActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void loadInMoBi(long id) {
+        iBanner = new InMobiBanner(this,id);
+        iBanner.setAnimationType(InMobiBanner.AnimationType.ROTATE_HORIZONTAL_AXIS);
+        iBanner.setRefreshInterval(10);
+        iBanner.setListener(new BannerAdEventListener() {
+            @Override
+            public void onAdFetchFailed(@NonNull InMobiBanner inMobiBanner, @NonNull InMobiAdRequestStatus inMobiAdRequestStatus) {
+                super.onAdFetchFailed(inMobiBanner, inMobiAdRequestStatus);
+                Log.e(Constant.TAG,
+                        "code:"+inMobiAdRequestStatus.getStatusCode()+ "msg:"+inMobiAdRequestStatus.getMessage());
+            }
+
+            @Override
+            public void onAdDisplayed(@NonNull InMobiBanner inMobiBanner) {
+                super.onAdDisplayed(inMobiBanner);
+                Log.d(Constant.TAG,"onAdDisplayed");
+            }
+
+            @Override
+            public void onAdDismissed(@NonNull InMobiBanner inMobiBanner) {
+                super.onAdDismissed(inMobiBanner);
+                Log.d(Constant.TAG,"onAdDisplayed");
+            }
+
+            @Override
+            public void onUserLeftApplication(@NonNull InMobiBanner inMobiBanner) {
+                super.onUserLeftApplication(inMobiBanner);
+                Log.d(Constant.TAG,"onAdDisplayed");
+            }
+
+            @Override
+            public void onRewardsUnlocked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
+                super.onRewardsUnlocked(inMobiBanner, map);
+                Log.d(Constant.TAG,"onAdDisplayed");
+            }
+        });
+        int width = toPixelUnits(320);
+        int height = toPixelUnits(50);
+        FrameLayout.LayoutParams bannerLp = new FrameLayout.LayoutParams(width,height );
+        bannerLp.gravity = Gravity.CENTER_HORIZONTAL;
+        flBanner.removeAllViews();
+        flBanner.addView(iBanner,bannerLp);
+        iBanner.load();
+    }
+
+    private void loadGGBanner() {
+        AdView mAdView = new AdView(this);
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+            }
+
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+            }
+
+            @Override
+            public void onAdImpression() {
+                super.onAdImpression();
+            }
+        });
+    }
+
+    private int toPixelUnits(int dipUnit) {
+        float density = getResources().getDisplayMetrics().density;
+        return Math.round(dipUnit * density);
     }
 }

@@ -8,17 +8,44 @@
     android:orientation="vertical"
     tools:context=".activity.ad.RewardVideoActivity">
     <Button
-        android:id="@+id/btn_reward"
+        android:id="@+id/btn_temp1_vertical_reward"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="加载激励视频"
+        android:text="加载模板一竖屏"
         android:gravity="center"
         android:textColor="@color/app_mainColor"
         android:textSize="14sp"
         android:theme="@style/PrimaryButton" />
+    <Button
+        android:id="@+id/btn_temp1_horizontal_reward"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="加载模板一横屏"
+        android:gravity="center"
+        android:textColor="@color/app_mainColor"
+        android:textSize="14sp"
+        android:theme="@style/PrimaryButton" />
+    <Button
+        android:id="@+id/btn_temp2_reward"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="加载模板二激励视频"
+        android:gravity="center"
+        android:textColor="@color/app_mainColor"
+        android:textSize="14sp"
+        android:theme="@style/PrimaryButton" />
+
 
 </LinearLayout>

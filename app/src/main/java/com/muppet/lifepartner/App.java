@@ -2,17 +2,24 @@ package com.muppet.lifepartner;
 
 import android.app.AppOpsManager;
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.inmobi.sdk.InMobiSdk;
+import com.inmobi.sdk.SdkInitializationListener;
 import com.muppet.lifepartner.activity.ad.AdMob.AppOpenManager;
+import com.muppet.lifepartner.util.Constant;
 import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.business.YOUEAdManager;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.x;
 
 import java.util.Arrays;
@@ -41,7 +48,24 @@ public class App extends Application {
                         .supportMultiProcess(false)
                         .build()
         );
-
+//inmobi
+        JSONObject consentObject = new JSONObject();
+        try {
+            // Provide correct consent value to sdk which is obtained by User
+            consentObject.put(InMobiSdk.IM_GDPR_CONSENT_AVAILABLE, true);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        InMobiSdk.init(this, "702d9239280b4cbaa460c872fd95d0c6", consentObject,new SdkInitializationListener() {
+            @Override
+            public void onInitializationComplete(@androidx.annotation.Nullable Error error) {
+                if (null != error) {
+                    Log.e(Constant.TAG, "InMobi Init failed -" + error.getMessage());
+                } else {
+                    Log.d(Constant.TAG, "InMobi Init Successful");
+                }
+            }
+        });
 //        openManager = new AppOpenManager(this);
     }
 

@@ -1,5 +1,6 @@
 package com.muppet.lifepartner.activity.ad;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -29,8 +30,10 @@ public class RewardVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reward_video);
         initStatusBar();
-        initView();
-        getExtraInfo();
+        bindView(R.id.btn_temp1_vertical_reward);
+        bindView(R.id.btn_temp1_horizontal_reward);
+        bindView(R.id.btn_temp2_reward);
+
     }
 
     private void initStatusBar() {
@@ -39,21 +42,21 @@ public class RewardVideoActivity extends AppCompatActivity {
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this), 0, 0);
     }
 
-    private void initView() {
-        findViewById(R.id.btn_reward).setOnClickListener(new View.OnClickListener() {
+    private void bindView(@IdRes int id) {
+        findViewById(id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadRewardVideo(codeId);
+                if (v.getId() == R.id.btn_temp1_vertical_reward) {
+                    loadRewardVideo("0000000034");
+                }
+                if (v.getId() == R.id.btn_temp1_horizontal_reward) {
+                    loadRewardVideo("0000000033");
+                }
+                if (v.getId() == R.id.btn_temp2_reward) {
+                    loadRewardVideo("");
+                }
             }
         });
-    }
-
-    private void getExtraInfo() {
-        Intent intent = getIntent();
-        if (intent == null) {
-            return;
-        }
-        codeId = intent.getStringExtra("id");
     }
 
     private void loadRewardVideo(String id) {
