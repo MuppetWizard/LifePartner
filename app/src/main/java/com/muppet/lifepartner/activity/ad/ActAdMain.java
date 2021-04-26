@@ -37,8 +37,7 @@ public class ActAdMain extends AppCompatActivity {
         bindItem(R.id.btn_banner, BannerActivity.class);
         bindItem(R.id.btn_interstitial, InterstitialActivity.class);
         bindItem(R.id.btn_full_screen_video, FullscreenVideoActivity.class);
-        bindItem(R.id.btn_csj_reward, RewardVideoActivity.class);
-        bindItem(R.id.btn_gdt_reward, RewardVideoActivity.class);
+        bindItem(R.id.btn_reward, RewardVideoActivity.class);
         bindItem(R.id.btn_stream, StreamAdActivity.class);
         bindItem(R.id.btn_draw_stream, DrawStreamAdActivity.class);
 
@@ -49,14 +48,7 @@ public class ActAdMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActAdMain.this, clz);
-                //穿山甲激励视频
-                if (v.getId() == R.id.btn_csj_reward) {
-                    intent.putExtra("id","0000000034");
-                }
-                //广点通激励视频
-                if (v.getId() == R.id.btn_gdt_reward) {
-                    intent.putExtra("id","0000000033");
-                }
+
                 startActivity(intent);
             }
         });

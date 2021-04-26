@@ -5,8 +5,7 @@
     <string name="ad_splash">开屏广告</string>
     <string name="ad_banner">Banner</string>
     <string name="ad_Interstitial">插屏广告</string>
-    <string name="ad_csj_reward">穿山甲激励视频</string>
-    <string name="ad_gdt_reward">广点通激励视频</string>
+    <string name="ad_reward">激励视频</string>
     <string name="ad_fullscreen_video">全屏视频</string>
     <string name="ad_stream">信息流</string>
     <string name="ad_draw_stream">Draw 信息流</string>

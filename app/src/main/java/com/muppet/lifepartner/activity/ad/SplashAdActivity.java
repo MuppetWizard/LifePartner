@@ -37,7 +37,7 @@ public class SplashAdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_ad);
         initStatusBar();
         initView();
-        MobileAds.initialize(
+       /* MobileAds.initialize(
                 this,
                 new OnInitializationCompleteListener() {
                     @Override
@@ -46,7 +46,7 @@ public class SplashAdActivity extends AppCompatActivity {
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("A68951C4383404B859F9FBBA32E23523"))
                         .build();
-        MobileAds.setRequestConfiguration(configuration);
+        MobileAds.setRequestConfiguration(configuration);*/
     }
 
     private void initStatusBar() {
@@ -56,25 +56,37 @@ public class SplashAdActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        bindItem(R.id.btn_my_splash,"0000000032");
+        bindItem(R.id.btn_my_splash);
         //正式
 //        bindItem(R.id.btn_google_splash,"ca-app-pub-6865974081341189/9660712842");
         //测试
-        bindItem(R.id.btn_google_splash,"ca-app-pub-3940256099942544/3419835294");
+        bindItem(R.id.btn_google_splash);
+        bindItem(R.id.btn_ks_splash);
     }
 
-    private void bindItem(@IdRes int id, String codeId) {
+    private void bindItem(@IdRes int id) {
         findViewById(id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v.getId() == R.id.btn_google_splash) {
-
-                    fetchAd(codeId);
+                switch (v.getId()) {
+                    case R.id.btn_my_splash:
+                        break;
+                    case R.id.btn_google_splash:
+                        fetchAd("ca-app-pub-3940256099942544/3419835294");
+                        break;
+                    case R.id.btn_ks_splash:
+                        loadKsSplashAd();
+                        break;
                 }
             }
         });
     }
 
+    private void loadKsSplashAd() {
+
+    }
+
+    /*Google*/
     /** Shows the ad if one isn't already showing. */
     private void showAdIfAvailable(String id) {
         // Only show ad if there is not already an app open ad currently showing

@@ -3,7 +3,6 @@ package com.muppet.lifepartner.activity.ad;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +22,6 @@ import java.util.Map;
 
 public class RewardVideoActivity extends AppCompatActivity {
 
-    private String codeId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,26 +45,26 @@ public class RewardVideoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.btn_temp1_vertical_reward) {
-                    loadRewardVideo("0000000034");
+                    loadRewardVideo("0000000034",YOUEAdConstants.VERTICAL);
                 }
                 if (v.getId() == R.id.btn_temp1_horizontal_reward) {
-                    loadRewardVideo("0000000033");
+                    loadRewardVideo("0000000114", YOUEAdConstants.HORIZONTAL);
                 }
                 if (v.getId() == R.id.btn_temp2_reward) {
-                    loadRewardVideo("");
+                    loadRewardVideo("0000000033", YOUEAdConstants.VERTICAL);
                 }
             }
         });
     }
 
-    private void loadRewardVideo(String id) {
+    private void loadRewardVideo(String id, int orientation) {
         RewardVideoAd ad = new RewardVideoAd();
         ad.setRewardConfig(this,new UEAdManager()
 //                .setUserID("youe_TEST")
 //                .setCustomData("youe_data")
                         .setExpressViewAcceptedSize(500f,500f)
+                        .setOrientation(orientation)
                         .setScenes(YOUEAdConstants.RitScenes.CUSTOMIZE_SCENES,"scenes_test")
-                        .setOrientation(YOUEAdConstants.HORIZONTAL)
                         .build()
         ).loadRewardVideo(id, new RewardListener() {
             @Override

@@ -13,6 +13,8 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.inmobi.sdk.InMobiSdk;
 import com.inmobi.sdk.SdkInitializationListener;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.SdkConfig;
 import com.muppet.lifepartner.activity.ad.AdMob.AppOpenManager;
 import com.muppet.lifepartner.util.Constant;
 import com.youyi.yesdk.YOUEAdSdk;
@@ -39,16 +41,23 @@ public class App extends Application {
                 .stackViewMode(Fragmentation.BUBBLE)
                 .debug(BuildConfig.DEBUG)
                 .install();*/
-        YOUEAdSdk.INSTANCE.initSDK(application,
-                new YOUEAdManager()
-                        .appId("000012")
-                        .appName("游易-测试")
-                        .deBug(true)
-                        .setChannel(10)
-                        .supportMultiProcess(false)
-                        .build()
-        );
-//inmobi
+        initUEAdSdk();
+        initIMBSdk();
+        initKSAdSdk();
+    }
+
+    private void initKSAdSdk() {
+        KsAdSDK.init(application,
+                new SdkConfig.Builder()
+                        .appId("90009")//测试appid
+                        .appName("游易")
+                        .showNotification(true) //是否展示下载通知栏
+                        .debug(false)
+                        .build());
+    }
+
+    private void initIMBSdk() {
+        //inmobi
         JSONObject consentObject = new JSONObject();
         try {
             // Provide correct consent value to sdk which is obtained by User
@@ -66,7 +75,20 @@ public class App extends Application {
                 }
             }
         });
-//        openManager = new AppOpenManager(this);
+        //        openManager = new AppOpenManager(this);
+
+    }
+
+    private void initUEAdSdk() {
+        YOUEAdSdk.INSTANCE.initSDK(application,
+                new YOUEAdManager()
+                        .appId("000012")
+                        .appName("游易-测试")
+                        .deBug(true)
+                        .setChannel(10)
+                        .supportMultiProcess(false)
+                        .build()
+        );
     }
 
     //获取项目上下文

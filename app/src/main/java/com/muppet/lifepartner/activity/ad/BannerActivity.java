@@ -215,13 +215,22 @@ public class BannerActivity extends AppCompatActivity {
     }
 
     private void loadGGBanner() {
-        AdView mAdView = new AdView(this);
-        mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
-
+        float expressViewWidth = UIUtils.getScreenWidthDp(this);
+        int height = toPixelUnits(60);
         AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-        adView.setAdListener(new AdListener() {
+
+        AdView mAdView = new AdView(this);
+        AdSize adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, (int) expressViewWidth);
+        mAdView.setAdSize(adSize);
+        //测试广告位id
+        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+//        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
+//        FrameLayout.LayoutParams bannerLp = new FrameLayout.LayoutParams((int) expressViewWidth,height );
+//        bannerLp.gravity = Gravity.CENTER_HORIZONTAL;
+        flBanner.removeAllViews();
+        flBanner.addView(mAdView);
+        mAdView.loadAd(adRequest);
+        mAdView.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
                 super.onAdClosed();

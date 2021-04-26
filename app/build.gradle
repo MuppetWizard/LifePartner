@@ -59,6 +59,8 @@ dependencies {
 
     //游易
     implementation (name: 'youe_ad_sdk_release', ext: 'aar')
+    //快手
+    implementation (name: 'kssdk-ad', ext: 'aar')
     //inmobi 广告
 //    implementation (name: 'InMobiSDK', ext: 'aar')
     implementation 'com.inmobi.monetization:inmobi-ads:9.1.7'

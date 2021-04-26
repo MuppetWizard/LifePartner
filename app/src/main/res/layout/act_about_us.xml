@@ -69,7 +69,7 @@
             android:layout_marginRight="20dp"
             android:gravity="center_horizontal"
             android:textColor="#000000"
-            android:text="生活伴侣APP是一款依托于Android平台开发的一款生活类APP，为人们提供生活上的便利以及各种服务娱乐的相关类容。其主要包括了内容有：新闻资讯、实时天气、日历、查询快递等多个常用功能以及其他娱乐服务功能。"
+            android:text="生活伴侣APP是一款依托于Android平台开发的一款生活类APP，为人们提供生活上的便利以及各种服务娱乐的相关类容。其主要包括了内容有：动态、实时天气、日历、查询快递等多个常用功能以及其他娱乐服务功能。"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
