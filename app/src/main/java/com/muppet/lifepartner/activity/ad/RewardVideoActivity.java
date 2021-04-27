@@ -8,6 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.KsScene;
+import com.kwad.sdk.api.KsVideoPlayConfig;
+import com.kwad.sdk.api.SdkConfig;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -18,10 +24,12 @@ import com.youyi.yesdk.listener.RewardListener;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Map;
 
 public class RewardVideoActivity extends AppCompatActivity {
 
+    private KsRewardVideoAd ksRewardVideoAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +39,7 @@ public class RewardVideoActivity extends AppCompatActivity {
         bindView(R.id.btn_temp1_vertical_reward);
         bindView(R.id.btn_temp1_horizontal_reward);
         bindView(R.id.btn_temp2_reward);
+        bindView(R.id.btn_ks_reward);
 
     }
 
@@ -44,17 +53,88 @@ public class RewardVideoActivity extends AppCompatActivity {
         findViewById(id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v.getId() == R.id.btn_temp1_vertical_reward) {
-                    loadRewardVideo("0000000034",YOUEAdConstants.VERTICAL);
+                switch (v.getId()) {
+                    case R.id.btn_temp1_vertical_reward:
+                        loadRewardVideo("0000000034",YOUEAdConstants.VERTICAL);
+                        break;
+                    case R.id.btn_temp1_horizontal_reward:
+                        loadRewardVideo("0000000114", YOUEAdConstants.HORIZONTAL);
+                        break;
+                    case R.id.btn_temp2_reward:
+                        loadRewardVideo("0000000033", YOUEAdConstants.VERTICAL);
+                        break;
+                    case R.id.btn_ks_reward:
+                        loadKsReward(90009001);
+                        break;
                 }
-                if (v.getId() == R.id.btn_temp1_horizontal_reward) {
-                    loadRewardVideo("0000000114", YOUEAdConstants.HORIZONTAL);
-                }
-                if (v.getId() == R.id.btn_temp2_reward) {
-                    loadRewardVideo("0000000033", YOUEAdConstants.VERTICAL);
+
+            }
+        });
+    }
+
+    private void loadKsReward(int id) {
+        KsScene scene = new KsScene.Builder(id)
+//                .screenOrientation(SdkConfig.SCREEN_ORIENTATION_LANDSCAPE)
+                .build();
+        KsAdSDK.getLoadManager().loadRewardVideoAd(scene, new KsLoadManager.RewardVideoAdListener() {
+            @Override
+            public void onError(int i, String s) {
+                Log.d(Constant.TAG,"onError:"+i+" msg: "+s);
+            }
+
+            @Override
+            public void onRequestResult(int i) {
+                Log.d(Constant.TAG,"onRequestResult: " +i);
+            }
+
+            @Override
+            public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
+                Log.d(Constant.TAG,"onRewardVideoAdLoad");
+                if (list != null && list.size() != 0) {
+                    ksRewardVideoAd = list.get(0);
+                    KsVideoPlayConfig videoPlayConfig = new KsVideoPlayConfig.Builder()
+                            .showLandscape(false)
+                            .build();
+                    ksRewardVideoAd.setRewardAdInteractionListener(bindKsRewardListener());
+                    ksRewardVideoAd.showRewardVideoAd(RewardVideoActivity.this,videoPlayConfig);
                 }
             }
         });
+
+    }
+
+    private KsRewardVideoAd.RewardAdInteractionListener bindKsRewardListener() {
+        return new KsRewardVideoAd.RewardAdInteractionListener() {
+            @Override
+            public void onAdClicked() {
+                Log.d(Constant.TAG,"onAdClicked");
+            }
+
+            @Override
+            public void onPageDismiss() {
+                Log.d(Constant.TAG,"onPageDismiss");
+            }
+
+            @Override
+            public void onVideoPlayError(int i, int i1) {
+                Log.d(Constant.TAG,"onVideoPlayError");
+            }
+
+            @Override
+            public void onVideoPlayEnd() {
+                Log.d(Constant.TAG,"onVideoPlayEnd");
+            }
+
+            @Override
+            public void onVideoPlayStart() {
+                Log.d(Constant.TAG,"onVideoPlayStart");
+            }
+
+            @Override
+            public void onRewardVerify() {
+                Log.d(Constant.TAG,"onRewardVerify");
+            }
+        };
     }
 
     private void loadRewardVideo(String id, int orientation) {

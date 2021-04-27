@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -15,6 +16,7 @@ import com.muppet.lifepartner.fragment.ExpressPage;
 import com.muppet.lifepartner.fragment.HomePage;
 import com.muppet.lifepartner.fragment.MePage;
 import com.muppet.lifepartner.fragment.WeatherPage;
+import com.muppet.lifepartner.util.StatusUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,50 +48,15 @@ public class MainActivity extends SupportActivity implements RadioGroup.OnChecke
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initStatusBar();
         initFramgment();//初始化
         radioGroup.setOnCheckedChangeListener(this);
     }
 
-    @Override
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (SplashVPlusAd.ksSplashScreenAd != null) {
-            Rect rect = new Rect();
-            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            rect.right = displayMetrics.widthPixels;
-            rect.left =  rect.right - displayMetrics.widthPixels / 4;
-            rect.bottom = (int) (displayMetrics.heightPixels * 0.83f);
-            rect.top = rect.bottom - (displayMetrics.widthPixels / 4) * 16 / 9;
-            SplashVPlusAd.ksSplashScreenAd.showSplashMiniWindowIfNeeded(this,
-                    new KsSplashScreenAd.SplashScreenAdInteractionListener() {
-                        @Override
-                        public void onAdClicked() {
-
-                        }
-
-                        @Override
-                        public void onAdShowError(int i, String s) {
-
-                        }
-
-                        @Override
-                        public void onAdShowEnd() {
-
-                        }
-
-                        @Override
-                        public void onAdShowStart() {
-
-                        }
-
-                        @Override
-                        public void onSkippedAd() {
-
-                        }
-                    },rect);
-            SplashVPlusAd.ksSplashScreenAd = null;
-        }
-
+    private void initStatusBar() {
+        StatusUtils.setSystemStatus(this, true, true);
+        LinearLayout llTop = findViewById(R.id.page_container);
+        llTop.setPadding(0, StatusUtils.getStatusBarHeight(this), 0, 0);
     }
 
     private void initFramgment() { //初始化Fragment

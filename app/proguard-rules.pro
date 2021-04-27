@@ -154,10 +154,17 @@
 -keep class com.pgl.sys.ces.** {*;}
 -keep class com.bytedance.embed_dr.** {*;}
 -keep class com.bytedance.embedapplog.** {*;}
-
 #广点通
 -keep class com.qq.e.** { *;}
-
 -dontwarn sun.misc.**
-
+#游易
 -keep class com.youyi.yesdk.**{*;}
+#快手联盟
+-keep class org.chromium.** {*;}
+-keep class org.chromium.** { *; }
+-keep class aegon.chrome.** { *; }
+-keep class com.kwai.**{ *; }
+-dontwarn com.kwai.**
+-dontwarn com.kwad.**
+-dontwarn com.ksad.**
+-dontwarn aegon.chrome.**

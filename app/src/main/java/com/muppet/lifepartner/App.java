@@ -75,7 +75,7 @@ public class App extends Application {
                 }
             }
         });
-        //        openManager = new AppOpenManager(this);
+        //openManager = new AppOpenManager(this);
 
     }
 
