@@ -18,8 +18,8 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.youyi.yesdk.ad.RewardVideoAd;
+import com.youyi.yesdk.ad.YOUEAdConstants;
 import com.youyi.yesdk.business.UEAdManager;
-import com.youyi.yesdk.business.YOUEAdConstants;
 import com.youyi.yesdk.listener.RewardListener;
 
 import org.jetbrains.annotations.Nullable;

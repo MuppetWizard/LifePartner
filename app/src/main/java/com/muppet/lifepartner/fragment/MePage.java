@@ -18,22 +18,7 @@ import com.muppet.lifepartner.activity.ActAboutUs;
 import com.muppet.lifepartner.activity.ActMyFeadback;
 import com.muppet.lifepartner.activity.ActWebview;
 import com.muppet.lifepartner.activity.ad.ActAdMain;
-import com.muppet.lifepartner.activity.ad.DrawStreamAdActivity;
-import com.muppet.lifepartner.activity.ad.DrawStreamListActivity;
-import com.muppet.lifepartner.activity.ad.StreamAdActivity;
-import com.muppet.lifepartner.util.Constant;
-import com.youyi.yesdk.ad.BannerAd;
-import com.youyi.yesdk.ad.FullVideoAd;
-import com.youyi.yesdk.ad.RewardVideoAd;
-import com.youyi.yesdk.business.UEAdManager;
-import com.youyi.yesdk.business.YOUEAdConstants;
-import com.youyi.yesdk.listener.BannerAdListener;
-import com.youyi.yesdk.listener.FullVideoListener;
-import com.youyi.yesdk.listener.RewardListener;
 
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -14,8 +14,8 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.youyi.yesdk.ad.FullVideoAd;
+import com.youyi.yesdk.ad.YOUEAdConstants;
 import com.youyi.yesdk.business.UEAdManager;
-import com.youyi.yesdk.business.YOUEAdConstants;
 import com.youyi.yesdk.listener.FullVideoListener;
 
 import org.jetbrains.annotations.Nullable;
@@ -44,7 +44,7 @@ public class FullscreenVideoActivity extends AppCompatActivity {
                 @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.btn_vertical_video){
-                    loadFullScreenVideo("0000000046",YOUEAdConstants.VERTICAL);
+                    loadFullScreenVideo("0000000046", YOUEAdConstants.VERTICAL);
                 }
                 if (v.getId() == R.id.btn_horizontal_video){
                     loadFullScreenVideo("0000000113",YOUEAdConstants.HORIZONTAL);

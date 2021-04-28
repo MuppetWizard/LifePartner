@@ -40,6 +40,7 @@ public class ActAdMain extends AppCompatActivity {
         bindItem(R.id.btn_reward, RewardVideoActivity.class);
         bindItem(R.id.btn_stream, StreamAdActivity.class);
         bindItem(R.id.btn_draw_stream, DrawStreamAdActivity.class);
+        bindItem(R.id.btn_other,OtherActivity.class);
 
     }
 

@@ -18,6 +18,7 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.inmobi.ads.InMobiAdRequestStatus;
@@ -33,9 +34,9 @@ import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.listener.BannerAdListener;
 
 import org.jetbrains.annotations.Nullable;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -64,6 +65,10 @@ public class BannerActivity extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+        RequestConfiguration configuration = new RequestConfiguration.Builder()
+                .setTestDeviceIds(Collections.singletonList(""))
+                .build();
+        MobileAds.setRequestConfiguration(configuration);
 
         bindView(R.id.btn_csj_banner);
         bindView(R.id.btn_gdt_banner);

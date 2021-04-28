@@ -101,8 +101,8 @@ public class HomePage extends SupportFragment implements OnBannerListener {
     private void loadGGBanner() {
         AdView mAdView = new AdView(getActivity());
         mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
-
+//        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
+        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
         adView.setAdListener(new AdListener() {

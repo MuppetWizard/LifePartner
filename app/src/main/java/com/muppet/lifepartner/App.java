@@ -2,6 +2,8 @@ package com.muppet.lifepartner;
 
 import android.app.AppOpsManager;
 import android.app.Application;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.util.Log;
 
 import androidx.annotation.NonNull;

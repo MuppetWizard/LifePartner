@@ -44,8 +44,8 @@ public class ActStart extends AppCompatActivity{
             UserA dialog = new UserA(this);
             dialog.show();
         }else {
-//            loadSplash("0000000032");
-            loadKsSplashAd(4000000042L);
+            loadSplash("0000000032");
+//            loadKsSplashAd(4000000042L);
         }
     }
     private void initStatusBar() {
