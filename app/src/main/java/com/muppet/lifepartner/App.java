@@ -46,6 +46,11 @@ public class App extends Application {
         initUEAdSdk();
         initIMBSdk();
         initKSAdSdk();
+        initAdmobSdk();
+    }
+
+    private void initAdmobSdk() {
+
     }
 
     private void initKSAdSdk() {

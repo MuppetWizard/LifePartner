@@ -3,6 +3,7 @@ package com.muppet.lifepartner.activity.ad;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.StatusUtils;
+import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.ad.BannerAd;
 
 public class ActAdMain extends AppCompatActivity {
@@ -23,13 +25,14 @@ public class ActAdMain extends AppCompatActivity {
         initView();
     }
 
+    @SuppressLint("SetTextI18n")
     private void initStatusBar() {
         StatusUtils.setSystemStatus(this,true,true);
         LinearLayout llTop = findViewById(R.id.top);
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
 
         TextView tvVersion = findViewById(R.id.tv_version);
-        tvVersion.setText(getText(R.string.main_sdk_version));
+        tvVersion.setText("SDK V"+YOUEAdSdk.INSTANCE.getSDKVersion());
     }
 
     private void initView() {

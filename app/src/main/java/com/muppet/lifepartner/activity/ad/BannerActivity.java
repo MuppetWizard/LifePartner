@@ -21,6 +21,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.inmobi.ads.AdMetaInfo;
 import com.inmobi.ads.InMobiAdRequestStatus;
 import com.inmobi.ads.InMobiBanner;
 import com.inmobi.ads.listeners.BannerAdEventListener;
@@ -92,9 +93,9 @@ public class BannerActivity extends AppCompatActivity {
                     loadGGBanner();
                 }
                 if (v.getId() == R.id.btn_imb_banner) {
-//                    loadInMoBi(1621364045212L);
+                    loadInMoBi(1621364045212L);
                     //测试
-                    loadInMoBi(1473189489298L);
+//                    loadInMoBi(1473189489298L);
                 }
             }
         });
@@ -187,6 +188,17 @@ public class BannerActivity extends AppCompatActivity {
             }
 
             @Override
+            public void onAdLoadSucceeded(@NonNull InMobiBanner inMobiBanner, @NonNull AdMetaInfo adMetaInfo) {
+                Log.d(Constant.TAG,"onAdLoadSucceeded");
+            }
+
+            @Override
+            public void onAdClicked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
+                super.onAdClicked(inMobiBanner, map);
+                Log.d(Constant.TAG,"onAdClicked");
+            }
+
+            @Override
             public void onAdDisplayed(@NonNull InMobiBanner inMobiBanner) {
                 super.onAdDisplayed(inMobiBanner);
                 Log.d(Constant.TAG,"onAdDisplayed");
@@ -195,19 +207,19 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onAdDismissed(@NonNull InMobiBanner inMobiBanner) {
                 super.onAdDismissed(inMobiBanner);
-                Log.d(Constant.TAG,"onAdDisplayed");
+                Log.d(Constant.TAG,"onAdDismissed");
             }
 
             @Override
             public void onUserLeftApplication(@NonNull InMobiBanner inMobiBanner) {
                 super.onUserLeftApplication(inMobiBanner);
-                Log.d(Constant.TAG,"onAdDisplayed");
+                Log.d(Constant.TAG,"onUserLeftApplication");
             }
 
             @Override
             public void onRewardsUnlocked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
                 super.onRewardsUnlocked(inMobiBanner, map);
-                Log.d(Constant.TAG,"onAdDisplayed");
+                Log.d(Constant.TAG,"onRewardsUnlocked");
             }
         });
         int width = toPixelUnits(320);
@@ -238,32 +250,32 @@ public class BannerActivity extends AppCompatActivity {
         mAdView.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                super.onAdClosed();
+                Log.d(Constant.TAG,"onAdClosed");
             }
 
             @Override
             public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                super.onAdFailedToLoad(loadAdError);
+                Log.d(Constant.TAG,"onAdFailedToLoad");
             }
 
             @Override
             public void onAdOpened() {
-                super.onAdOpened();
+                Log.d(Constant.TAG,"onAdOpened");
             }
 
             @Override
             public void onAdLoaded() {
-                super.onAdLoaded();
+                Log.d(Constant.TAG,"onAdLoaded");
             }
 
             @Override
             public void onAdClicked() {
-                super.onAdClicked();
+                Log.d(Constant.TAG,"onAdClicked");
             }
 
             @Override
             public void onAdImpression() {
-                super.onAdImpression();
+                Log.d(Constant.TAG,"onAdImpression");
             }
         });
     }
