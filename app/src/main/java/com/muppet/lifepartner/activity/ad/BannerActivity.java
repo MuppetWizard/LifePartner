@@ -21,12 +21,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.inmobi.ads.AdMetaInfo;
-import com.inmobi.ads.InMobiAdRequestStatus;
-import com.inmobi.ads.InMobiBanner;
-import com.inmobi.ads.listeners.BannerAdEventListener;
-import com.inmobi.sdk.InMobiSdk;
-import com.inmobi.sdk.SdkInitializationListener;
+
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -53,7 +48,7 @@ public class BannerActivity extends AppCompatActivity {
 
 
     private BannerAd bannerAd;
-    private InMobiBanner iBanner;
+//    private InMobiBanner iBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +77,9 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.btn_csj_banner) {
-//                    loadBanner("0000000039");
+                    loadBanner("0000000039");
                     //162
-                    loadBanner("0000000110");
+//                    loadBanner("0000000110");
                 }
                 if (v.getId() == R.id.btn_gdt_banner){
                     loadBanner("0000000040");
@@ -93,7 +88,7 @@ public class BannerActivity extends AppCompatActivity {
                     loadGGBanner();
                 }
                 if (v.getId() == R.id.btn_imb_banner) {
-                    loadInMoBi(1621364045212L);
+//                    loadInMoBi(1621364045212L);
                     //测试
 //                    loadInMoBi(1473189489298L);
                 }
@@ -110,9 +105,9 @@ public class BannerActivity extends AppCompatActivity {
         if (adView != null) {
             adView.destroy();
         }
-        if (iBanner != null) {
-            iBanner.destroy();
-        }
+//        if (iBanner != null) {
+////            iBanner.destroy();
+//        }
     }
 
     private void initStatusBar() {
@@ -175,61 +170,61 @@ public class BannerActivity extends AppCompatActivity {
 
     }
 
-    private void loadInMoBi(long id) {
-        iBanner = new InMobiBanner(this,id);
-        iBanner.setAnimationType(InMobiBanner.AnimationType.ROTATE_HORIZONTAL_AXIS);
-        iBanner.setRefreshInterval(10);
-        iBanner.setListener(new BannerAdEventListener() {
-            @Override
-            public void onAdFetchFailed(@NonNull InMobiBanner inMobiBanner, @NonNull InMobiAdRequestStatus inMobiAdRequestStatus) {
-                super.onAdFetchFailed(inMobiBanner, inMobiAdRequestStatus);
-                Log.e(Constant.TAG,
-                        "code:"+inMobiAdRequestStatus.getStatusCode()+ "msg:"+inMobiAdRequestStatus.getMessage());
-            }
-
-            @Override
-            public void onAdLoadSucceeded(@NonNull InMobiBanner inMobiBanner, @NonNull AdMetaInfo adMetaInfo) {
-                Log.d(Constant.TAG,"onAdLoadSucceeded");
-            }
-
-            @Override
-            public void onAdClicked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
-                super.onAdClicked(inMobiBanner, map);
-                Log.d(Constant.TAG,"onAdClicked");
-            }
-
-            @Override
-            public void onAdDisplayed(@NonNull InMobiBanner inMobiBanner) {
-                super.onAdDisplayed(inMobiBanner);
-                Log.d(Constant.TAG,"onAdDisplayed");
-            }
-
-            @Override
-            public void onAdDismissed(@NonNull InMobiBanner inMobiBanner) {
-                super.onAdDismissed(inMobiBanner);
-                Log.d(Constant.TAG,"onAdDismissed");
-            }
-
-            @Override
-            public void onUserLeftApplication(@NonNull InMobiBanner inMobiBanner) {
-                super.onUserLeftApplication(inMobiBanner);
-                Log.d(Constant.TAG,"onUserLeftApplication");
-            }
-
-            @Override
-            public void onRewardsUnlocked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
-                super.onRewardsUnlocked(inMobiBanner, map);
-                Log.d(Constant.TAG,"onRewardsUnlocked");
-            }
-        });
-        int width = toPixelUnits(320);
-        int height = toPixelUnits(50);
-        FrameLayout.LayoutParams bannerLp = new FrameLayout.LayoutParams(width,height );
-        bannerLp.gravity = Gravity.CENTER_HORIZONTAL;
-        flBanner.removeAllViews();
-        flBanner.addView(iBanner,bannerLp);
-        iBanner.load();
-    }
+//    private void loadInMoBi(long id) {
+//        iBanner = new InMobiBanner(this,id);
+//        iBanner.setAnimationType(InMobiBanner.AnimationType.ROTATE_HORIZONTAL_AXIS);
+//        iBanner.setRefreshInterval(10);
+//        iBanner.setListener(new BannerAdEventListener() {
+////            @Override
+////            public void onAdFetchFailed(@NonNull InMobiBanner inMobiBanner, @NonNull InMobiAdRequestStatus inMobiAdRequestStatus) {
+////                super.onAdFetchFailed(inMobiBanner, inMobiAdRequestStatus);
+////                Log.e(Constant.TAG,
+////                        "code:"+inMobiAdRequestStatus.getStatusCode()+ "msg:"+inMobiAdRequestStatus.getMessage());
+////            }
+//
+////            @Override
+////            public void onAdLoadSucceeded(@NonNull InMobiBanner inMobiBanner, @NonNull AdMetaInfo adMetaInfo) {
+////                Log.d(Constant.TAG,"onAdLoadSucceeded");
+////            }
+//
+//            @Override
+//            public void onAdClicked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
+//                super.onAdClicked(inMobiBanner, map);
+//                Log.d(Constant.TAG,"onAdClicked");
+//            }
+//
+//            @Override
+//            public void onAdDisplayed(@NonNull InMobiBanner inMobiBanner) {
+//                super.onAdDisplayed(inMobiBanner);
+//                Log.d(Constant.TAG,"onAdDisplayed");
+//            }
+//
+//            @Override
+//            public void onAdDismissed(@NonNull InMobiBanner inMobiBanner) {
+//                super.onAdDismissed(inMobiBanner);
+//                Log.d(Constant.TAG,"onAdDismissed");
+//            }
+//
+//            @Override
+//            public void onUserLeftApplication(@NonNull InMobiBanner inMobiBanner) {
+//                super.onUserLeftApplication(inMobiBanner);
+//                Log.d(Constant.TAG,"onUserLeftApplication");
+//            }
+//
+//            @Override
+//            public void onRewardsUnlocked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
+//                super.onRewardsUnlocked(inMobiBanner, map);
+//                Log.d(Constant.TAG,"onRewardsUnlocked");
+//            }
+//        });
+//        int width = toPixelUnits(320);
+//        int height = toPixelUnits(50);
+//        FrameLayout.LayoutParams bannerLp = new FrameLayout.LayoutParams(width,height );
+//        bannerLp.gravity = Gravity.CENTER_HORIZONTAL;
+//        flBanner.removeAllViews();
+//        flBanner.addView(iBanner,bannerLp);
+//        iBanner.load();
+//    }
 
     private void loadGGBanner() {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);

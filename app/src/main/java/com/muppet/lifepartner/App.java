@@ -13,8 +13,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.inmobi.sdk.InMobiSdk;
-import com.inmobi.sdk.SdkInitializationListener;
+
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.SdkConfig;
 import com.muppet.lifepartner.activity.ad.AdMob.AppOpenManager;
@@ -65,14 +64,14 @@ public class App extends Application {
 
     private void initIMBSdk() {
         //inmobi
-        JSONObject consentObject = new JSONObject();
-        try {
-            // Provide correct consent value to sdk which is obtained by User
-            consentObject.put(InMobiSdk.IM_GDPR_CONSENT_AVAILABLE, true);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        InMobiSdk.init(this, "702d9239280b4cbaa460c872fd95d0c6", consentObject,new SdkInitializationListener() {
+//        JSONObject consentObject = new JSONObject();
+//        try {
+//            // Provide correct consent value to sdk which is obtained by User
+//            consentObject.put(InMobiSdk.IM_GDPR_CONSENT_AVAILABLE, true);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+        /*InMobiSdk.init(this, "702d9239280b4cbaa460c872fd95d0c6", consentObject,new SdkInitializationListener() {
             @Override
             public void onInitializationComplete(@androidx.annotation.Nullable Error error) {
                 if (null != error) {
@@ -81,7 +80,8 @@ public class App extends Application {
                     Log.d(Constant.TAG, "InMobi Init Successful");
                 }
             }
-        });
+        });*/
+//        InMobiSdk.init(this,"asdf48asd7fas4f8e78fasf");
         //openManager = new AppOpenManager(this);
 
     }
