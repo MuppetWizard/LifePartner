@@ -14,6 +14,7 @@ import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import com.inmobi.sdk.InMobiSdk;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.SdkConfig;
 import com.muppet.lifepartner.activity.ad.AdMob.AppOpenManager;
@@ -43,9 +44,9 @@ public class App extends Application {
                 .debug(BuildConfig.DEBUG)
                 .install();*/
         initUEAdSdk();
-        initIMBSdk();
-        initKSAdSdk();
-        initAdmobSdk();
+//        initIMBSdk();
+//        initKSAdSdk();
+//        initAdmobSdk();
     }
 
     private void initAdmobSdk() {
@@ -81,8 +82,8 @@ public class App extends Application {
                 }
             }
         });*/
-//        InMobiSdk.init(this,"asdf48asd7fas4f8e78fasf");
-        //openManager = new AppOpenManager(this);
+        InMobiSdk.init(this,"asdf48asd7fas4f8e78fasf");
+//        openManager = new AppOpenManager(this);
 
     }
 
@@ -91,7 +92,7 @@ public class App extends Application {
                 new YOUEAdManager()
                         .appId("000012")
                         .appName("游易-测试")
-                        .deBug(true)
+                        .deBug(false)
                         .setChannel(10)
                         .supportMultiProcess(false)
                         .build()

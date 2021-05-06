@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.muppet.lifepartner.R;
+import com.muppet.lifepartner.activity.ad.kt.MTSdkManager;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.ad.BannerAd;
@@ -23,6 +24,7 @@ public class ActAdMain extends AppCompatActivity {
         setContentView(R.layout.activity_ad_main);
         initStatusBar();
         initView();
+
     }
 
     @SuppressLint("SetTextI18n")

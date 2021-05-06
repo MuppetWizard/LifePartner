@@ -22,11 +22,14 @@ import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import com.inmobi.ads.InMobiBanner;
+import com.inmobi.ads.listeners.BannerAdEventListener;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.BannerAd;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.BannerAdListener;
 
 import org.jetbrains.annotations.Nullable;
@@ -48,7 +51,7 @@ public class BannerActivity extends AppCompatActivity {
 
 
     private BannerAd bannerAd;
-//    private InMobiBanner iBanner;
+    private InMobiBanner iBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +93,7 @@ public class BannerActivity extends AppCompatActivity {
                 if (v.getId() == R.id.btn_imb_banner) {
 //                    loadInMoBi(1621364045212L);
                     //测试
-//                    loadInMoBi(1473189489298L);
+                    loadInMoBi(1431977751489005L);
                 }
             }
         });
@@ -106,7 +109,7 @@ public class BannerActivity extends AppCompatActivity {
             adView.destroy();
         }
 //        if (iBanner != null) {
-////            iBanner.destroy();
+//            iBanner.destroy();
 //        }
     }
 
@@ -119,7 +122,14 @@ public class BannerActivity extends AppCompatActivity {
     private void loadBanner(String id) {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         bannerAd = new BannerAd();
-        bannerAd.setBannerConfig(this,id, (int) expressViewWidth,120,false);
+//        bannerAd.setBannerConfig(this,id, (int) expressViewWidth,120,true);
+        bannerAd.setBannerConfig(this,
+                new AdPlacement.Builder()
+                        .setAdId(id)
+                        .setExpressViewAcceptedSize( (int) expressViewWidth,120)
+                        .isCarousel(false)
+                        .build()
+        );
         bannerAd.loadAdBanner(flBanner, new BannerAdListener() {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
@@ -170,61 +180,61 @@ public class BannerActivity extends AppCompatActivity {
 
     }
 
-//    private void loadInMoBi(long id) {
-//        iBanner = new InMobiBanner(this,id);
-//        iBanner.setAnimationType(InMobiBanner.AnimationType.ROTATE_HORIZONTAL_AXIS);
-//        iBanner.setRefreshInterval(10);
-//        iBanner.setListener(new BannerAdEventListener() {
-////            @Override
-////            public void onAdFetchFailed(@NonNull InMobiBanner inMobiBanner, @NonNull InMobiAdRequestStatus inMobiAdRequestStatus) {
-////                super.onAdFetchFailed(inMobiBanner, inMobiAdRequestStatus);
-////                Log.e(Constant.TAG,
-////                        "code:"+inMobiAdRequestStatus.getStatusCode()+ "msg:"+inMobiAdRequestStatus.getMessage());
-////            }
-//
-////            @Override
-////            public void onAdLoadSucceeded(@NonNull InMobiBanner inMobiBanner, @NonNull AdMetaInfo adMetaInfo) {
-////                Log.d(Constant.TAG,"onAdLoadSucceeded");
-////            }
-//
+    private void loadInMoBi(long id) {
+        iBanner = new InMobiBanner(this,id);
+        iBanner.setAnimationType(InMobiBanner.AnimationType.ROTATE_HORIZONTAL_AXIS);
+        iBanner.setRefreshInterval(10);
+        iBanner.setListener(new BannerAdEventListener() {
 //            @Override
-//            public void onAdClicked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
-//                super.onAdClicked(inMobiBanner, map);
-//                Log.d(Constant.TAG,"onAdClicked");
+//            public void onAdFetchFailed(@NonNull InMobiBanner inMobiBanner, @NonNull InMobiAdRequestStatus inMobiAdRequestStatus) {
+//                super.onAdFetchFailed(inMobiBanner, inMobiAdRequestStatus);
+//                Log.e(Constant.TAG,
+//                        "code:"+inMobiAdRequestStatus.getStatusCode()+ "msg:"+inMobiAdRequestStatus.getMessage());
 //            }
-//
+
 //            @Override
-//            public void onAdDisplayed(@NonNull InMobiBanner inMobiBanner) {
-//                super.onAdDisplayed(inMobiBanner);
-//                Log.d(Constant.TAG,"onAdDisplayed");
+//            public void onAdLoadSucceeded(@NonNull InMobiBanner inMobiBanner, @NonNull AdMetaInfo adMetaInfo) {
+//                Log.d(Constant.TAG,"onAdLoadSucceeded");
 //            }
-//
-//            @Override
-//            public void onAdDismissed(@NonNull InMobiBanner inMobiBanner) {
-//                super.onAdDismissed(inMobiBanner);
-//                Log.d(Constant.TAG,"onAdDismissed");
-//            }
-//
-//            @Override
-//            public void onUserLeftApplication(@NonNull InMobiBanner inMobiBanner) {
-//                super.onUserLeftApplication(inMobiBanner);
-//                Log.d(Constant.TAG,"onUserLeftApplication");
-//            }
-//
-//            @Override
-//            public void onRewardsUnlocked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
-//                super.onRewardsUnlocked(inMobiBanner, map);
-//                Log.d(Constant.TAG,"onRewardsUnlocked");
-//            }
-//        });
-//        int width = toPixelUnits(320);
-//        int height = toPixelUnits(50);
-//        FrameLayout.LayoutParams bannerLp = new FrameLayout.LayoutParams(width,height );
-//        bannerLp.gravity = Gravity.CENTER_HORIZONTAL;
-//        flBanner.removeAllViews();
-//        flBanner.addView(iBanner,bannerLp);
-//        iBanner.load();
-//    }
+
+            @Override
+            public void onAdClicked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
+                super.onAdClicked(inMobiBanner, map);
+                Log.d(Constant.TAG,"onAdClicked");
+            }
+
+            @Override
+            public void onAdDisplayed(@NonNull InMobiBanner inMobiBanner) {
+                super.onAdDisplayed(inMobiBanner);
+                Log.d(Constant.TAG,"onAdDisplayed");
+            }
+
+            @Override
+            public void onAdDismissed(@NonNull InMobiBanner inMobiBanner) {
+                super.onAdDismissed(inMobiBanner);
+                Log.d(Constant.TAG,"onAdDismissed");
+            }
+
+            @Override
+            public void onUserLeftApplication(@NonNull InMobiBanner inMobiBanner) {
+                super.onUserLeftApplication(inMobiBanner);
+                Log.d(Constant.TAG,"onUserLeftApplication");
+            }
+
+            @Override
+            public void onRewardsUnlocked(@NonNull InMobiBanner inMobiBanner, Map<Object, Object> map) {
+                super.onRewardsUnlocked(inMobiBanner, map);
+                Log.d(Constant.TAG,"onRewardsUnlocked");
+            }
+        });
+        int width = toPixelUnits(320);
+        int height = toPixelUnits(50);
+        FrameLayout.LayoutParams bannerLp = new FrameLayout.LayoutParams(width,height );
+        bannerLp.gravity = Gravity.CENTER_HORIZONTAL;
+        flBanner.removeAllViews();
+        flBanner.addView(iBanner,bannerLp);
+        iBanner.load();
+    }
 
     private void loadGGBanner() {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);

@@ -15,6 +15,7 @@ import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.youyi.yesdk.ad.FullVideoAd;
 import com.youyi.yesdk.ad.YOUEAdConstants;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.FullVideoListener;
 
@@ -59,7 +60,7 @@ public class FullscreenVideoActivity extends AppCompatActivity {
                         .setExpressViewAcceptedSize(500,500)
                         .setOrientation(orientation)
                         .setMinVideoDuration(5)
-                        .setMaxVideoDuration(61)
+                        .setMaxVideoDuration(20)
                         .build());
         fullVideoAd.loadFullVideo(id, new FullVideoListener() {
             @Override
