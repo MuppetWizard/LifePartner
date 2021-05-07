@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,10 @@ import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.view.UserA;
 import com.youyi.yesdk.ad.SplashAd;
 import com.youyi.yesdk.listener.SplashListener;
+import com.youyi.yesdk.listener.UEConfirmCallBack;
+import com.youyi.yesdk.listener.UEDownloadConfirmListener;
+
+import org.jetbrains.annotations.NotNull;
 
 public class ActStart extends AppCompatActivity{
 
@@ -137,6 +142,13 @@ public class ActStart extends AppCompatActivity{
             @Override
             public void onAdShow() {
                 Log.d(Constant.TAG,"onAdShow");
+                splashAd.setDownloadConfirmListener(new UEDownloadConfirmListener() {
+                    @Override
+                    public void onDownloadConfirm(@Nullable Activity activity, @NotNull UEConfirmCallBack ueConfirmCallBack) {
+                        Log.e(Constant.TAG,"onDownloadConfirm");
+                        Toast.makeText(ActStart.this,"onDownloadConfirm",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
