@@ -4,6 +4,9 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -29,9 +32,13 @@ import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.BannerAd;
+import com.youyi.yesdk.ad.InterstitialAd;
 import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.BannerAdListener;
+import com.youyi.yesdk.listener.UEConfirmCallBack;
+import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -139,6 +146,7 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onShow() {
                 Log.e(Constant.TAG,"onShow");
+                setDownloadListener(bannerAd);
             }
 
             @Override
@@ -178,6 +186,33 @@ public class BannerActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private void setDownloadListener(BannerAd ad) {
+        ad.setDownloadConfirmListener(new UEDownloadConfirmListener() {
+            @Override
+            public void onDownloadConfirm(@Nullable Activity activity, @NotNull UEConfirmCallBack ueConfirmCallBack) {
+                Log.e(Constant.TAG,"onDownloadConfirm");
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+                alert.setMessage("确认开始下载应用");
+                alert.setCancelable(false);
+                alert.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ueConfirmCallBack.onConfirm();
+                    }
+                });
+                alert.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ueConfirmCallBack.onCancel();
+                    }
+                });
+
+                AlertDialog dialog = alert.create();
+                dialog.show();
+            }
+        });
     }
 
     private void loadInMoBi(long id) {

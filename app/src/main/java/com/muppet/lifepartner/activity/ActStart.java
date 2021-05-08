@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.kwad.sdk.api.KsAdSDK;
@@ -37,6 +42,8 @@ public class ActStart extends AppCompatActivity{
     private SplashAd splashAd;
     private FrameLayout flSplash;
 
+    private boolean canJump = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,22 @@ public class ActStart extends AppCompatActivity{
 //            loadKsSplashAd(4000000042L);
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (canJump) {
+            gotoMainActivity();
+        }
+        canJump =true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        canJump = false;
+    }
+
     private void initStatusBar() {
         StatusUtils.setSystemStatus(this, true, true);
         FrameLayout llTop = findViewById(R.id.top);
@@ -146,7 +169,25 @@ public class ActStart extends AppCompatActivity{
                     @Override
                     public void onDownloadConfirm(@Nullable Activity activity, @NotNull UEConfirmCallBack ueConfirmCallBack) {
                         Log.e(Constant.TAG,"onDownloadConfirm");
-                        Toast.makeText(ActStart.this,"onDownloadConfirm",Toast.LENGTH_SHORT).show();
+
+                        AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+                        alert.setMessage("确认开始下载应用");
+                        alert.setCancelable(false);
+                        alert.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ueConfirmCallBack.onConfirm();
+                            }
+                        });
+                        alert.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ueConfirmCallBack.onCancel();
+                            }
+                        });
+
+                        AlertDialog dialog = alert.create();
+                        dialog.show();
                     }
                 });
             }
@@ -165,10 +206,16 @@ public class ActStart extends AppCompatActivity{
 
     }
 
+
+
     private void gotoMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        if (canJump) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }else {
+            canJump = true;
+        }
     }
 }
 
