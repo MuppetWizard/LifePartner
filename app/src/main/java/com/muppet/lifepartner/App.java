@@ -97,6 +97,7 @@ public class App extends Application {
                         .supportMultiProcess(false)
                         .build()
         );
+        YOUEAdSdk.INSTANCE.getSDKVersion();
     }
 
     //获取项目上下文

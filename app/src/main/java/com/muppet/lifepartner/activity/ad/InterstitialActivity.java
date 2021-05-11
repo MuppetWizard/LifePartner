@@ -24,6 +24,7 @@ import com.muppet.lifepartner.util.StatusUtils;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.comm.util.AdError;
 import com.youyi.yesdk.ad.InterstitialAd;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.InterstitialAdListener;
 import com.youyi.yesdk.listener.InterstitialMediaListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
@@ -74,7 +75,9 @@ public class InterstitialActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        interstitialAd.destroy();
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
     }
 
     private void initStatusBar() {
@@ -162,7 +165,14 @@ public class InterstitialActivity extends AppCompatActivity {
 
     private void loadInterstitial(String id,boolean vertical) {
         interstitialAd = new InterstitialAd();
-        interstitialAd.setInterstitialAdConfig(this,id,vertical,5,61);
+//        interstitialAd.setInterstitialAdConfig(this,id,vertical,5,61);
+        interstitialAd.setInterstitialAdConfig(this,
+                new AdPlacement.Builder()
+                        .setAdId(id)
+                        .isVertical(vertical)
+                        .setMinVideoDuration(5)
+                        .setMaxVideoDuration(61)
+                        .build());
         VideoOption option = new VideoOption.Builder()
                 .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.ALWAYS)
                 .setAutoPlayMuted(false)

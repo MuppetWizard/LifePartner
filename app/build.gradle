@@ -59,7 +59,7 @@ dependencies {
     implementation files('libs/pinyin4j-2.5.0.jar')
 
     //游易
-    implementation (name: 'youe_ad_sdk_release', ext: 'aar')
+    implementation (name: 'youe_ad_sdk_test', ext: 'aar')
     //快手
     implementation (name: 'kssdk-ad', ext: 'aar')
     //inmobi 广告
