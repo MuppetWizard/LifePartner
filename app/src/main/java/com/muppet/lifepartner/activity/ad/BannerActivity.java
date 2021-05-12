@@ -31,10 +31,16 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
+
+
 import com.youyi.yesdk.ad.BannerAd;
-import com.youyi.yesdk.ad.InterstitialAd;
+import com.youyi.yesdk.ad.SplashAd;
+import com.youyi.yesdk.ad.YOUEAdConstants;
 import com.youyi.yesdk.business.AdPlacement;
+import com.youyi.yesdk.comm.network.NetWorkUtils;
 import com.youyi.yesdk.listener.BannerAdListener;
+import com.youyi.yesdk.listener.SplashListener;
+import com.youyi.yesdk.listener.StreamAdInteractionListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 
@@ -43,6 +49,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -129,6 +136,8 @@ public class BannerActivity extends AppCompatActivity {
     private void loadBanner(String id) {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         bannerAd = new BannerAd();
+//        SplashListener listener = new SplashListener;
+
 //        bannerAd.setBannerConfig(this,id, (int) expressViewWidth,120,true);
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()

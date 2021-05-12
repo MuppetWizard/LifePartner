@@ -92,7 +92,7 @@ public class App extends Application {
                 new YOUEAdManager()
                         .appId("000012")
                         .appName("游易-测试")
-                        .deBug(false)
+                        .deBug(true)
                         .setChannel(10)
                         .supportMultiProcess(false)
                         .build()
