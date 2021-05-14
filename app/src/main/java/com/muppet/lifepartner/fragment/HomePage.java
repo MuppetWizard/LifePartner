@@ -36,7 +36,12 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
+import com.youyi.yesdk.ad.FullVideoAd;
+import com.youyi.yesdk.ad.YOUEAdConstants;
+import com.youyi.yesdk.business.UEAdManager;
+import com.youyi.yesdk.listener.FullVideoListener;
 
+import org.jetbrains.annotations.Nullable;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
@@ -72,6 +77,8 @@ public class HomePage extends SupportFragment implements OnBannerListener {
     private HomeNewsAdapter homeNewsAdapter;
     private LinearLayoutManager recyclermanager;
 
+    private FullVideoAd fullVideoAd;
+
 
     List<String> list_title;
     List<String> list_image;
@@ -95,7 +102,8 @@ public class HomePage extends SupportFragment implements OnBannerListener {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-        loadGGBanner();
+//        loadGGBanner();
+//        loadFullScreenVideo("0000000046", YOUEAdConstants.VERTICAL);
         return view;
     }
     private void loadGGBanner() {
@@ -134,6 +142,59 @@ public class HomePage extends SupportFragment implements OnBannerListener {
             @Override
             public void onAdImpression() {
                 super.onAdImpression();
+            }
+        });
+    }
+    private void loadFullScreenVideo(String id, int orientation) {
+        fullVideoAd = new FullVideoAd();
+        fullVideoAd.setVideoConfig(getActivity(),
+                new UEAdManager()
+                        .setExpressViewAcceptedSize(500,500)
+                        .setOrientation(orientation)
+                        .setMinVideoDuration(5)
+                        .setMaxVideoDuration(20)
+                        .build());
+        fullVideoAd.loadFullVideo(id, new FullVideoListener() {
+            @Override
+            public void onError(@Nullable Integer integer, @Nullable String s) {
+                Log.d(Constant.TAG,"onError : code: "+ integer+" msg : "+ s);
+            }
+
+            @Override
+            public void onAdLoaded() {
+                Log.d(Constant.TAG,"onAdLoaded");
+            }
+
+            @Override
+            public void onAdCached() {
+                Log.d(Constant.TAG,"onAdCached");
+                fullVideoAd.show();
+//                setDownloadListener(fullVideoAd);
+            }
+
+            @Override
+            public void onAdShow() {
+                Log.d(Constant.TAG,"onAdShow");
+            }
+
+            @Override
+            public void onAdSkipped() {
+                Log.d(Constant.TAG,"onAdSkipped");
+            }
+
+            @Override
+            public void onAdClicked() {
+                Log.d(Constant.TAG,"onAdClicked");
+            }
+
+            @Override
+            public void onAdComplete() {
+                Log.d(Constant.TAG,"onAdComplete");
+            }
+
+            @Override
+            public void onAdClosed() {
+                Log.d(Constant.TAG,"onAdClosed");
             }
         });
     }
