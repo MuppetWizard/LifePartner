@@ -9,26 +9,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.google.android.gms.ads.AdError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.RequestConfiguration;
-import com.google.android.gms.ads.appopen.AppOpenAd;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.muppet.lifepartner.R;
-import com.muppet.lifepartner.activity.ad.AdMob.AppOpenManager;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 
-import java.util.Arrays;
-
 public class SplashAdActivity extends AppCompatActivity {
 
-    private AppOpenAd appOpenAd = null;
-    private AppOpenAd.AppOpenAdLoadCallback loadCallback;
+    /*private AppOpenAd appOpenAd = null;
+    private AppOpenAd.AppOpenAdLoadCallback loadCallback;*/
     private static boolean isShowingAd = false;
 
     @Override
@@ -61,7 +49,7 @@ public class SplashAdActivity extends AppCompatActivity {
 //        bindItem(R.id.btn_google_splash,"ca-app-pub-6865974081341189/9660712842");
         //测试
         bindItem(R.id.btn_google_splash);
-        bindItem(R.id.btn_ks_splash);
+        bindItem(R.id.btn_baidu_splash);
     }
 
     private void bindItem(@IdRes int id) {
@@ -72,22 +60,24 @@ public class SplashAdActivity extends AppCompatActivity {
                     case R.id.btn_my_splash:
                         break;
                     case R.id.btn_google_splash:
-                        fetchAd("ca-app-pub-3940256099942544/3419835294");
+//                        fetchAd("ca-app-pub-3940256099942544/3419835294");
                         break;
-                    case R.id.btn_ks_splash:
-                        loadKsSplashAd();
+                    case R.id.btn_baidu_splash:
+                        loadBaidu("");
                         break;
                 }
             }
         });
     }
 
-    private void loadKsSplashAd() {
+    private void loadBaidu(String s) {
 
     }
 
+
+
     /*Google*/
-    /** Shows the ad if one isn't already showing. */
+/*    *//** Shows the ad if one isn't already showing. *//*
     private void showAdIfAvailable(String id) {
         // Only show ad if there is not already an app open ad currently showing
         // and an ad is available.
@@ -145,12 +135,12 @@ public class SplashAdActivity extends AppCompatActivity {
         AppOpenAd.load(this,id,request,
                 AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT,loadCallback);
     }
-    /** Creates and returns ad request. */
+    *//** Creates and returns ad request. *//*
     private AdRequest getAdRequest() {
         return new AdRequest.Builder().build();
     }
-    /** Utility method that checks if ad exists and can be shown. */
+    *//** Utility method that checks if ad exists and can be shown. *//*
     public boolean isAdAvailable() {
         return appOpenAd != null;
-    }
+    }*/
 }

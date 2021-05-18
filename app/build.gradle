@@ -27,7 +27,7 @@ android {
     }
 
     signingConfigs {
-        kwmotorcycle {
+        lifepartner {
             keyAlias 'key0'
             keyPassword '23192399'
             storeFile file('lifepartner.jks')
@@ -60,10 +60,12 @@ dependencies {
 
     //游易
     implementation (name: 'youe_ad_sdk_v1.2.4', ext: 'aar')
-    //快手
-    implementation (name: 'kssdk-ad', ext: 'aar')
+    //百度广告
+    implementation files ('libs/android-query-full.0.26.7.jar')
+    implementation(name:'Baidu_MobAds_SDK-release',ext:'aar')
+    implementation files ('libs/oaid_sdk_1.0.22.aar')
+
     //inmobi 广告
-//    implementation (name: 'InMobiSDK', ext: 'aar')
 //    implementation 'com.inmobi.monetization:inmobi-ads:9.1.7'
     implementation files('libs\\InMobi-7.5.1.jar')
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
@@ -73,7 +75,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 //    implementation 'androidx.multidex:multidex:2.0.1'
     //Admob 广告
-    implementation 'com.google.android.gms:play-services-ads:20.0.0'
+//    implementation 'com.google.android.gms:play-services-ads:20.0.0'
     //gson
     implementation 'com.google.code.gson:gson:2.8.4'
     implementation 'com.google.android.material:material:1.0.0'

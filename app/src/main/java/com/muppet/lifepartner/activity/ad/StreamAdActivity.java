@@ -122,21 +122,27 @@ public class StreamAdActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onSelected(int i, String s, boolean b) {
+            public void onSelected(int i, String s) {
                 Log.d(Constant.TAG,"onSelected ");
                 flAdView.removeAllViews();
             }
+
+            /*@Override
+            public void onSelected(int i, String s, boolean b) {
+
+            }*/
 
             @Override
             public void onCancel() {
                 Log.d(Constant.TAG,"onCancel ");
             }
 
-            /*@Override
+
+            @Override
             public void onRefuse() {
                 Log.d(Constant.TAG,"onRefuse ");
 
-            }*/
+            }
         });
     }
 }

@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.kwad.sdk.api.KsSplashScreenAd;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ad.SplashVPlusAd;
 import com.muppet.lifepartner.fragment.ExpressPage;

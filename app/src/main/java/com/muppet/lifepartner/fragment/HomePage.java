@@ -11,17 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.muppet.lifepartner.IpAddress;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ActCalendar;
@@ -32,13 +25,17 @@ import com.muppet.lifepartner.mode.News;
 import com.muppet.lifepartner.App;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.MyImageLoader;
+import com.muppet.lifepartner.util.UIUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
+import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.ad.FullVideoAd;
 import com.youyi.yesdk.ad.YOUEAdConstants;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.business.UEAdManager;
+import com.youyi.yesdk.listener.BannerAdListener;
 import com.youyi.yesdk.listener.FullVideoListener;
 
 import org.jetbrains.annotations.Nullable;
@@ -70,15 +67,17 @@ public class HomePage extends SupportFragment implements OnBannerListener {
     RelativeLayout homeNews;
     @BindView(R.id.home_calender)
     RelativeLayout homeCalender;
-    @BindView(R.id.adView)
-    AdView adView;
+    /*@BindView(R.id.adView)
+    AdView adView;*/
+    @BindView(R.id.fl_banner)
+    FrameLayout flBanner;
 
     private int pageIndex = 0;//页码
     private HomeNewsAdapter homeNewsAdapter;
     private LinearLayoutManager recyclermanager;
 
     private FullVideoAd fullVideoAd;
-
+    private BannerAd bannerAd;
 
     List<String> list_title;
     List<String> list_image;
@@ -97,53 +96,75 @@ public class HomePage extends SupportFragment implements OnBannerListener {
         getList();
         initRecyclerView();
         unbinder = ButterKnife.bind(this, view);
-        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+        /*MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
-        });
-//        loadGGBanner();
+        });*/
+        loadBanner("0000000039");
 //        loadFullScreenVideo("0000000046", YOUEAdConstants.VERTICAL);
         return view;
     }
-    private void loadGGBanner() {
-        AdView mAdView = new AdView(getActivity());
-        mAdView.setAdSize(AdSize.BANNER);
-//        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
-        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-        adView.setAdListener(new AdListener() {
+    private void loadBanner(String id) {
+        float expressViewWidth = UIUtils.getScreenWidthDp(getActivity());
+        bannerAd = new BannerAd();
+//        bannerAd.setBannerConfig(this,id, (int) expressViewWidth,120,true);
+        bannerAd.setBannerConfig(getActivity(),
+                new AdPlacement.Builder()
+                        .setAdId(id)
+                        .setExpressViewAcceptedSize(expressViewWidth,120)
+                        .isCarousel(false)
+                        .build()
+        );
+        bannerAd.loadAdBanner(flBanner, new BannerAdListener() {
             @Override
-            public void onAdClosed() {
-                super.onAdClosed();
+            public void onError(@Nullable Integer integer, @Nullable String s) {
+                Log.e(Constant.TAG,"code:"+integer+" msg: "+ s);
             }
 
             @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                super.onAdFailedToLoad(loadAdError);
+            public void onShow() {
+                Log.e(Constant.TAG,"onShow");
+//                setDownloadListener(bannerAd);
             }
 
             @Override
-            public void onAdOpened() {
-                super.onAdOpened();
+            public void onClosed() {
+                Log.e(Constant.TAG,"onClosed");
             }
 
             @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
+            public void onClicked() {
+                Log.e(Constant.TAG,"onClicked");
             }
 
             @Override
-            public void onAdClicked() {
-                super.onAdClicked();
+            public void onShowAdOverLay() {
+                Log.e(Constant.TAG,"onShowAdOverLay");
             }
 
             @Override
-            public void onAdImpression() {
-                super.onAdImpression();
+            public void onAdCloseOverLay() {
+                Log.e(Constant.TAG,"onAdCloseOverLay");
+            }
+
+            @Override
+            public void onDislikeShow() {
+                Log.e(Constant.TAG,"onDislikeShow");
+            }
+
+            @Override
+            public void onDislikeSelected(int i, @Nullable String s) {
+                Log.e(Constant.TAG,"onDislikeSelected");
+                flBanner.removeAllViews();
+            }
+
+            @Override
+            public void onDislikeCanceled() {
+                Log.e(Constant.TAG,"onDislikeCanceled");
             }
         });
+
     }
     private void loadFullScreenVideo(String id, int orientation) {
         fullVideoAd = new FullVideoAd();

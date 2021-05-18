@@ -13,11 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsInterstitialAd;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -40,7 +35,6 @@ import butterknife.ButterKnife;
 public class InterstitialActivity extends AppCompatActivity {
 
     private InterstitialAd interstitialAd;
-    private KsInterstitialAd mKsInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +59,7 @@ public class InterstitialActivity extends AppCompatActivity {
                         loadInterstitial("0000000112",false);
                         break;
                     case R.id.btn_ks_cha:
-                        loadKsInterstitialAd(4000000276L);
+
                         break;
                 }
             }
@@ -86,82 +80,6 @@ public class InterstitialActivity extends AppCompatActivity {
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
     }
 
-    private void loadKsInterstitialAd(long id) {
-        mKsInterstitialAd = null;
-        KsScene scene = new KsScene.Builder(id).build();
-        KsAdSDK.getLoadManager().loadInterstitialAd(scene, new KsLoadManager.InterstitialAdListener() {
-            @Override
-            public void onError(int i, String s) {
-                Log.e(Constant.TAG,"code:"+i+" msg: "+ s);
-            }
-
-            @Override
-            public void onRequestResult(int i) {
-                Log.d(Constant.TAG,"number:"+i);
-            }
-
-            @Override
-            public void onInterstitialAdLoad(@Nullable List<KsInterstitialAd> list) {
-                if (list != null && list.size() != 0) {
-                    mKsInterstitialAd = list.get(0);
-                    Log.d(Constant.TAG,"onInterstitialAdLoad");
-                    KsVideoPlayConfig videoPlayConfig = new KsVideoPlayConfig.Builder()
-                            .videoSoundEnable(true)
-                            .build();
-                    showKsInterstitialAd(videoPlayConfig);
-                }
-            }
-        });
-    }
-
-    private void showKsInterstitialAd(KsVideoPlayConfig videoPlayConfig) {
-        if (mKsInterstitialAd != null) {
-            mKsInterstitialAd.setAdInteractionListener(new KsInterstitialAd.AdInteractionListener() {
-                @Override
-                public void onAdClicked() {
-                    Log.d(Constant.TAG,"onAdClicked");
-                }
-
-                @Override
-                public void onAdShow() {
-                    Log.d(Constant.TAG,"onAdShow");
-                }
-
-                @Override
-                public void onAdClosed() {
-                    Log.d(Constant.TAG,"onAdClosed");
-                }
-
-                @Override
-                public void onPageDismiss() {
-                    Log.d(Constant.TAG,"onPageDismiss");
-                }
-
-                @Override
-                public void onVideoPlayError(int i, int i1) {
-                    Log.d(Constant.TAG,"onVideoPlayError");
-                }
-
-                @Override
-                public void onVideoPlayEnd() {
-                    Log.d(Constant.TAG,"onVideoPlayEnd");
-                }
-
-                @Override
-                public void onVideoPlayStart() {
-                    Log.d(Constant.TAG,"onVideoPlayStart");
-                }
-
-                @Override
-                public void onSkippedAd() {
-                    Log.d(Constant.TAG,"onSkippedAd");
-                }
-            });
-            mKsInterstitialAd.showInterstitialAd(this,videoPlayConfig);
-        } else {
-            Log.e(Constant.TAG,"No Ks ad");
-        }
-    }
 
     private void loadInterstitial(String id,boolean vertical) {
         interstitialAd = new InterstitialAd();

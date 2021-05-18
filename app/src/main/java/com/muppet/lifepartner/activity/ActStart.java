@@ -18,10 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.api.KsSplashScreenAd;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ad.SplashVPlusAd;
 import com.muppet.lifepartner.util.Constant;
@@ -31,6 +27,8 @@ import com.muppet.lifepartner.view.UserA;
 import com.youyi.yesdk.ad.SplashAd;
 import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.comm.bean.BannerAdMode;
+import com.youyi.yesdk.comm.bean.SplashAdMode;
+import com.youyi.yesdk.comm.platform.csj.TTBanner;
 import com.youyi.yesdk.listener.SplashListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
@@ -59,7 +57,6 @@ public class ActStart extends AppCompatActivity{
             dialog.show();
         }else {
             loadSplash("0000000032");
-//            loadKsSplashAd(4000000042L);
         }
     }
 
@@ -84,77 +81,12 @@ public class ActStart extends AppCompatActivity{
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this), 0, 0);
     }
 
-    private void loadKsSplashAd(long id) {
-        KsScene scene = new KsScene.Builder(id).build();
-        KsAdSDK.getLoadManager().loadSplashScreenAd(scene, new KsLoadManager.SplashScreenAdListener() {
-            @Override
-            public void onError(int i, String s) {
-                Log.d(Constant.TAG,"code: "+i+" msg: "+s );
-                Intent intent = new Intent(ActStart.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-
-            @Override
-            public void onRequestResult(int i) {
-                Log.d(Constant.TAG,"onRequestResult: "+i );
-            }
-
-            @Override
-            public void onSplashScreenAdLoad(@Nullable KsSplashScreenAd ksSplashScreenAd) {
-                Log.d(Constant.TAG,"onSplashScreenAdLoad: " );
-//                addFragment(ksSplashScreenAd);
-                if (ksSplashScreenAd != null) {
-                    flSplash.removeAllViews();
-                    flSplash.addView(ksSplashScreenAd.getView(ActStart.this,bindListener()));
-                }
-            }
-        });
-
-    }
-
-    private KsSplashScreenAd.SplashScreenAdInteractionListener bindListener() {
-        return new KsSplashScreenAd.SplashScreenAdInteractionListener() {
-            @Override
-            public void onAdClicked() {
-                Log.d(Constant.TAG,"onAdClicked" );
-
-            }
-
-            @Override
-            public void onAdShowError(int i, String s) {
-                Log.d(Constant.TAG,"onAdShowError "+i+" msg: "+s );
-                gotoMainActivity();
-            }
-
-            @Override
-            public void onAdShowEnd() {
-                Log.d(Constant.TAG,"onAdShowEnd" );
-                gotoMainActivity();
-            }
-
-            @Override
-            public void onAdShowStart() {
-                Log.d(Constant.TAG,"onAdShowStart" );
-            }
-
-            @Override
-            public void onSkippedAd() {
-                Log.d(Constant.TAG,"onSkippedAd" );
-                gotoMainActivity();
-            }
-        };
-    }
 
 
     private void loadSplash(String id) {
         splashAd = new SplashAd();
 //        splashAd.setSplashConfig(this, id, false, 3500);
-
-        splashAd.setSplashConfig(this,
-                new AdPlacement.Builder()
-                        .setAdId(id)
-                        .isCustomSkip(false).setTimeOut(3500).build());
+        splashAd.setSplashConfig(this, id,false,3500);
         splashAd.loadSplashAd(flSplash, new SplashListener() {
             @Override
             public void onError(Integer integer, String s) {
