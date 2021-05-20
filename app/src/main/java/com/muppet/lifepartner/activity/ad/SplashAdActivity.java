@@ -4,12 +4,16 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.baidu.mobad.feeds.RequestParameters;
+import com.baidu.mobads.SplashLpCloseListener;
 import com.muppet.lifepartner.R;
+import com.muppet.lifepartner.activity.ActStart;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 
@@ -63,15 +67,13 @@ public class SplashAdActivity extends AppCompatActivity {
 //                        fetchAd("ca-app-pub-3940256099942544/3419835294");
                         break;
                     case R.id.btn_baidu_splash:
-                        loadBaidu("");
+                        Intent intent = new Intent(SplashAdActivity.this, ActStart.class);
+                        intent.putExtra("splash",200);
+                        startActivity(intent);
                         break;
                 }
             }
         });
-    }
-
-    private void loadBaidu(String s) {
-
     }
 
 

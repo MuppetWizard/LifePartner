@@ -3,6 +3,7 @@ package com.muppet.lifepartner;
 import android.app.Application;
 
 
+import com.baidu.mobads.AdView;
 import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.business.YOUEAdManager;
 
@@ -24,7 +25,7 @@ public class App extends Application {
                 .debug(BuildConfig.DEBUG)
                 .install();*/
         initUEAdSdk();
-
+        AdView.setAppSid(application,"c9f473aa");
     }
 
     private void initUEAdSdk() {

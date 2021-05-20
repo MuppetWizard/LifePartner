@@ -31,6 +31,7 @@ import java.util.Map;
 
 public class RewardVideoActivity extends AppCompatActivity {
 
+    private com.baidu.mobads.rewardvideo.RewardVideoAd reWardVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class RewardVideoActivity extends AppCompatActivity {
         bindView(R.id.btn_temp1_vertical_reward);
         bindView(R.id.btn_temp1_horizontal_reward);
         bindView(R.id.btn_temp2_reward);
-        bindView(R.id.btn_ks_reward);
+        bindView(R.id.btn_bd_reward);
 
     }
 
@@ -64,8 +65,8 @@ public class RewardVideoActivity extends AppCompatActivity {
                     case R.id.btn_temp2_reward:
                         loadRewardVideo("0000000033", YOUEAdConstants.VERTICAL);
                         break;
-                    case R.id.btn_ks_reward:
-
+                    case R.id.btn_bd_reward:
+                        loadBaiduReward("7528547");
                         break;
                 }
 
@@ -73,6 +74,54 @@ public class RewardVideoActivity extends AppCompatActivity {
         });
     }
 
+    private void loadBaiduReward(String id) {
+        if (reWardVideo == null) {
+            reWardVideo = new com.baidu.mobads.rewardvideo.RewardVideoAd(this, id, new com.baidu.mobads.rewardvideo.RewardVideoAd.RewardVideoAdListener() {
+                @Override
+                public void onAdShow() {
+                    Log.d(Constant.TAG,"onAdShow");
+                }
+
+                @Override
+                public void onAdClick() {
+                    Log.d(Constant.TAG,"onAdClick");
+                }
+
+                @Override
+                public void onAdClose(float v) {
+                    Log.d(Constant.TAG,"onAdClick");
+                }
+
+                @Override
+                public void onAdFailed(String s) {
+                    Log.d(Constant.TAG,"onAdFailed:"+s);
+                    reWardVideo.load();
+                }
+
+                @Override
+                public void onVideoDownloadSuccess() {
+                    Log.d(Constant.TAG,"onVideoDownloadSuccess");
+                    if (reWardVideo.isReady()) {
+                        reWardVideo.show();
+                    }
+                }
+
+                @Override
+                public void onVideoDownloadFailed() {
+                    Log.d(Constant.TAG,"onVideoDownloadFailed");
+                }
+
+                @Override
+                public void playCompletion() {
+                    Log.d(Constant.TAG,"playCompletion");
+                }
+            });
+        }
+//        reWardVideo.show();
+
+        reWardVideo.load();
+
+    }
 
     private void loadRewardVideo(String id, int orientation) {
         RewardVideoAd ad = new RewardVideoAd();

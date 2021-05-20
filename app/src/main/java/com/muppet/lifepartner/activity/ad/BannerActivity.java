@@ -15,6 +15,9 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.baidu.mobads.AdView;
+import com.baidu.mobads.AdViewListener;
+import com.baidu.mobads.AppActivity;
 import com.inmobi.ads.InMobiBanner;
 import com.inmobi.ads.listeners.BannerAdEventListener;
 import com.muppet.lifepartner.R;
@@ -36,6 +39,7 @@ import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -54,6 +58,7 @@ public class BannerActivity extends AppCompatActivity {
 //    AdView adView;
 
 
+    private View btnCancel;
     private BannerAd bannerAd;
     private InMobiBanner iBanner;
 
@@ -73,10 +78,13 @@ public class BannerActivity extends AppCompatActivity {
                 .build();
         MobileAds.setRequestConfiguration(configuration);*/
 
+        AppActivity.setActionBarColorTheme(AppActivity.ActionBarColorTheme.ACTION_BAR_WHITE_THEME);
+
         bindView(R.id.btn_csj_banner);
         bindView(R.id.btn_gdt_banner);
         bindView(R.id.btn_gg_banner);
         bindView(R.id.btn_imb_banner);
+        bindView(R.id.btn_bd_banner);
     }
 
     private void bindView(@IdRes int id) {
@@ -90,6 +98,12 @@ public class BannerActivity extends AppCompatActivity {
                 }
                 if (v.getId() == R.id.btn_gdt_banner){
                     loadBanner("0000000040");
+                }
+                if (v.getId() == R.id.btn_bd_banner) {
+                    //3:2
+//                    loadBaiduBanner("7528551");
+                    //20:3
+                    loadBaiduBanner("7528544");
                 }
                 if (v.getId() == R.id.btn_gg_banner) {
 //                    loadGGBanner();
@@ -132,7 +146,7 @@ public class BannerActivity extends AppCompatActivity {
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,120)
+                        .setExpressViewAcceptedSize(expressViewWidth,320)
                         .isCarousel(false)
                         .build()
         );
@@ -214,7 +228,51 @@ public class BannerActivity extends AppCompatActivity {
         });
     }
 
+    private void loadBaiduBanner(String id) {
+        btnCancel = getLayoutInflater().inflate(R.layout.btn_cancel,null);
+        btnCancel.setVisibility(View.GONE);
+        AdView adView = new AdView(this, id);
+        adView.setListener(new AdViewListener() {
+            @Override
+            public void onAdReady(AdView adView) {
+                Log.d(Constant.TAG,"onAdReady");
+//                flBanner.removeAllViews();
+            }
 
+            @Override
+            public void onAdShow(JSONObject jsonObject) {
+                Log.d(Constant.TAG,"onAdShow:"+jsonObject);
+                btnCancel.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAdClick(JSONObject jsonObject) {
+                Log.d(Constant.TAG,"onAdClick:"+jsonObject);
+            }
+
+            @Override
+            public void onAdFailed(String s) {
+                Log.d(Constant.TAG,"onAdFailed:"+s);
+            }
+
+            @Override
+            public void onAdSwitch() {
+                Log.d(Constant.TAG,"onAdSwitch");
+            }
+
+            @Override
+            public void onAdClose(JSONObject jsonObject) {
+                Log.d(Constant.TAG,"onAdClose"+ jsonObject);
+            }
+        });
+        flBanner.addView(adView);
+        flBanner.addView(btnCancel);
+        btnCancel.setOnClickListener(v -> {
+//            adView.removeAllViews();
+//            flBanner.removeView(btnCancel);
+            flBanner.removeAllViews();
+        });
+    }
 
 /*    private void loadGGBanner() {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);

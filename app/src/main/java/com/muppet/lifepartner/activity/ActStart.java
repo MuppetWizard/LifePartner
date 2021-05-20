@@ -2,46 +2,50 @@ package com.muppet.lifepartner.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.mobad.feeds.RequestParameters;
+import com.baidu.mobads.SplashLpCloseListener;
 import com.muppet.lifepartner.R;
-import com.muppet.lifepartner.activity.ad.SplashVPlusAd;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.CookieUtil;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.view.UserA;
 import com.youyi.yesdk.ad.SplashAd;
-import com.youyi.yesdk.business.AdPlacement;
-import com.youyi.yesdk.comm.bean.BannerAdMode;
-import com.youyi.yesdk.comm.bean.SplashAdMode;
-import com.youyi.yesdk.comm.platform.csj.TTBanner;
 import com.youyi.yesdk.listener.SplashListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+
+
 public class ActStart extends AppCompatActivity{
 
     private int mCount;
 
     private SplashAd splashAd;
+    private com.baidu.mobads.SplashAd baiduSplash;
     private FrameLayout flSplash;
 
+    private View skip;
+
+
+    private int splashType = -1;
     private boolean canJump = false;
 
 
@@ -51,12 +55,21 @@ public class ActStart extends AppCompatActivity{
         setContentView(R.layout.act_start);
         initStatusBar();
         flSplash = findViewById(R.id.fl_splash);
+
         mCount = (int) CookieUtil.get("isFirst",0);
         if (mCount == 0) {
             UserA dialog = new UserA(this);
             dialog.show();
         }else {
-            loadSplash("0000000032");
+            Intent intent = getIntent();
+            if (intent != null && intent.hasExtra("splash")) {
+                splashType = intent.getIntExtra("splash", -1);
+                if (splashType == 200) {
+                    loadBaidu("7528454");
+                }
+            }else {
+                loadSplash("0000000032");
+            }
         }
     }
 
@@ -75,13 +88,90 @@ public class ActStart extends AppCompatActivity{
         canJump = false;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (baiduSplash != null) {
+            baiduSplash.destroy();
+            baiduSplash = null;
+        }
+    }
+
     private void initStatusBar() {
         StatusUtils.setSystemStatus(this, true, true);
         FrameLayout llTop = findViewById(R.id.top);
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this), 0, 0);
     }
 
+    private void loadBaidu(String id) {
+        skip = getLayoutInflater().inflate(R.layout.btn_skip,null);
 
+        TextView tvSkip = skip.findViewById(R.id.ue_tv_skip);
+
+        skip.setVisibility(View.GONE);
+        CountDownTimer timer =  new CountDownTimer(6 * 1000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                tvSkip.setText(String.format(getResources().getString(R.string.ue_skip),millisUntilFinished / 1000) );
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        };
+
+        final RequestParameters parameters = new RequestParameters.Builder()
+                .setHeight(1920)
+                .setWidth(1080)
+                .build();
+        final SplashLpCloseListener listener = new SplashLpCloseListener() {
+            @Override
+            public void onLpClosed() {
+                Log.d(Constant.TAG,"onLpClosed");
+                gotoMainActivity();
+            }
+
+            @Override
+            public void onAdPresent() {
+                Log.d(Constant.TAG,"onAdPresent");
+                flSplash.addView(skip);
+                skip.setVisibility(View.VISIBLE);
+                timer.start();
+            }
+
+            @Override
+            public void onAdDismissed() {
+                Log.d(Constant.TAG,"onAdDismissed");
+                timer.cancel();
+                gotoMainActivity();
+            }
+
+            @Override
+            public void onADLoaded() {
+                Log.d(Constant.TAG,"onADLoaded");
+                 HashMap map = baiduSplash.getExtData();
+                Log.d(Constant.TAG,"data  "+map.toString());
+            }
+
+            @Override
+            public void onAdFailed(String s) {
+                Log.d(Constant.TAG,"onAdFailed  "+s);
+                timer.cancel();
+                gotoMainActivity();
+            }
+
+            @Override
+            public void onAdClick() {
+                Log.d(Constant.TAG,"onAdClick");
+            }
+        };
+
+        baiduSplash = new com.baidu.mobads.SplashAd(this, flSplash, listener, id, true, parameters,3500);
+        tvSkip.setOnClickListener(v -> {
+            listener.onAdDismissed();
+        });
+    }
 
     private void loadSplash(String id) {
         splashAd = new SplashAd();
@@ -145,13 +235,14 @@ public class ActStart extends AppCompatActivity{
 
     }
 
-
-
     private void gotoMainActivity() {
         if (canJump) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            if (splashType == -1) {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
             finish();
+            Log.d(Constant.TAG,"Jumped");
         }else {
             canJump = true;
         }
