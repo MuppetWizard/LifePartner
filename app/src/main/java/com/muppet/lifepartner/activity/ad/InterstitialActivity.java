@@ -36,6 +36,8 @@ public class InterstitialActivity extends AppCompatActivity {
 
     private InterstitialAd interstitialAd;
 
+    private com.baidu.mobads.InterstitialAd baiDuInterstitial;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +46,7 @@ public class InterstitialActivity extends AppCompatActivity {
         initStatusBar();
         bindView(R.id.btn_vertical_cha);
         bindView(R.id.btn_horizontal_cha);
-        bindView(R.id.btn_ks_cha);
+        bindView(R.id.btn_bd_cha);
     }
 
     private void bindView(@IdRes int id) {
@@ -58,8 +60,8 @@ public class InterstitialActivity extends AppCompatActivity {
                     case R.id.btn_horizontal_cha:
                         loadInterstitial("0000000112",false);
                         break;
-                    case R.id.btn_ks_cha:
-
+                    case R.id.btn_bd_cha:
+                        loadBaiduChaping("7528546");
                         break;
                 }
             }
@@ -80,6 +82,44 @@ public class InterstitialActivity extends AppCompatActivity {
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
     }
 
+    private void loadBaiduChaping(String id) {
+        baiDuInterstitial = new com.baidu.mobads.InterstitialAd(this,id);
+        baiDuInterstitial.setListener(baiDuListener());
+        baiDuInterstitial.loadAd();
+        if (baiDuInterstitial.isAdReady()) {
+        }
+
+    }
+
+    private com.baidu.mobads.InterstitialAdListener baiDuListener() {
+        return new com.baidu.mobads.InterstitialAdListener() {
+            @Override
+            public void onAdReady() {
+                Log.d(Constant.TAG,"onAdReady");
+                baiDuInterstitial.showAd(InterstitialActivity.this);
+            }
+
+            @Override
+            public void onAdPresent() {
+                Log.d(Constant.TAG,"onAdPresent");
+            }
+
+            @Override
+            public void onAdClick(com.baidu.mobads.InterstitialAd interstitialAd) {
+                Log.d(Constant.TAG,"onAdClick");
+            }
+
+            @Override
+            public void onAdDismissed() {
+                Log.d(Constant.TAG,"onAdDismissed");
+            }
+
+            @Override
+            public void onAdFailed(String s) {
+                Log.d(Constant.TAG,"onAdFailed");
+            }
+        };
+    }
 
     private void loadInterstitial(String id,boolean vertical) {
         interstitialAd = new InterstitialAd();

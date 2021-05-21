@@ -61,6 +61,7 @@ public class BannerActivity extends AppCompatActivity {
     private View btnCancel;
     private BannerAd bannerAd;
     private InMobiBanner iBanner;
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,9 +124,9 @@ public class BannerActivity extends AppCompatActivity {
         if (bannerAd != null) {
             bannerAd.destroy();
         }
-        /*if (adView != null) {
+        if (adView != null) {
             adView.destroy();
-        }*/
+        }
 //        if (iBanner != null) {
 //            iBanner.destroy();
 //        }
@@ -231,8 +232,8 @@ public class BannerActivity extends AppCompatActivity {
     private void loadBaiduBanner(String id) {
         btnCancel = getLayoutInflater().inflate(R.layout.btn_cancel,null);
         btnCancel.setVisibility(View.GONE);
-        AdView adView = new AdView(this, id);
-        adView.setListener(new AdViewListener() {
+        adView = new AdView(this, id);
+        AdViewListener listener = new AdViewListener() {
             @Override
             public void onAdReady(AdView adView) {
                 Log.d(Constant.TAG,"onAdReady");
@@ -264,13 +265,17 @@ public class BannerActivity extends AppCompatActivity {
             public void onAdClose(JSONObject jsonObject) {
                 Log.d(Constant.TAG,"onAdClose"+ jsonObject);
             }
-        });
+        };
+        adView.setListener(listener);
+
         flBanner.addView(adView);
         flBanner.addView(btnCancel);
         btnCancel.setOnClickListener(v -> {
 //            adView.removeAllViews();
 //            flBanner.removeView(btnCancel);
+            listener.onAdClose(null);
             flBanner.removeAllViews();
+//            adView.destroy();
         });
     }
 
