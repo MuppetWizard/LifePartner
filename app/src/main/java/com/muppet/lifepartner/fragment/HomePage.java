@@ -169,13 +169,14 @@ public class HomePage extends SupportFragment implements OnBannerListener {
     private void loadFullScreenVideo(String id, int orientation) {
         fullVideoAd = new FullVideoAd();
         fullVideoAd.setVideoConfig(getActivity(),
-                new UEAdManager()
+                new AdPlacement.Builder()
+                        .setAdId(id)
                         .setExpressViewAcceptedSize(500,500)
                         .setOrientation(orientation)
                         .setMinVideoDuration(5)
                         .setMaxVideoDuration(20)
                         .build());
-        fullVideoAd.loadFullVideo(id, new FullVideoListener() {
+        fullVideoAd.loadFullVideo( new FullVideoListener() {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.d(Constant.TAG,"onError : code: "+ integer+" msg : "+ s);

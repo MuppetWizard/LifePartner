@@ -6,6 +6,7 @@ import android.app.Application;
 import com.baidu.mobads.AdView;
 import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.business.YOUEAdManager;
+import com.youyi.yesdk.comm.holder.GDTAdManagerHolder;
 
 import org.xutils.x;
 
@@ -29,6 +30,7 @@ public class App extends Application {
     }
 
     private void initUEAdSdk() {
+        
         YOUEAdSdk.INSTANCE.initSDK(application,
                 new YOUEAdManager()
                         .appId("000012")

@@ -13,6 +13,7 @@ import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.StreamAd;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.DislikeListener;
 import com.youyi.yesdk.listener.StreamAdExpress;
@@ -65,11 +66,12 @@ public class StreamAdActivity extends AppCompatActivity {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         streamAd = new StreamAd();
         streamAd.setStreamConfig(this,
-                new UEAdManager()
+                new AdPlacement.Builder()
+                        .setAdId(id)
                         .setExpressViewAcceptedSize(expressViewWidth,350f)
                         .setAdCount(3)
                         .build());
-        streamAd.loadStreamAd(id, new StreamAdListener() {
+        streamAd.loadStreamAd(new StreamAdListener() {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.d(Constant.TAG,"onError : code: "+ integer+" msg : "+ s);
@@ -122,27 +124,16 @@ public class StreamAdActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onSelected(int i, String s) {
+            public void onSelected(int i, String s, boolean b) {
                 Log.d(Constant.TAG,"onSelected ");
                 flAdView.removeAllViews();
             }
-
-            /*@Override
-            public void onSelected(int i, String s, boolean b) {
-
-            }*/
 
             @Override
             public void onCancel() {
                 Log.d(Constant.TAG,"onCancel ");
             }
 
-
-            @Override
-            public void onRefuse() {
-                Log.d(Constant.TAG,"onRefuse ");
-
-            }
         });
     }
 }

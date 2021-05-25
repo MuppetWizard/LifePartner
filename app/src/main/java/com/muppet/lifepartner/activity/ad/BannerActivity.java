@@ -18,8 +18,8 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
-import com.inmobi.ads.InMobiBanner;
-import com.inmobi.ads.listeners.BannerAdEventListener;
+
+
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -60,7 +60,6 @@ public class BannerActivity extends AppCompatActivity {
 
     private View btnCancel;
     private BannerAd bannerAd;
-    private InMobiBanner iBanner;
     private AdView adView;
 
     @Override
@@ -141,9 +140,6 @@ public class BannerActivity extends AppCompatActivity {
     private void loadBanner(String id) {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         bannerAd = new BannerAd();
-//        SplashListener listener = new SplashListener;
-
-//        bannerAd.setBannerConfig(this,id, (int) expressViewWidth,120,true);
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
@@ -279,54 +275,7 @@ public class BannerActivity extends AppCompatActivity {
         });
     }
 
-/*    private void loadGGBanner() {
-        float expressViewWidth = UIUtils.getScreenWidthDp(this);
-        int height = toPixelUnits(60);
-        AdRequest adRequest = new AdRequest.Builder().build();
 
-        AdView mAdView = new AdView(this);
-        AdSize adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, (int) expressViewWidth);
-        mAdView.setAdSize(adSize);
-        //测试广告位id
-        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
-//        mAdView.setAdUnitId("ca-app-pub-2343173165030471/3204977521");
-//        FrameLayout.LayoutParams bannerLp = new FrameLayout.LayoutParams((int) expressViewWidth,height );
-//        bannerLp.gravity = Gravity.CENTER_HORIZONTAL;
-        flBanner.removeAllViews();
-        flBanner.addView(mAdView);
-        mAdView.loadAd(adRequest);
-        mAdView.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                Log.d(Constant.TAG,"onAdClosed");
-            }
-
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                Log.d(Constant.TAG,"onAdFailedToLoad");
-            }
-
-            @Override
-            public void onAdOpened() {
-                Log.d(Constant.TAG,"onAdOpened");
-            }
-
-            @Override
-            public void onAdLoaded() {
-                Log.d(Constant.TAG,"onAdLoaded");
-            }
-
-            @Override
-            public void onAdClicked() {
-                Log.d(Constant.TAG,"onAdClicked");
-            }
-
-            @Override
-            public void onAdImpression() {
-                Log.d(Constant.TAG,"onAdImpression");
-            }
-        });
-    }*/
 
     private int toPixelUnits(int dipUnit) {
         float density = getResources().getDisplayMetrics().density;

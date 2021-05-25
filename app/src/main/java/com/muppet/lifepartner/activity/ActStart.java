@@ -25,6 +25,7 @@ import com.muppet.lifepartner.util.CookieUtil;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.view.UserA;
 import com.youyi.yesdk.ad.SplashAd;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.SplashListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
@@ -176,7 +177,13 @@ public class ActStart extends AppCompatActivity{
     private void loadSplash(String id) {
         splashAd = new SplashAd();
 //        splashAd.setSplashConfig(this, id, false, 3500);
-        splashAd.setSplashConfig(this, id,false,3500);
+//        splashAd.setSplashConfig(this, id,false,3500);
+        splashAd.setSplashConfig(this,
+                new AdPlacement.Builder()
+                        .setAdId(id)
+                        .isCustomSkip(false)
+                        .setTimeOut(3500)
+                        .build());
         splashAd.loadSplashAd(flSplash, new SplashListener() {
             @Override
             public void onError(Integer integer, String s) {

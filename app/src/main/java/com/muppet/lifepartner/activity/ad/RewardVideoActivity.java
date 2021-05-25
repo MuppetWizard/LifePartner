@@ -18,6 +18,7 @@ import com.muppet.lifepartner.util.StatusUtils;
 import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.ad.RewardVideoAd;
 import com.youyi.yesdk.ad.YOUEAdConstants;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.RewardListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
@@ -125,14 +126,15 @@ public class RewardVideoActivity extends AppCompatActivity {
 
     private void loadRewardVideo(String id, int orientation) {
         RewardVideoAd ad = new RewardVideoAd();
-        ad.setRewardConfig(this,new UEAdManager()
-//                .setUserID("youe_TEST")
-//                .setCustomData("youe_data")
-                        .setExpressViewAcceptedSize(500f,500f)
-                        .setOrientation(orientation)
-                        .setScenes(YOUEAdConstants.RitScenes.CUSTOMIZE_SCENES,"scenes_test")
-                        .build()
-        ).loadRewardVideo(id, new RewardListener() {
+        ad.setRewardConfig(this,new AdPlacement.Builder()
+                .setAdId(id)
+                .setUserID("youe_TEST")
+                .setCustomData("youe_data")
+                .setExpressViewAcceptedSize(500f,500f)
+                .setOrientation(orientation)
+                .setScenes(YOUEAdConstants.RitScenes.CUSTOMIZE_SCENES,"scenes_test")
+                .build()
+        ).loadRewardVideo( new RewardListener() {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.d(Constant.TAG,"onError : code: "+ integer+" msg : "+ s);
@@ -157,7 +159,7 @@ public class RewardVideoActivity extends AppCompatActivity {
 
             @Override
             public void onReward(@Nullable Boolean aBoolean, @Nullable Integer integer, @Nullable String s, @Nullable Integer integer1, @Nullable String s1, @Nullable Map<String, Object> map) {
-                Log.d(Constant.TAG,"onReward " + aBoolean +" id: "+integer+" msg: "+ s+ " errorC: "+ integer+ " errorM: "+ s1);
+                Log.d(Constant.TAG,"onReward " + aBoolean +" id: "+integer+" msg: "+ s+ " errorC: "+ integer+ " errorM: "+ s1 + " map" + map);
             }
 
             @Override

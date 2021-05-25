@@ -20,6 +20,7 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.DrawStreamAd;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.StreamAdExpress;
 import com.youyi.yesdk.listener.StreamAdInteractionListener;
@@ -104,12 +105,13 @@ public class DrawStreamListActivity extends AppCompatActivity {
         float expressViewHeight = UIUtils.getHeight(this);
         DrawStreamAd drawStreamAd = new DrawStreamAd();
         drawStreamAd.setDrawStreamConfig(this,
-                new UEAdManager()
+                new AdPlacement.Builder()
+                        .setAdId("0000000063")
                         .setAdCount(3)
                         .setCanInterruptVideoPlay(true)
                         .setExpressViewAcceptedSize(expressViewWidth,expressViewHeight)
                         .build());
-        drawStreamAd.loadDrawStreamAd("0000000063", new StreamAdListener() {
+        drawStreamAd.loadDrawStreamAd( new StreamAdListener() {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.d(Constant.TAG,"onError : code: "+ integer+" msg : "+ s);
