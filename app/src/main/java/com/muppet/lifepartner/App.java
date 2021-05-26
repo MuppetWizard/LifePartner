@@ -1,14 +1,21 @@
 package com.muppet.lifepartner;
 
 import android.app.Application;
+import android.util.Log;
 
 
 import com.baidu.mobads.AdView;
+import com.mbridge.msdk.MBridgeSDK;
+import com.mbridge.msdk.out.MBridgeSDKFactory;
+import com.mbridge.msdk.out.SDKInitStatusListener;
+import com.muppet.lifepartner.util.Constant;
 import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.business.YOUEAdManager;
 import com.youyi.yesdk.comm.holder.GDTAdManagerHolder;
 
 import org.xutils.x;
+
+import java.util.Map;
 
 public class App extends Application {
     public static Application application;
@@ -26,7 +33,27 @@ public class App extends Application {
                 .debug(BuildConfig.DEBUG)
                 .install();*/
         initUEAdSdk();
+        initMBSkd("144819","5462e2032d96955e966454fecb8e1580");
+        //测试
+//        initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
         AdView.setAppSid(application,"c9f473aa");
+    }
+
+    private void initMBSkd(String appId,String appKey) {
+
+        MBridgeSDK mbSdk = MBridgeSDKFactory.getMBridgeSDK();
+        Map<String, String> map = mbSdk.getMBConfigurationMap(appId,appKey);
+        mbSdk.init(map, application, new SDKInitStatusListener() {
+            @Override
+            public void onInitSuccess() {
+                Log.d(Constant.TAG, "onInitSuccess");
+            }
+
+            @Override
+            public void onInitFail() {
+                Log.d(Constant.TAG, "onInitFail");
+            }
+        });
     }
 
     private void initUEAdSdk() {

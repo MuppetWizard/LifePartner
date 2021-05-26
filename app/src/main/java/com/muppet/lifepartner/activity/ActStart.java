@@ -19,6 +19,9 @@ import android.widget.Toast;
 
 import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.SplashLpCloseListener;
+import com.mbridge.msdk.out.MBSplashHandler;
+import com.mbridge.msdk.out.MBSplashLoadListener;
+import com.mbridge.msdk.out.MBSplashShowListener;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.CookieUtil;
@@ -33,6 +36,7 @@ import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 
 public class ActStart extends AppCompatActivity{
@@ -42,6 +46,7 @@ public class ActStart extends AppCompatActivity{
     private SplashAd splashAd;
     private com.baidu.mobads.SplashAd baiduSplash;
     private FrameLayout flSplash;
+    private MBSplashHandler mbSplashHandler;
 
     private View skip;
 
@@ -67,6 +72,12 @@ public class ActStart extends AppCompatActivity{
                 splashType = intent.getIntExtra("splash", -1);
                 if (splashType == 200) {
                     loadBaidu("7528454");
+                } else if (splashType == 100) {
+                    loadSplash("0000000032");
+                } else if (splashType == 300) {
+                    loadMBSplash("296049","474417");
+                    //测试
+//                    loadMBSplash("173349","209547");
                 }
             }else {
                 loadSplash("0000000032");
@@ -77,6 +88,9 @@ public class ActStart extends AppCompatActivity{
     @Override
     protected void onResume() {
         super.onResume();
+        if (mbSplashHandler != null) {
+            mbSplashHandler.onResume();
+        }
         if (canJump) {
             gotoMainActivity();
         }
@@ -86,12 +100,18 @@ public class ActStart extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
+        if (mbSplashHandler != null) {
+            mbSplashHandler.onPause();
+        }
         canJump = false;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mbSplashHandler != null) {
+            mbSplashHandler.onDestroy();
+        }
         if (baiduSplash != null) {
             baiduSplash.destroy();
             baiduSplash = null;
@@ -172,6 +192,52 @@ public class ActStart extends AppCompatActivity{
         tvSkip.setOnClickListener(v -> {
             listener.onAdDismissed();
         });
+    }
+
+    private void loadMBSplash(String placementId,String unitId) {
+        mbSplashHandler = new MBSplashHandler(placementId,unitId,true,5);
+        mbSplashHandler.setLoadTimeOut(3500);
+        mbSplashHandler.setSplashLoadListener(new MBSplashLoadListener() {
+            @Override
+            public void onLoadSuccessed(int i) {
+                Log.d(Constant.TAG,"onLoadSuccessed");
+            }
+
+            @Override
+            public void onLoadFailed(String msg, int reqType) {
+                Log.d(Constant.TAG,"onLoadFailed "+msg + reqType);
+                gotoMainActivity();
+            }
+        });
+        mbSplashHandler.setSplashShowListener(new MBSplashShowListener() {
+            @Override
+            public void onShowSuccessed() {
+                Log.d(Constant.TAG,"onShowSuccessed");
+            }
+
+            @Override
+            public void onShowFailed(String s) {
+                Log.d(Constant.TAG,"onShowFailed "+s);
+                gotoMainActivity();
+            }
+
+            @Override
+            public void onAdClicked() {
+                Log.d(Constant.TAG,"onAdClicked");
+            }
+
+            @Override
+            public void onDismiss(int i) {
+                Log.d(Constant.TAG,"onDismiss "+i);
+                gotoMainActivity();
+            }
+
+            @Override
+            public void onAdTick(long l) {
+                Log.d(Constant.TAG,"onAdTick " + l);
+            }
+        });
+        mbSplashHandler.loadAndShow(flSplash);
     }
 
     private void loadSplash(String id) {

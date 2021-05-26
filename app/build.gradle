@@ -72,6 +72,24 @@ dependencies {
 
     //游易
     implementation (name: 'youe_ad_sdk_v1.2.4', ext: 'aar')
+    //Mintegral
+    implementation (name: 'mbridge_appwall', ext: 'aar')
+    implementation (name: 'mbridge_appwallext', ext: 'aar')
+    implementation (name: 'mbridge_chinasame', ext: 'aar')
+    implementation (name: 'mbridge_interactiveads', ext: 'aar')
+    implementation (name: 'mbridge_interstitial', ext: 'aar')
+    implementation (name: 'mbridge_interstitialvideo', ext: 'aar')
+    implementation (name: 'mbridge_mbsplash', ext: 'aar')
+    implementation (name: 'mbridge_mbbanner', ext: 'aar')
+    implementation (name: 'mbridge_mbbid', ext: 'aar')
+    implementation (name: 'mbridge_mbjscommon', ext: 'aar')
+    implementation (name: 'mbridge_mbnative', ext: 'aar')
+    implementation (name: 'mbridge_mbnativeadvanced', ext: 'aar')
+    implementation (name: 'mbridge_nativeex', ext: 'aar')
+    implementation (name: 'mbridge_playercommon', ext: 'aar')
+    implementation (name: 'mbridge_reward', ext: 'aar')
+    implementation (name: 'mbridge_videocommon', ext: 'aar')
+    implementation (name: 'mbridge_videojs', ext: 'aar')
 
     //百度广告
 //    implementation files ('libs/android-query-full.0.26.7.jar')

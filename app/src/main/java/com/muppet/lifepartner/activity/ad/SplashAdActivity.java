@@ -29,16 +29,7 @@ public class SplashAdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_ad);
         initStatusBar();
         initView();
-       /* MobileAds.initialize(
-                this,
-                new OnInitializationCompleteListener() {
-                    @Override
-                    public void onInitializationComplete(InitializationStatus initializationStatus) {}
-                });
-        RequestConfiguration configuration =
-                new RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("A68951C4383404B859F9FBBA32E23523"))
-                        .build();
-        MobileAds.setRequestConfiguration(configuration);*/
+
     }
 
     private void initStatusBar() {
@@ -54,21 +45,31 @@ public class SplashAdActivity extends AppCompatActivity {
         //测试
         bindItem(R.id.btn_google_splash);
         bindItem(R.id.btn_baidu_splash);
+        bindItem(R.id.btn_mb_splash);
     }
 
     private void bindItem(@IdRes int id) {
         findViewById(id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent;
                 switch (v.getId()) {
                     case R.id.btn_my_splash:
+                        intent = new Intent(SplashAdActivity.this,ActStart.class);
+                        intent.putExtra("splash",100);
+                        startActivity(intent);
                         break;
                     case R.id.btn_google_splash:
 //                        fetchAd("ca-app-pub-3940256099942544/3419835294");
                         break;
                     case R.id.btn_baidu_splash:
-                        Intent intent = new Intent(SplashAdActivity.this, ActStart.class);
+                        intent = new Intent(SplashAdActivity.this, ActStart.class);
                         intent.putExtra("splash",200);
+                        startActivity(intent);
+                        break;
+                    case R.id.btn_mb_splash:
+                        intent = new Intent(SplashAdActivity.this, ActStart.class);
+                        intent.putExtra("splash",300);
                         startActivity(intent);
                         break;
                 }

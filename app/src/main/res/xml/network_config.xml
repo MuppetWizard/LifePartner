@@ -2,6 +2,9 @@
 <network-security-config>
     <base-config cleartextTrafficPermitted="true" />
     <domain-config>
+        <!--mintagral-->
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <!--穿山甲抓包设置-->
         <domain includeSubdomains="true">i.snssdk.com</domain>
         <domain includeSubdomains="true">is.snssdk.com</domain>
         <domain includeSubdomains="true">pangolin.snssdk.com</domain>

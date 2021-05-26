@@ -20,6 +20,7 @@ import com.youyi.yesdk.ad.RewardVideoAd;
 import com.youyi.yesdk.ad.YOUEAdConstants;
 import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.business.UEAdManager;
+import com.youyi.yesdk.comm.platform.baidu.BDBanner;
 import com.youyi.yesdk.listener.RewardListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
