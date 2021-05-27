@@ -20,6 +20,8 @@ import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
 
 
+import com.mbridge.msdk.out.BannerSize;
+import com.mbridge.msdk.out.MBBannerView;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -61,6 +63,7 @@ public class BannerActivity extends AppCompatActivity {
     private View btnCancel;
     private BannerAd bannerAd;
     private AdView adView;
+    private MBBannerView mbBannerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,21 +71,13 @@ public class BannerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_banner);
         ButterKnife.bind(this);
         initStatusBar();
-        /*MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-        RequestConfiguration configuration = new RequestConfiguration.Builder()
-                .setTestDeviceIds(Collections.singletonList(""))
-                .build();
-        MobileAds.setRequestConfiguration(configuration);*/
+
 
         AppActivity.setActionBarColorTheme(AppActivity.ActionBarColorTheme.ACTION_BAR_WHITE_THEME);
 
         bindView(R.id.btn_csj_banner);
         bindView(R.id.btn_gdt_banner);
-        bindView(R.id.btn_gg_banner);
+        bindView(R.id.btn_mb_banner);
         bindView(R.id.btn_imb_banner);
         bindView(R.id.btn_bd_banner);
     }
@@ -105,8 +100,8 @@ public class BannerActivity extends AppCompatActivity {
                     //20:3
                     loadBaiduBanner("7528544");
                 }
-                if (v.getId() == R.id.btn_gg_banner) {
-//                    loadGGBanner();
+                if (v.getId() == R.id.btn_mb_banner) {
+                    loadMBBannerAd("138791","146879");
                 }
                 if (v.getId() == R.id.btn_imb_banner) {
 //                    loadInMoBi(1621364045212L);
@@ -129,6 +124,9 @@ public class BannerActivity extends AppCompatActivity {
 //        if (iBanner != null) {
 //            iBanner.destroy();
 //        }
+        if (mbBannerView != null) {
+            mbBannerView = null;
+        }
     }
 
     private void initStatusBar() {
@@ -275,6 +273,59 @@ public class BannerActivity extends AppCompatActivity {
         });
     }
 
+    private void loadMBBannerAd(String placementId, String unitId) {
+        mbBannerView = new MBBannerView(this);
+        float expressViewWidth = UIUtils.getScreenWidthDp(this);
+        mbBannerView.init(new BannerSize(BannerSize.DEV_SET_TYPE, 100,150),placementId,unitId);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,500);
+        mbBannerView.setLayoutParams(params);
+        mbBannerView.setAllowShowCloseBtn(true);
+        mbBannerView.setRefreshTime(30);
+        mbBannerView.setBannerAdListener(new com.mbridge.msdk.out.BannerAdListener() {
+            @Override
+            public void onLoadFailed(String s) {
+                Log.d(Constant.TAG,"onLoadFailed "+ s);
+            }
+
+            @Override
+            public void onLoadSuccessed() {
+                Log.d(Constant.TAG,"onLoadSuccessed");
+            }
+
+            @Override
+            public void onLogImpression() {
+                Log.d(Constant.TAG,"onLogImpression");
+            }
+
+            @Override
+            public void onClick() {
+                Log.d(Constant.TAG,"onClick");
+            }
+
+            @Override
+            public void onLeaveApp() {
+                Log.d(Constant.TAG,"onLeaveApp");
+            }
+
+            @Override
+            public void showFullScreen() {
+                Log.d(Constant.TAG,"showFullScreen");
+            }
+
+            @Override
+            public void closeFullScreen() {
+                Log.d(Constant.TAG,"closeFullScreen");
+            }
+
+            @Override
+            public void onCloseBanner() {
+                Log.d(Constant.TAG,"onCloseBanner");
+                flBanner.removeAllViews();
+            }
+        });
+        mbBannerView.load();
+        flBanner.addView(mbBannerView);
+    }
 
 
     private int toPixelUnits(int dipUnit) {

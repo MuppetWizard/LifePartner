@@ -3,7 +3,6 @@ package com.muppet.lifepartner;
 import android.app.Application;
 import android.util.Log;
 
-
 import com.baidu.mobads.AdView;
 import com.mbridge.msdk.MBridgeSDK;
 import com.mbridge.msdk.out.MBridgeSDKFactory;
@@ -11,7 +10,6 @@ import com.mbridge.msdk.out.SDKInitStatusListener;
 import com.muppet.lifepartner.util.Constant;
 import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.business.YOUEAdManager;
-import com.youyi.yesdk.comm.holder.GDTAdManagerHolder;
 
 import org.xutils.x;
 

@@ -1,8 +1,5 @@
 package com.muppet.lifepartner.activity.ad;
 
-import androidx.annotation.IdRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,16 +8,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.annotation.IdRes;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.mbridge.msdk.MBridgeConstans;
+import com.mbridge.msdk.out.MBRewardVideoHandler;
+import com.mbridge.msdk.out.RewardVideoListener;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
-import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.ad.RewardVideoAd;
 import com.youyi.yesdk.ad.YOUEAdConstants;
 import com.youyi.yesdk.business.AdPlacement;
-import com.youyi.yesdk.business.UEAdManager;
-import com.youyi.yesdk.comm.platform.baidu.BDBanner;
 import com.youyi.yesdk.listener.RewardListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
@@ -28,12 +27,12 @@ import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Map;
 
 public class RewardVideoActivity extends AppCompatActivity {
 
     private com.baidu.mobads.rewardvideo.RewardVideoAd reWardVideo;
+    private MBRewardVideoHandler mbRewardVideoHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +43,7 @@ public class RewardVideoActivity extends AppCompatActivity {
         bindView(R.id.btn_temp1_horizontal_reward);
         bindView(R.id.btn_temp2_reward);
         bindView(R.id.btn_bd_reward);
+        bindView(R.id.btn_mb_reward);
 
     }
 
@@ -70,10 +70,69 @@ public class RewardVideoActivity extends AppCompatActivity {
                     case R.id.btn_bd_reward:
                         loadBaiduReward("7528547");
                         break;
+                    case R.id.btn_mb_reward:
+                        loadMBReward("296580","475142");
                 }
 
             }
         });
+    }
+
+    private void loadMBReward(String placementId, String unitId) {
+        mbRewardVideoHandler = new MBRewardVideoHandler(this,placementId,unitId);
+        mbRewardVideoHandler.setRewardVideoListener(new RewardVideoListener() {
+            @Override
+            public void onVideoLoadSuccess(String placementId, String unitId) {
+                Log.d(Constant.TAG,"onVideoLoadSuccess " + placementId + " : " + unitId);
+                if (mbRewardVideoHandler.isReady()) {
+                    mbRewardVideoHandler.show("1");
+                }
+            }
+
+            @Override
+            public void onLoadSuccess(String s, String s1) {
+                Log.d(Constant.TAG,"onLoadSuccess " + s + " : " + s1);
+
+            }
+
+            @Override
+            public void onVideoLoadFail(String errorMsg) {
+                Log.d(Constant.TAG,"onVideoLoadFail " + errorMsg);
+            }
+
+            @Override
+            public void onAdShow() {
+                Log.d(Constant.TAG,"onAdShow");
+            }
+
+            @Override
+            public void onAdClose(boolean isCompleteView, String rewardName, float rewardAmout) {
+                Log.d(Constant.TAG,"onAdClose "+ isCompleteView + " : "+ rewardName + " : "+rewardAmout);
+            }
+
+            @Override
+            public void onShowFail(String errorMsg) {
+                Log.d(Constant.TAG,"onShowFail " + errorMsg );
+            }
+
+            @Override
+            public void onVideoAdClicked(String s, String s1) {
+                Log.d(Constant.TAG,"onVideoAdClicked " + s + " : " + s1);
+            }
+
+            @Override
+            public void onVideoComplete(String s, String s1) {
+                Log.d(Constant.TAG,"onVideoComplete " + s + " : " + s1);
+            }
+
+            @Override
+            public void onEndcardShow(String s, String s1) {
+                Log.d(Constant.TAG,"onEndcardShow " + s + " : " + s1);
+            }
+        });
+        mbRewardVideoHandler.playVideoMute(MBridgeConstans.REWARD_VIDEO_PLAY_NOT_MUTE);
+        mbRewardVideoHandler.setRewardPlus(true);
+        mbRewardVideoHandler.load();
     }
 
     private void loadBaiduReward(String id) {

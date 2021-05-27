@@ -1,18 +1,19 @@
 package com.muppet.lifepartner.activity.ad;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.mbridge.msdk.interstitialvideo.out.InterstitialVideoListener;
+import com.mbridge.msdk.interstitialvideo.out.MBInterstitialVideoHandler;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -27,9 +28,6 @@ import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class InterstitialActivity extends AppCompatActivity {
@@ -37,6 +35,7 @@ public class InterstitialActivity extends AppCompatActivity {
     private InterstitialAd interstitialAd;
 
     private com.baidu.mobads.InterstitialAd baiDuInterstitial;
+    private MBInterstitialVideoHandler mbInterstitialVideoHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +46,7 @@ public class InterstitialActivity extends AppCompatActivity {
         bindView(R.id.btn_vertical_cha);
         bindView(R.id.btn_horizontal_cha);
         bindView(R.id.btn_bd_cha);
+        bindView(R.id.btn_mb_cha);
     }
 
     private void bindView(@IdRes int id) {
@@ -63,9 +63,72 @@ public class InterstitialActivity extends AppCompatActivity {
                     case R.id.btn_bd_cha:
                         loadBaiduChaping("7528546");
                         break;
+                    case R.id.btn_mb_cha:
+                        loadMBChaping("296503","474882");
                 }
             }
         });
+    }
+
+    private void loadMBChaping(String placementId, String unit) {
+        mbInterstitialVideoHandler = new MBInterstitialVideoHandler(this,placementId,unit);
+        mbInterstitialVideoHandler.setInterstitialVideoListener(new InterstitialVideoListener() {
+            @Override
+            public void onLoadSuccess(String s, String s1) {
+                Log.d(Constant.TAG,"onLoadSuccess "+s+" : "+ s1);
+            }
+
+            @Override
+            public void onVideoLoadSuccess(String s, String s1) {
+                Log.d(Constant.TAG,"onVideoLoadSuccess "+s+" : "+ s1);
+                if (mbInterstitialVideoHandler.isReady()) {
+                    mbInterstitialVideoHandler.show();
+                }
+            }
+
+            @Override
+            public void onVideoLoadFail(String s) {
+                Log.d(Constant.TAG,"onVideoLoadFail "+s);
+            }
+
+            @Override
+            public void onAdShow() {
+                Log.d(Constant.TAG,"onAdShow ");
+            }
+
+            @Override
+            public void onAdClose(boolean b) {
+                Log.d(Constant.TAG,"onAdClose ");
+            }
+
+            @Override
+            public void onShowFail(String s) {
+                Log.d(Constant.TAG,"onShowFail ");
+            }
+
+            @Override
+            public void onVideoAdClicked(String s, String s1) {
+                Log.d(Constant.TAG,"onVideoAdClicked "+s+" : "+ s1);
+            }
+
+            @Override
+            public void onVideoComplete(String s, String s1) {
+                Log.d(Constant.TAG,"onVideoComplete "+s+" : "+ s1);
+            }
+
+            @Override
+            public void onAdCloseWithIVReward(boolean b, int i) {
+                Log.d(Constant.TAG,"onAdCloseWithIVReward ");
+            }
+
+            @Override
+            public void onEndcardShow(String s, String s1) {
+                Log.d(Constant.TAG,"onEndcardShow "+s+" : "+ s1);
+            }
+        });
+
+        mbInterstitialVideoHandler.load();
+
     }
 
     @Override
