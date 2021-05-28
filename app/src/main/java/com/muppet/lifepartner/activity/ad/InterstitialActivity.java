@@ -6,14 +6,21 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.mbridge.msdk.MBridgeConstans;
 import com.mbridge.msdk.interstitialvideo.out.InterstitialVideoListener;
 import com.mbridge.msdk.interstitialvideo.out.MBInterstitialVideoHandler;
+import com.mbridge.msdk.out.AutoPlayMode;
+import com.mbridge.msdk.out.MBMultiStateEnum;
+import com.mbridge.msdk.out.MBNativeAdvancedHandler;
+import com.mbridge.msdk.out.NativeAdvancedAdListener;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -27,6 +34,8 @@ import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.ButterKnife;
 
@@ -36,6 +45,9 @@ public class InterstitialActivity extends AppCompatActivity {
 
     private com.baidu.mobads.InterstitialAd baiDuInterstitial;
     private MBInterstitialVideoHandler mbInterstitialVideoHandler;
+    private MBNativeAdvancedHandler mbNativeAdvancedHandler;
+
+    private FrameLayout flContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +59,8 @@ public class InterstitialActivity extends AppCompatActivity {
         bindView(R.id.btn_horizontal_cha);
         bindView(R.id.btn_bd_cha);
         bindView(R.id.btn_mb_cha);
+        bindView(R.id.btn_mb_autoRender);
+        flContainer = findViewById(R.id.fl_container);
     }
 
     private void bindView(@IdRes int id) {
@@ -65,9 +79,48 @@ public class InterstitialActivity extends AppCompatActivity {
                         break;
                     case R.id.btn_mb_cha:
                         loadMBChaping("296503","474882");
+                        break;
+                    case R.id.btn_mb_autoRender:
+                        try {
+                            loadMBNativeChaping("296821","475735");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        break;
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mbNativeAdvancedHandler != null) {
+            mbNativeAdvancedHandler.onResume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mbNativeAdvancedHandler != null)
+        mbNativeAdvancedHandler.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
+        if(mbNativeAdvancedHandler != null)
+            mbNativeAdvancedHandler.release();
+    }
+
+    private void initStatusBar() {
+        StatusUtils.setSystemStatus(this,true,true);
+        RelativeLayout llTop = findViewById(R.id.top);
+        llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
     }
 
     private void loadMBChaping(String placementId, String unit) {
@@ -131,18 +184,83 @@ public class InterstitialActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (interstitialAd != null) {
-            interstitialAd.destroy();
-        }
-    }
+    private void loadMBNativeChaping(String placementId, String unitId) throws JSONException {
+        ViewGroup mbNativeAdvancedView;
+        mbNativeAdvancedHandler = new MBNativeAdvancedHandler(this,placementId,unitId);
+        String style = "{\n" +
+                "\t\"list\": [{\n" +
+                "\t\t\"target\": \"title\",\n" +
+                "\t\t\"values\": {\n" +
+                "\t\t\t\"paddingLeft\": 15,\n" +
+                "\t\t\t\"backgroundColor\": \"yellow\",\n" +
+                "\t\t\t\"fontSize\": 15,\n" +
+                "\t\t\t\"fontFamily\": \"微软雅黑\",\n" +
+                "\t\t\t\"color\": \"red\"\n" +
+                "\t\t}\n" +
+                "\t}, {\n" +
+                "\t\t\"target\": \"mediaContent\",\n" +
+                "\t\t\"values\": {\n" +
+                "\t\t\t\"paddingTop\": 10,\n" +
+                "\t\t\t\"paddingRight\": 10,\n" +
+                "\t\t\t\"paddingBottom\": 10,\n" +
+                "\t\t\t\"paddingLeft\": 10,\n" +
+                "\t\t}\n" +
+                "\t}]\n" +
+                "}";
 
-    private void initStatusBar() {
-        StatusUtils.setSystemStatus(this,true,true);
-        LinearLayout llTop = findViewById(R.id.top);
-        llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
+        JSONObject jsonObject = new JSONObject(style);
+        mbNativeAdvancedHandler.setViewElementStyle(jsonObject);
+        mbNativeAdvancedHandler.setNativeViewSize(320,250);
+        mbNativeAdvancedHandler.setPlayMuteState(MBridgeConstans.REWARD_VIDEO_PLAY_NOT_MUTE);
+        mbNativeAdvancedHandler.setCloseButtonState(MBMultiStateEnum.negative);
+        mbNativeAdvancedHandler.autoLoopPlay(AutoPlayMode.PLAY_WHEN_NETWORK_IS_WIFI);
+        mbNativeAdvancedHandler.setAdListener(new NativeAdvancedAdListener() {
+            @Override
+            public void onLoadFailed(String msg) {
+                Log.d(Constant.TAG,"onLoadFailed "+msg);
+            }
+
+            @Override
+            public void onLoadSuccessed() {
+                Log.d(Constant.TAG,"onLoadSuccessed ");
+            }
+
+            @Override
+            public void onLogImpression() {
+                Log.d(Constant.TAG,"onLonLogImpressionoadFailed ");
+            }
+
+            @Override
+            public void onClick() {
+                Log.d(Constant.TAG,"onClick ");
+            }
+
+            @Override
+            public void onLeaveApp() {
+                Log.d(Constant.TAG,"onLeaveApp ");
+            }
+
+            @Override
+            public void showFullScreen() {
+                Log.d(Constant.TAG,"showFullScreen ");
+            }
+
+            @Override
+            public void closeFullScreen() {
+                Log.d(Constant.TAG,"closeFullScreen ");
+            }
+
+            @Override
+            public void onClose() {
+                Log.d(Constant.TAG,"onClose ");
+            }
+        });
+
+        mbNativeAdvancedHandler.load();
+        if (mbNativeAdvancedHandler.isReady()) {
+            mbNativeAdvancedView = mbNativeAdvancedHandler.getAdViewGroup();
+            flContainer.addView(mbNativeAdvancedView);
+        }
     }
 
     private void loadBaiduChaping(String id) {

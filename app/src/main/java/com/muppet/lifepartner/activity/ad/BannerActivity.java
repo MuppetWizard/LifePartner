@@ -1,52 +1,35 @@
 package com.muppet.lifepartner.activity.ad;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+
+import androidx.annotation.IdRes;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
-
-
 import com.mbridge.msdk.out.BannerSize;
 import com.mbridge.msdk.out.MBBannerView;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
-
-
 import com.youyi.yesdk.ad.BannerAd;
-import com.youyi.yesdk.ad.SplashAd;
-import com.youyi.yesdk.ad.YOUEAdConstants;
 import com.youyi.yesdk.business.AdPlacement;
-import com.youyi.yesdk.comm.network.NetWorkUtils;
 import com.youyi.yesdk.listener.BannerAdListener;
-import com.youyi.yesdk.listener.SplashListener;
-import com.youyi.yesdk.listener.StreamAdInteractionListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONObject;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,7 +61,6 @@ public class BannerActivity extends AppCompatActivity {
         bindView(R.id.btn_csj_banner);
         bindView(R.id.btn_gdt_banner);
         bindView(R.id.btn_mb_banner);
-        bindView(R.id.btn_imb_banner);
         bindView(R.id.btn_bd_banner);
     }
 
@@ -101,13 +83,11 @@ public class BannerActivity extends AppCompatActivity {
                     loadBaiduBanner("7528544");
                 }
                 if (v.getId() == R.id.btn_mb_banner) {
-                    loadMBBannerAd("138791","146879");
+                    loadMBBannerAd("296241","474273");
+                    //test
+//                    loadMBBannerAd("138791","146879");
                 }
-                if (v.getId() == R.id.btn_imb_banner) {
-//                    loadInMoBi(1621364045212L);
-                    //测试
-//                    loadInMoBi(1431977751489005L);
-                }
+
             }
         });
     }
@@ -121,9 +101,7 @@ public class BannerActivity extends AppCompatActivity {
         if (adView != null) {
             adView.destroy();
         }
-//        if (iBanner != null) {
-//            iBanner.destroy();
-//        }
+
         if (mbBannerView != null) {
             mbBannerView = null;
         }
