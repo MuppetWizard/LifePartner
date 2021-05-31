@@ -9,7 +9,7 @@
     tools:context=".activity.ad.StreamAdActivity">
     <FrameLayout
         android:id="@+id/fl_ad"
-        android:background="@color/app_light_blue"
+        android:background="@color/app_mainColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

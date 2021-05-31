@@ -1,5 +1,6 @@
 package com.muppet.lifepartner.activity.ad;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -207,9 +208,10 @@ public class BannerActivity extends AppCompatActivity {
         adView = new AdView(this, id);
         AdViewListener listener = new AdViewListener() {
             @Override
-            public void onAdReady(AdView adView) {
+            public void onAdReady(AdView view) {
                 Log.d(Constant.TAG,"onAdReady");
 //                flBanner.removeAllViews();
+
             }
 
             @Override
@@ -239,23 +241,24 @@ public class BannerActivity extends AppCompatActivity {
             }
         };
         adView.setListener(listener);
-
+        adView.addView(btnCancel);
         flBanner.addView(adView);
-        flBanner.addView(btnCancel);
+//        flBanner.addView(btnCancel);
         btnCancel.setOnClickListener(v -> {
 //            adView.removeAllViews();
 //            flBanner.removeView(btnCancel);
             listener.onAdClose(null);
-            flBanner.removeAllViews();
+            adView.removeAllViews();
 //            adView.destroy();
         });
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private void loadMBBannerAd(String placementId, String unitId) {
         mbBannerView = new MBBannerView(this);
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         mbBannerView.init(new BannerSize(BannerSize.DEV_SET_TYPE, 100,150),placementId,unitId);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,500);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,100);
         mbBannerView.setLayoutParams(params);
         mbBannerView.setAllowShowCloseBtn(true);
         mbBannerView.setRefreshTime(30);
@@ -302,6 +305,7 @@ public class BannerActivity extends AppCompatActivity {
             }
         });
         mbBannerView.load();
+        //MB平台无法更改背景色
         flBanner.addView(mbBannerView);
     }
 

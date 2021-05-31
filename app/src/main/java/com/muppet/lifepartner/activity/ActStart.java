@@ -1,21 +1,19 @@
 package com.muppet.lifepartner.activity;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.SplashLpCloseListener;
@@ -36,7 +34,6 @@ import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
-import java.util.logging.Logger;
 
 
 public class ActStart extends AppCompatActivity{
@@ -75,9 +72,9 @@ public class ActStart extends AppCompatActivity{
                 } else if (splashType == 100) {
                     loadSplash("0000000032");
                 } else if (splashType == 300) {
-                    loadMBSplash("296049","474417");
+//                    loadMBSplash("296049","474417");
                     //测试
-//                    loadMBSplash("173349","209547");
+                    loadMBSplash("173349","209547");
                 }
             }else {
                 loadSplash("0000000032");

@@ -1,20 +1,20 @@
 package com.muppet.lifepartner.activity.ad;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.muppet.lifepartner.App;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.StreamAd;
 import com.youyi.yesdk.business.AdPlacement;
-import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.DislikeListener;
 import com.youyi.yesdk.listener.StreamAdExpress;
 import com.youyi.yesdk.listener.StreamAdInteractionListener;
@@ -108,6 +108,7 @@ public class StreamAdActivity extends AppCompatActivity {
             public void onRenderSuccess(@Nullable View view, float v, float v1) {
                 Log.d(Constant.TAG,"onRenderSuccess ");
                 flAdView.removeAllViews();
+                view.setBackgroundColor(App.application.getResources().getColor(R.color.transparency));
                 flAdView.addView(view);
             }
 
