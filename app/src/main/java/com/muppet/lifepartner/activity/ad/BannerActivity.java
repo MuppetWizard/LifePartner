@@ -124,7 +124,12 @@ public class BannerActivity extends AppCompatActivity {
                         .isCarousel(false)
                         .build()
         );
-        bannerAd.loadAdBanner(flBanner, new BannerAdListener() {
+        bannerAd.loadAdBanner(new BannerAdListener() {
+            @Override
+            public void onLoaded(@Nullable View view) {
+                flBanner.addView(view);
+            }
+
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.e(Constant.TAG,"code:"+integer+" msg: "+ s);

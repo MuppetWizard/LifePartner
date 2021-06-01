@@ -20,17 +20,19 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/logo2"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/logo2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_config"
         tools:replace="android:label">
-        <!--百度-->
+        <activity android:name=".activity.ad.others.ViewTestActivity"></activity>
+        <!-- 百度 -->
         <activity
             android:name="com.baidu.mobads.AppActivity"
             android:configChanges="screenSize|keyboard|keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <provider
             android:name="com.baidu.mobads.openad.BdFileProvider"
             android:authorities="${packageName}.bd.provider"
@@ -41,17 +43,14 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".activity.ad.OtherActivity"/>
-        <activity android:name=".activity.ad.InterstitialActivity" />
-        <!-- 正式 -->
+        <activity android:name=".activity.ad.others.OtherActivity" />
+        <activity android:name=".activity.ad.InterstitialActivity" /> <!-- 正式 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2343173165030471~8840447584" />
-        <!-- 测试 -->
-<!--         <meta-data-->
-<!--         android:name="com.google.android.gms.ads.APPLICATION_ID"-->
-<!--         android:value="ca-app-pub-3940256099942544~3347511713"/>-->
-
+            android:value="ca-app-pub-2343173165030471~8840447584" /> <!-- 测试 -->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.gms.ads.APPLICATION_ID" -->
+        <!-- android:value="ca-app-pub-3940256099942544~3347511713"/> -->
         <activity android:name=".activity.ad.SplashAdActivity" />
         <activity
             android:name=".activity.ad.RewardVideoActivity"

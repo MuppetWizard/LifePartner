@@ -2,11 +2,6 @@ package com.muppet.lifepartner.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +10,11 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.muppet.lifepartner.App;
 import com.muppet.lifepartner.IpAddress;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ActCalendar;
@@ -22,7 +22,6 @@ import com.muppet.lifepartner.activity.ActNews;
 import com.muppet.lifepartner.activity.ActWebview;
 import com.muppet.lifepartner.adapter.HomeNewsAdapter;
 import com.muppet.lifepartner.mode.News;
-import com.muppet.lifepartner.App;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.MyImageLoader;
 import com.muppet.lifepartner.util.UIUtils;
@@ -32,9 +31,7 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.ad.FullVideoAd;
-import com.youyi.yesdk.ad.YOUEAdConstants;
 import com.youyi.yesdk.business.AdPlacement;
-import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.BannerAdListener;
 import com.youyi.yesdk.listener.FullVideoListener;
 
@@ -45,7 +42,6 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -116,7 +112,12 @@ public class HomePage extends SupportFragment implements OnBannerListener {
                         .isCarousel(false)
                         .build()
         );
-        bannerAd.loadAdBanner(flBanner, new BannerAdListener() {
+        bannerAd.loadAdBanner(new BannerAdListener() {
+            @Override
+            public void onLoaded(@Nullable View view) {
+                flBanner.addView(view);
+            }
+
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.e(Constant.TAG,"code:"+integer+" msg: "+ s);

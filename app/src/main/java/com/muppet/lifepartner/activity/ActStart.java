@@ -71,6 +71,7 @@ public class ActStart extends AppCompatActivity{
                     loadBaidu("7528454");
                 } else if (splashType == 100) {
                     loadSplash("0000000032");
+//                    loadSplash("0000000020");
                 } else if (splashType == 300) {
 //                    loadMBSplash("296049","474417");
                     //测试

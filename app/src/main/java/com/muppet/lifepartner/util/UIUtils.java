@@ -23,6 +23,27 @@ import java.lang.reflect.Method;
 
 public class UIUtils {
 
+
+    /**
+     * 获得屏幕宽度px
+     *
+     * @param context
+     * @return
+     */
+    public static int getScreenWidth(Context context) {
+        return context.getResources().getDisplayMetrics().widthPixels;
+    }
+
+    /**
+     * 获得屏幕宽度px
+     *
+     * @param context
+     * @return
+     */
+    public static int getScreenHeight(Context context) {
+        return context.getResources().getDisplayMetrics().heightPixels;
+    }
+
     public static float getScreenWidthDp(Context context){
         final float scale = context.getResources().getDisplayMetrics().density;
         float width = context.getResources().getDisplayMetrics().widthPixels;

@@ -11,10 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.muppet.lifepartner.R;
-import com.muppet.lifepartner.activity.ad.kt.MTSdkManager;
+import com.muppet.lifepartner.activity.ad.others.OtherActivity;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.youyi.yesdk.YOUEAdSdk;
-import com.youyi.yesdk.ad.BannerAd;
 
 public class ActAdMain extends AppCompatActivity {
 
@@ -45,7 +44,7 @@ public class ActAdMain extends AppCompatActivity {
         bindItem(R.id.btn_reward, RewardVideoActivity.class);
         bindItem(R.id.btn_stream, StreamAdActivity.class);
         bindItem(R.id.btn_draw_stream, DrawStreamAdActivity.class);
-        bindItem(R.id.btn_other,OtherActivity.class);
+        bindItem(R.id.btn_other, OtherActivity.class);
 
     }
 

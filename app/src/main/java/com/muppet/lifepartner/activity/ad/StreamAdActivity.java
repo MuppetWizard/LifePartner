@@ -44,7 +44,8 @@ public class StreamAdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ad_test);
         ButterKnife.bind(this);
         initStatusBar();
-        loadStream("0000000058");
+//        loadStream("0000000058");
+        loadStream("0000000184");
     }
 
     @Override
@@ -68,7 +69,7 @@ public class StreamAdActivity extends AppCompatActivity {
         streamAd.setStreamConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,350f)
+                        .setExpressViewAcceptedSize(expressViewWidth, 130f)
                         .setAdCount(3)
                         .build());
         streamAd.loadStreamAd(new StreamAdListener() {
@@ -108,7 +109,8 @@ public class StreamAdActivity extends AppCompatActivity {
             public void onRenderSuccess(@Nullable View view, float v, float v1) {
                 Log.d(Constant.TAG,"onRenderSuccess ");
                 flAdView.removeAllViews();
-                view.setBackgroundColor(App.application.getResources().getColor(R.color.transparency));
+                view.setBackgroundColor(App.application.getResources().getColor(R.color.app_black));
+                
                 flAdView.addView(view);
             }
 

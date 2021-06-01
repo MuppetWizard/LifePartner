@@ -1,15 +1,16 @@
 package com.muppet.lifepartner.activity;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.muppet.lifepartner.R;
@@ -62,7 +63,12 @@ public class ActNews extends AppCompatActivity {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         bannerAd = new BannerAd();
         bannerAd.setBannerConfig(this,id, (int) expressViewWidth,120,false);
-        bannerAd.loadAdBanner(flBanner, new BannerAdListener() {
+        bannerAd.loadAdBanner(new BannerAdListener() {
+            @Override
+            public void onLoaded(@Nullable View view) {
+                flBanner.addView(view);
+            }
+
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.e(Constant.TAG,"code:"+integer+" msg: "+ s);
