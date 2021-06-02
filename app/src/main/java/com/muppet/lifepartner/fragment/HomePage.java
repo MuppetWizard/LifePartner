@@ -97,7 +97,8 @@ public class HomePage extends SupportFragment implements OnBannerListener {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });*/
-        loadBanner("0000000039");
+//        loadBanner("0000000039");
+        loadBanner("0000000021");
 //        loadFullScreenVideo("0000000046", YOUEAdConstants.VERTICAL);
         return view;
     }
@@ -108,14 +109,15 @@ public class HomePage extends SupportFragment implements OnBannerListener {
         bannerAd.setBannerConfig(getActivity(),
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,120)
+                        .setExpressViewAcceptedSize(expressViewWidth,220)
                         .isCarousel(false)
                         .build()
         );
         bannerAd.loadAdBanner(new BannerAdListener() {
             @Override
             public void onLoaded(@Nullable View view) {
-                flBanner.addView(view);
+                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams((int)expressViewWidth,220);
+                flBanner.addView(view,params);
             }
 
             @Override

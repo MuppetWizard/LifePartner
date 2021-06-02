@@ -25,7 +25,7 @@ public class UIUtils {
 
 
     /**
-     * 获得屏幕宽度px
+     * 获得屏幕 宽度px
      *
      * @param context
      * @return
@@ -35,7 +35,7 @@ public class UIUtils {
     }
 
     /**
-     * 获得屏幕宽度px
+     * 获得屏幕 高度px
      *
      * @param context
      * @return

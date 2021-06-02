@@ -22,6 +22,7 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
+import com.muppet.lifepartner.view.YYBannerView;
 import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.BannerAdListener;
@@ -63,6 +64,7 @@ public class BannerActivity extends AppCompatActivity {
         bindView(R.id.btn_gdt_banner);
         bindView(R.id.btn_mb_banner);
         bindView(R.id.btn_bd_banner);
+        bindView(R.id.btn_test);
     }
 
     private void bindView(@IdRes int id) {
@@ -70,9 +72,10 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.btn_csj_banner) {
-                    loadBanner("0000000039");
+//                    loadBanner("0000000039");
                     //162
 //                    loadBanner("0000000110");
+                    loadBanner("0000000021");
                 }
                 if (v.getId() == R.id.btn_gdt_banner){
                     loadBanner("0000000040");
@@ -88,9 +91,22 @@ public class BannerActivity extends AppCompatActivity {
                     //test
 //                    loadMBBannerAd("138791","146879");
                 }
+                if (v.getId() == R.id.btn_test) {
+//                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 500);
+//                    flBanner.setLayoutParams(params);
+                    test();
+                }
 
             }
         });
+    }
+
+    private void test() {
+        YYBannerView view = new YYBannerView(this);
+        float expressViewWidth = UIUtils.getScreenWidth(this);
+        view.setConfig(expressViewWidth,400);
+        view.loadResource("https://img.hlhjapp.com/ad/ad_img.jpg","");
+        flBanner.addView(view);
     }
 
     @Override
@@ -120,13 +136,14 @@ public class BannerActivity extends AppCompatActivity {
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,320)
+                        .setExpressViewAcceptedSize(expressViewWidth,150)
                         .isCarousel(false)
                         .build()
         );
         bannerAd.loadAdBanner(new BannerAdListener() {
             @Override
             public void onLoaded(@Nullable View view) {
+//                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams((int)expressViewWidth,320 );
                 flBanner.addView(view);
             }
 
