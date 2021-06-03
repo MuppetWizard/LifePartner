@@ -72,10 +72,11 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.btn_csj_banner) {
-//                    loadBanner("0000000039");
+                    loadBanner("0000000039");
                     //162
 //                    loadBanner("0000000110");
-                    loadBanner("0000000021");
+                    //test
+//                    loadBanner("0000000021");
                 }
                 if (v.getId() == R.id.btn_gdt_banner){
                     loadBanner("0000000040");
@@ -136,7 +137,7 @@ public class BannerActivity extends AppCompatActivity {
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,150)
+                        .setExpressViewAcceptedSize(expressViewWidth, FrameLayout.LayoutParams.WRAP_CONTENT)
                         .isCarousel(false)
                         .build()
         );
@@ -144,6 +145,7 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onLoaded(@Nullable View view) {
 //                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams((int)expressViewWidth,320 );
+                Log.e(Constant.TAG,"onLoaded");
                 flBanner.addView(view);
             }
 

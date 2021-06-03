@@ -58,6 +58,11 @@ class SplashController(context: Activity) : FrameLayout(context) {
         Log.d(Constant.TAG,"onAttachedToWindow")
     }
 
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        Log.d(Constant.TAG,"onDetachedFromWindow")
+    }
+
     override fun onVisibilityAggregated(isVisible: Boolean) {
         super.onVisibilityAggregated(isVisible)
         Log.d(Constant.TAG,"onVisibilityAggregated")

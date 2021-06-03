@@ -46,7 +46,7 @@ public class ViewTestActivity extends AppCompatActivity {
                         container.addView(splashController);
                         int  minHeight = UIUtils.getScreenHeight(ViewTestActivity.this) ;
                         int minWidth = UIUtils.getScreenWidth(ViewTestActivity.this);
-                        splashController.post(new Runnable() {
+                        container.post(new Runnable() {
                             @Override
                             public void run() {
                                 int actualWidth = splashController.getWidth();

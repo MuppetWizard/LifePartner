@@ -58,7 +58,7 @@ public class App extends Application {
         
         YOUEAdSdk.INSTANCE.initSDK(application,
                 new YOUEAdManager()
-                        .appId("000007")
+                        .appId("000012")
                         .appName("游易-测试")
                         .deBug(true)
                         .setChannel(10)
