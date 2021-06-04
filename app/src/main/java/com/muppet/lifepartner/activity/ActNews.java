@@ -18,6 +18,7 @@ import com.muppet.lifepartner.fragment.NewsListPage;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.BannerAd;
+import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.BannerAdListener;
 
 import org.jetbrains.annotations.Nullable;
@@ -62,7 +63,12 @@ public class ActNews extends AppCompatActivity {
     private void loadAd(String id) {
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         bannerAd = new BannerAd();
-        bannerAd.setBannerConfig(this,id, (int) expressViewWidth,120,false);
+        bannerAd.setBannerConfig(this,
+                new AdPlacement.Builder()
+                        .setAdId(id)
+                        .setExpressViewAcceptedSize(expressViewWidth,120)
+                        .isCarousel(false)
+                        .build());
         bannerAd.loadAdBanner(new BannerAdListener() {
             @Override
             public void onLoaded(@Nullable View view) {

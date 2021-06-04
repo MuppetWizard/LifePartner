@@ -71,7 +71,7 @@ dependencies {
     implementation files('libs/pinyin4j-2.5.0.jar')
 
     //游易
-    implementation (name: 'youe_ad_sdk_v1.2.4', ext: 'aar')
+    implementation (name: 'youe_ad_sdk_v1.3.0', ext: 'aar')
     //Mintegral
     implementation (name: 'mbridge_appwall', ext: 'aar')
     implementation (name: 'mbridge_appwallext', ext: 'aar')

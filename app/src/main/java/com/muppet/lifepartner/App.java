@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.baidu.mobads.AdView;
+import com.baidu.mobads.MobadsPermissionSettings;
 import com.mbridge.msdk.MBridgeSDK;
 import com.mbridge.msdk.out.MBridgeSDKFactory;
 import com.mbridge.msdk.out.SDKInitStatusListener;
@@ -35,6 +36,8 @@ public class App extends Application {
         //测试
 //        initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
         AdView.setAppSid(application,"c9f473aa");
+        MobadsPermissionSettings.setPermissionReadDeviceID(true);
+        MobadsPermissionSettings.setPermissionAppList(true);
     }
 
     private void initMBSkd(String appId,String appKey) {
@@ -59,8 +62,8 @@ public class App extends Application {
         YOUEAdSdk.INSTANCE.initSDK(application,
                 new YOUEAdManager()
                         .appId("000012")
-                        .appName("游易-测试")
-                        .deBug(true)
+                        .appName("游易")
+                        .deBug(false)
                         .setChannel(10)
                         .supportMultiProcess(false)
                         .build()

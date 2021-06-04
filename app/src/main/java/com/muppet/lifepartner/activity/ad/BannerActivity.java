@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -137,16 +138,20 @@ public class BannerActivity extends AppCompatActivity {
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth, FrameLayout.LayoutParams.WRAP_CONTENT)
+                        .setExpressViewAcceptedSize(expressViewWidth,280)
                         .isCarousel(false)
                         .build()
         );
+
+
         bannerAd.loadAdBanner(new BannerAdListener() {
+            View mView = null;
             @Override
             public void onLoaded(@Nullable View view) {
-//                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams((int)expressViewWidth,320 );
+                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(UIUtils.getScreenWidth(BannerActivity.this),ViewGroup.LayoutParams.WRAP_CONTENT );
                 Log.e(Constant.TAG,"onLoaded");
-                flBanner.addView(view);
+                mView = view;
+                flBanner.addView(mView,params);
             }
 
             @Override
@@ -163,6 +168,7 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onClosed() {
                 Log.e(Constant.TAG,"onClosed");
+                flBanner.removeView(mView);
             }
 
             @Override
@@ -230,6 +236,7 @@ public class BannerActivity extends AppCompatActivity {
         btnCancel = getLayoutInflater().inflate(R.layout.btn_cancel,null);
         btnCancel.setVisibility(View.GONE);
         adView = new AdView(this, id);
+
         AdViewListener listener = new AdViewListener() {
             @Override
             public void onAdReady(AdView view) {

@@ -109,7 +109,7 @@ public class HomePage extends SupportFragment implements OnBannerListener {
         bannerAd.setBannerConfig(getActivity(),
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth, FrameLayout.LayoutParams.WRAP_CONTENT)
+                        .setExpressViewAcceptedSize(expressViewWidth, 250)
                         .isCarousel(false)
                         .build()
         );
