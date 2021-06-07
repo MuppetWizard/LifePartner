@@ -78,7 +78,9 @@ public class InterstitialActivity extends AppCompatActivity {
                         loadBaiduChaping("7528546");
                         break;
                     case R.id.btn_mb_cha:
-                        loadMBChaping("296503","474882");
+//                        loadMBChaping("296503","474882");
+                        //debug
+                        loadMBChaping("138781","146869");
                         break;
                     case R.id.btn_mb_autoRender:
                         try {
@@ -127,8 +129,8 @@ public class InterstitialActivity extends AppCompatActivity {
         mbInterstitialVideoHandler = new MBInterstitialVideoHandler(this,placementId,unit);
         mbInterstitialVideoHandler.setInterstitialVideoListener(new InterstitialVideoListener() {
             @Override
-            public void onLoadSuccess(String s, String s1) {
-                Log.d(Constant.TAG,"onLoadSuccess "+s+" : "+ s1);
+            public void onLoadSuccess(String placementId, String unitId) {
+                Log.d(Constant.TAG,"onLoadSuccess "+placementId+" : "+ unitId);
             }
 
             @Override

@@ -71,7 +71,9 @@ public class RewardVideoActivity extends AppCompatActivity {
                         loadBaiduReward("7528547");
                         break;
                     case R.id.btn_mb_reward:
-                        loadMBReward("296580","475142");
+//                        loadMBReward("296580","475142");
+                        //debug
+                        loadMBReward("138786","146874");
                 }
 
             }

@@ -32,9 +32,9 @@ public class App extends Application {
                 .debug(BuildConfig.DEBUG)
                 .install();*/
         initUEAdSdk();
-        initMBSkd("144819","5462e2032d96955e966454fecb8e1580");
+//        initMBSkd("144819","5462e2032d96955e966454fecb8e1580");
         //测试
-//        initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
+        initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
         AdView.setAppSid(application,"c9f473aa");
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionAppList(true);

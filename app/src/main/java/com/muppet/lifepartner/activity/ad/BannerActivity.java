@@ -89,9 +89,9 @@ public class BannerActivity extends AppCompatActivity {
                     loadBaiduBanner("7528544");
                 }
                 if (v.getId() == R.id.btn_mb_banner) {
-                    loadMBBannerAd("296241","474273");
+//                    loadMBBannerAd("296241","474273");
                     //test
-//                    loadMBBannerAd("138791","146879");
+                    loadMBBannerAd("138791","146879");
                 }
                 if (v.getId() == R.id.btn_test) {
 //                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 500);
@@ -122,6 +122,7 @@ public class BannerActivity extends AppCompatActivity {
         }
 
         if (mbBannerView != null) {
+            mbBannerView.release();
             mbBannerView = null;
         }
     }
@@ -288,12 +289,13 @@ public class BannerActivity extends AppCompatActivity {
     private void loadMBBannerAd(String placementId, String unitId) {
         mbBannerView = new MBBannerView(this);
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
-        mbBannerView.init(new BannerSize(BannerSize.DEV_SET_TYPE, 100,150),placementId,unitId);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,100);
+        mbBannerView.init(new BannerSize(BannerSize.DEV_SET_TYPE, 1,1),placementId,unitId);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,400);
         mbBannerView.setLayoutParams(params);
         mbBannerView.setAllowShowCloseBtn(true);
         mbBannerView.setRefreshTime(30);
         mbBannerView.setBannerAdListener(new com.mbridge.msdk.out.BannerAdListener() {
+
             @Override
             public void onLoadFailed(String s) {
                 Log.d(Constant.TAG,"onLoadFailed "+ s);
@@ -302,6 +304,7 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onLoadSuccessed() {
                 Log.d(Constant.TAG,"onLoadSuccessed");
+                flBanner.addView(mbBannerView);
             }
 
             @Override
@@ -337,7 +340,7 @@ public class BannerActivity extends AppCompatActivity {
         });
         mbBannerView.load();
         //MB平台无法更改背景色
-        flBanner.addView(mbBannerView);
+
     }
 
 

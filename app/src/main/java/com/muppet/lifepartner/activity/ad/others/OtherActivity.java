@@ -46,6 +46,7 @@ public class OtherActivity extends AppCompatActivity {
         bindItem(R.id.btn_write);
         bindItem(R.id.btn_read);
         bindItem(R.id.btn_other);
+        tvOutput.setText(TestUtils.INSTANCE.testFor("13465431|65465"));
     }
 
     private void initStatusBar() {
@@ -61,8 +62,8 @@ public class OtherActivity extends AppCompatActivity {
                 Intent intent;
                 switch (v.getId()) {
                     case R.id.btn_write:
-//                        writeMetaData("123456789");
-                        loadImg("https://img.hlhjapp.com/ad/ad_img.jpg");
+                        writeMetaData("123456789");
+//                        loadImg("https://img.hlhjapp.com/ad/ad_img.jpg");
                         break;
                     case R.id.btn_read:
                         tvOutput.setText(readMetaData());

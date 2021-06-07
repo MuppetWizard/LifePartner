@@ -194,7 +194,7 @@ public class ActStart extends AppCompatActivity{
     }
 
     private void loadMBSplash(String placementId,String unitId) {
-        mbSplashHandler = new MBSplashHandler(placementId,unitId,true,5);
+        mbSplashHandler = new MBSplashHandler(this,placementId,unitId,true,5);
         mbSplashHandler.setLoadTimeOut(3500);
         mbSplashHandler.setSplashLoadListener(new MBSplashLoadListener() {
             @Override
@@ -233,7 +233,7 @@ public class ActStart extends AppCompatActivity{
 
             @Override
             public void onAdTick(long l) {
-                Log.d(Constant.TAG,"onAdTick " + l);
+//                Log.d(Constant.TAG,"onAdTick " + l);
             }
         });
         mbSplashHandler.loadAndShow(flSplash);
