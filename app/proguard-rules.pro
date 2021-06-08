@@ -189,3 +189,19 @@
 -keep class com.baidu.mobads.** { *; }
 -keep class com.baidu.mobad.** { *; }
 -keep class com.bun.miitmdid.core.** {*;}
+
+#InMob
+-keepattributes SourceFile,LineNumberTable
+-keep class com.inmobi.** { *; }
+-dontwarn com.inmobi.**
+-dontwarn com.squareup.picasso.**
+#skip the Picasso library classes
+-keep class com.squareup.picasso.** {*;}
+-dontwarn com.squareup.picasso.**
+-dontwarn com.squareup.okhttp.**
+#skip AVID classes
+-keep class com.integralads.avid.library.** {*;}
+#skip IAB classes
+-keep class com.iab.** {*;}
+-dontwarn com.iab.**
+

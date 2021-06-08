@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.muppet.lifepartner.App;
@@ -13,6 +14,13 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
+import com.qq.e.ads.cfg.BrowserType;
+import com.qq.e.ads.nativ.express2.AdEventListener;
+import com.qq.e.ads.nativ.express2.MediaEventListener;
+import com.qq.e.ads.nativ.express2.NativeExpressAD2;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
+import com.qq.e.ads.nativ.express2.VideoOption2;
+import com.qq.e.comm.util.AdError;
 import com.youyi.yesdk.ad.StreamAd;
 import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.DislikeListener;
@@ -38,14 +46,20 @@ public class StreamAdActivity extends AppCompatActivity {
     private StreamAdExpress adInfo;
     private List<StreamAdExpress> mList;
 
+    private NativeExpressAD2 mNativeExpressAD2;
+    private NativeExpressADData2 mNativeExpressADData2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad_test);
         ButterKnife.bind(this);
         initStatusBar();
-//        loadStream("0000000058");
-        loadStream("0000000184");
+
+        bindItemClick(R.id.btn_csj_stream);
+        bindItemClick(R.id.btn_gdt_stream);
+
+
     }
 
     @Override
@@ -61,6 +75,117 @@ public class StreamAdActivity extends AppCompatActivity {
         StatusUtils.setSystemStatus(this,true,true);
         LinearLayout llTop = findViewById(R.id.top);
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
+    }
+
+    private void bindItemClick(@IdRes int view) {
+        findViewById(view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (view) {
+                    case R.id.btn_csj_stream:
+                        //loadStream("0000000058");
+                        loadStream("0000000184");
+                        break;
+                    case R.id.btn_gdt_stream:
+                        loadGDTStream("1081890530378337");
+                        break;
+                }
+            }
+        });
+    }
+
+    private void loadGDTStream(String id) {
+        mNativeExpressAD2 = new NativeExpressAD2(this,id,bindGDTListener());
+        mNativeExpressAD2.setAdSize((int) UIUtils.getScreenWidthDp(this),0);
+        mNativeExpressAD2.setVideoOption2(
+                new VideoOption2.Builder()
+                        .setAutoPlayPolicy(VideoOption2.AutoPlayPolicy.WIFI)
+                        .setAutoPlayMuted(true)
+                        .setDetailPageMuted(false)
+                        .build());
+        mNativeExpressAD2.setBrowserType(BrowserType.Inner);
+        mNativeExpressAD2.loadAd(4);
+    }
+
+    private NativeExpressAD2.AdLoadListener bindGDTListener() {
+        return new NativeExpressAD2.AdLoadListener() {
+            @Override
+            public void onLoadSuccess(List<NativeExpressADData2> list) {
+                Log.d(Constant.TAG,"onLoadSuccess, size: "+list.size());
+                render(list);
+            }
+
+            @Override
+            public void onNoAD(AdError adError) {
+                Log.d(Constant.TAG,"onNoAD:"+ adError.getErrorCode() + " msg: "+adError.getErrorMsg());
+            }
+        };
+    }
+
+    private void render(List<NativeExpressADData2> list) {
+        mNativeExpressADData2 = list.get(0);
+        mNativeExpressADData2.setAdEventListener(new AdEventListener() {
+            @Override
+            public void onClick() {
+                Log.d(Constant.TAG,"onClick");
+            }
+
+            @Override
+            public void onExposed() {
+                Log.d(Constant.TAG,"onExposed");
+            }
+
+            @Override
+            public void onRenderSuccess() {
+                Log.d(Constant.TAG,"onRenderSuccess");
+                flAdView.removeAllViews();
+                if (mNativeExpressADData2.getAdView() != null) {
+                    flAdView.addView(mNativeExpressADData2.getAdView());
+                }
+            }
+
+            @Override
+            public void onRenderFail() {
+                Log.d(Constant.TAG,"onRenderFail");
+            }
+
+            @Override
+            public void onAdClosed() {
+                Log.d(Constant.TAG,"onAdClosed");
+            }
+        });
+        mNativeExpressADData2.setMediaListener(new MediaEventListener() {
+            @Override
+            public void onVideoCache() {
+                Log.d(Constant.TAG,"onVideoCache");
+            }
+
+            @Override
+            public void onVideoStart() {
+                Log.d(Constant.TAG,"onVideoStart");
+            }
+
+            @Override
+            public void onVideoResume() {
+                Log.d(Constant.TAG,"onVideoResume");
+            }
+
+            @Override
+            public void onVideoPause() {
+                Log.d(Constant.TAG,"onVideoPause");
+            }
+
+            @Override
+            public void onVideoComplete() {
+                Log.d(Constant.TAG,"onVideoComplete");
+            }
+
+            @Override
+            public void onVideoError() {
+                Log.d(Constant.TAG,"onVideoError");
+            }
+        });
+        mNativeExpressADData2.render();
     }
 
     private void loadStream(String id) {
@@ -106,7 +231,7 @@ public class StreamAdActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onRenderSuccess(@Nullable View view, float v, float v1) {
+            public void onRenderSuccess(View view, float v, float v1) {
                 Log.d(Constant.TAG,"onRenderSuccess ");
                 flAdView.removeAllViews();
                 view.setBackgroundColor(App.application.getResources().getColor(R.color.app_black));

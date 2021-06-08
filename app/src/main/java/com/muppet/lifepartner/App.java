@@ -35,9 +35,12 @@ public class App extends Application {
 //        initMBSkd("144819","5462e2032d96955e966454fecb8e1580");
         //测试
         initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
+        //baidu
         AdView.setAppSid(application,"c9f473aa");
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionAppList(true);
+        //Inmob
+//        InMobiSdk.init(this, "");
     }
 
     private void initMBSkd(String appId,String appKey) {

@@ -43,6 +43,28 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <!--inMob-->
+        <activity
+            android:name="com.inmobi.rendering.InMobiAdActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+            android:hardwareAccelerated="true"
+            android:resizeableActivity="false"
+            android:theme="@android:style/Theme.NoTitleBar"
+            tools:ignore="UnusedAttribute" />
+        <service
+            android:name="com.inmobi.ads.ApkDownloader$ApkDownloadService"
+            android:enabled="true">
+        </service>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="{appPackageName}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity android:name=".activity.ad.others.OtherActivity" />
         <activity android:name=".activity.ad.InterstitialActivity" /> <!-- 正式 -->
         <meta-data
