@@ -220,29 +220,28 @@ public class StreamAdActivity extends AppCompatActivity {
     private void bindAdListener(StreamAdExpress ad) {
         ad.setStreamAdInteractionListener(new StreamAdInteractionListener() {
             @Override
-            public void onAdClicked(@Nullable View view, int i) {
+            public void onAdClicked() {
                 Log.d(Constant.TAG,"onAdClicked ");
 
             }
 
             @Override
-            public void onAdShow(@Nullable View view, int i) {
+            public void onAdShow() {
                 Log.d(Constant.TAG,"onAdShow ");
             }
 
             @Override
-            public void onRenderSuccess(View view, float v, float v1) {
+            public void onRenderSuccess() {
                 Log.d(Constant.TAG,"onRenderSuccess ");
                 flAdView.removeAllViews();
-                view.setBackgroundColor(App.application.getResources().getColor(R.color.app_black));
+                ad.getStreamView().setBackgroundColor(App.application.getResources().getColor(R.color.app_black));
                 
-                flAdView.addView(view);
+                flAdView.addView(ad.getStreamView());
             }
 
             @Override
-            public void onRenderFailed(@Nullable View view, @Nullable String s, int i) {
-                Log.d(Constant.TAG,"onRenderFailed ");
-
+            public void onRenderFailed(@Nullable Integer integer, @Nullable String s) {
+                Log.d(Constant.TAG,"onRenderFailed: "+ integer + " msg:"+s);
             }
         });
         ad.setStreamAdDislikeCallback(new DislikeListener() {

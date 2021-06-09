@@ -1,34 +1,26 @@
 package com.muppet.lifepartner.activity.ad;
 
-import androidx.annotation.IdRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.baidu.mobads.AdSize;
-import com.baidu.mobads.InterstitialAd;
-import com.baidu.mobads.InterstitialAdListener;
-import com.baidu.mobads.rewardvideo.AbstractScreenVideoAd;
+import androidx.annotation.IdRes;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.baidu.mobads.rewardvideo.FullScreenVideoAd;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
-import com.muppet.lifepartner.util.UIUtils;
-import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.ad.FullVideoAd;
 import com.youyi.yesdk.ad.YOUEAdConstants;
 import com.youyi.yesdk.business.AdPlacement;
-import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.FullVideoListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
@@ -39,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 public class FullscreenVideoActivity extends AppCompatActivity {
 
     private FullVideoAd fullVideoAd;
-    private InterstitialAd mInterstitialAd;
+    private FullScreenVideoAd mFullScreenVideo;
 
     private RelativeLayout mVideoContainer;
     private FrameLayout mContainer;
@@ -59,6 +51,8 @@ public class FullscreenVideoActivity extends AppCompatActivity {
 
         bindView(R.id.btn_vertical_video);
         bindView(R.id.btn_horizontal_video);
+        bindView(R.id.btn_bd_video);
+        bindView(R.id.btn_bd_show_video);
     }
 
     @Override
@@ -86,43 +80,65 @@ public class FullscreenVideoActivity extends AppCompatActivity {
                             break;
                         case R.id.btn_bd_video:
                             loadBaiduVideo("7528545");
+                            //debug
+//                            loadBaiduVideo("7339862");
+                            break;
+                        case R.id.btn_bd_show_video:
+                            if (mFullScreenVideo != null && mFullScreenVideo.isReady()) {
+                                mFullScreenVideo.show();
+                            }else {
+                                Toast.makeText(FullscreenVideoActivity.this,"Not Ready",Toast.LENGTH_SHORT).show();
+                            }
+                            break;
                     }
             }
         });
     }
 
     private void loadBaiduVideo(String id) {
-        mInterstitialAd = new InterstitialAd(this, AdSize.InterstitialForVideoBeforePlay,id);
-        mInterstitialAd.setListener(new InterstitialAdListener() {
+        mFullScreenVideo = new FullScreenVideoAd(this, id, new FullScreenVideoAd.FullScreenVideoAdListener() {
             @Override
-            public void onAdReady() {
-                Log.d(Constant.TAG,"onAdReady");
+            public void onAdShow() {
+                Log.d(Constant.TAG,"onAdShow");
             }
 
             @Override
-            public void onAdPresent() {
-                Log.d(Constant.TAG,"onAdPresent");
-            }
-
-            @Override
-            public void onAdClick(InterstitialAd interstitialAd) {
+            public void onAdClick() {
                 Log.d(Constant.TAG,"onAdClick");
             }
 
             @Override
-            public void onAdDismissed() {
-                Log.d(Constant.TAG,"onAdDismissed");
+            public void onAdClose(float v) {
+                Log.d(Constant.TAG,"onAdClose");
             }
 
             @Override
             public void onAdFailed(String s) {
-                Log.d(Constant.TAG,"onAdFailed:"+s);
+                Log.d(Constant.TAG,"onAdFailed: "+s);
             }
-        });
-        mInterstitialAd.loadAdForVideoApp((int) UIUtils.getScreenWidthDp(FullscreenVideoActivity.this),500);
-        if (mInterstitialAd.isAdReady()) {
-            mInterstitialAd.showAdInParentForVideoApp(this,mVideoContainer);
-        }
+
+            @Override
+            public void onVideoDownloadSuccess() {
+                Log.d(Constant.TAG,"onVideoDownloadSuccess");
+            }
+
+            @Override
+            public void onVideoDownloadFailed() {
+                Log.d(Constant.TAG,"onVideoDownloadFailed");
+            }
+
+            @Override
+            public void playCompletion() {
+                Log.d(Constant.TAG,"playCompletion");
+            }
+
+            @Override
+            public void onAdSkip(float v) {
+                Log.d(Constant.TAG,"onAdSkip");
+            }
+        },false);
+        mFullScreenVideo.load();
+
     }
 
     /*private void loadBaiduVideo(String id) {

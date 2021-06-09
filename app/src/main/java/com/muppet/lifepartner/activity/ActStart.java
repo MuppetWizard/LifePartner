@@ -82,9 +82,9 @@ public class ActStart extends AppCompatActivity{
                     //test
 //                    loadSplash("0000000020");
                 } else if (splashType == 300) {
-//                    loadMBSplash("296049","474417");
+                    loadMBSplash("296049","474417");
                     //测试
-                    loadMBSplash("173349","209547");
+//                    loadMBSplash("173349","209547");
                 }
             }else {
                 loadSplash("0000000032");

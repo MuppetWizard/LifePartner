@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -139,7 +138,7 @@ public class BannerActivity extends AppCompatActivity {
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,280)
+                        .setExpressViewAcceptedSize(expressViewWidth,100)
                         .isCarousel(false)
                         .build()
         );
@@ -149,10 +148,13 @@ public class BannerActivity extends AppCompatActivity {
             View mView = null;
             @Override
             public void onLoaded(@Nullable View view) {
-                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(UIUtils.getScreenWidth(BannerActivity.this),ViewGroup.LayoutParams.WRAP_CONTENT );
-                Log.e(Constant.TAG,"onLoaded");
-                mView = view;
-                flBanner.addView(mView,params);
+//                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(UIUtils.getScreenWidth(BannerActivity.this),ViewGroup.LayoutParams.WRAP_CONTENT );
+                if (view != null) {
+
+                    Log.e(Constant.TAG,"onLoaded");
+                    mView = view;
+                    flBanner.addView(view);
+                }
             }
 
             @Override
@@ -236,6 +238,7 @@ public class BannerActivity extends AppCompatActivity {
     private void loadBaiduBanner(String id) {
         btnCancel = getLayoutInflater().inflate(R.layout.btn_cancel,null);
         btnCancel.setVisibility(View.GONE);
+        FrameLayout container = new FrameLayout(this);
         adView = new AdView(this, id);
 
         AdViewListener listener = new AdViewListener() {
@@ -243,7 +246,7 @@ public class BannerActivity extends AppCompatActivity {
             public void onAdReady(AdView view) {
                 Log.d(Constant.TAG,"onAdReady");
 //                flBanner.removeAllViews();
-
+//                flBanner.addView(container);
             }
 
             @Override
@@ -274,8 +277,8 @@ public class BannerActivity extends AppCompatActivity {
         };
         adView.setListener(listener);
         adView.addView(btnCancel);
+//        container.addView(adView);
         flBanner.addView(adView);
-//        flBanner.addView(btnCancel);
         btnCancel.setOnClickListener(v -> {
 //            adView.removeAllViews();
 //            flBanner.removeView(btnCancel);

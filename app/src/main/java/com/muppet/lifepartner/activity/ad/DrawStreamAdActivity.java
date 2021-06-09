@@ -1,13 +1,11 @@
 package com.muppet.lifepartner.activity.ad;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
@@ -15,12 +13,10 @@ import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.DrawStreamAd;
 import com.youyi.yesdk.business.AdPlacement;
-import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.StreamAdExpress;
 import com.youyi.yesdk.listener.StreamAdInteractionListener;
 import com.youyi.yesdk.listener.StreamAdListener;
 import com.youyi.yesdk.listener.UEVideoListener;
-//import com.bytedance.sdk.openadsdk.*;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -30,6 +26,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+//import com.bytedance.sdk.openadsdk.*;
 
 public class DrawStreamAdActivity extends AppCompatActivity {
 
@@ -95,29 +93,29 @@ public class DrawStreamAdActivity extends AppCompatActivity {
 
     private void bindAdListener(StreamAdExpress ad) {
         ad.setStreamAdInteractionListener(new StreamAdInteractionListener() {
+
             @Override
-            public void onAdClicked(@Nullable View view, int i) {
+            public void onAdClicked() {
                 Log.d(Constant.TAG,"onAdClicked ");
 
             }
 
             @Override
-            public void onAdShow(@Nullable View view, int i) {
+            public void onAdShow() {
                 Log.d(Constant.TAG,"onAdShow ");
             }
 
             @Override
-            public void onRenderSuccess(@Nullable View view, float v, float v1) {
+            public void onRenderSuccess() {
                 Log.d(Constant.TAG,"onRenderSuccess ");
                 flAdContainer.removeAllViews();
-                flAdContainer.addView(view);
+                flAdContainer.addView(ad.getStreamView());
             }
-
             @Override
-            public void onRenderFailed(@Nullable View view, @Nullable String s, int i) {
-                Log.d(Constant.TAG,"onRenderFailed ");
-
+            public void onRenderFailed(@Nullable Integer integer, @Nullable String s) {
+                Log.d(Constant.TAG,"onRenderFailed: "+ integer + " msg:"+s);
             }
+
         });
         ad.setStreamVideoAdListener(new UEVideoListener() {
             @Override

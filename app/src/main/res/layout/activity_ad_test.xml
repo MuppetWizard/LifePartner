@@ -15,7 +15,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="穿山甲信息流简单示例"
+        android:text="信息流简单示例"
         android:gravity="center"
         android:textColor="@color/app_mainColor"
         android:textSize="14sp"

@@ -1,10 +1,5 @@
 package com.muppet.lifepartner.activity.ad;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.OrientationHelper;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +9,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.OrientationHelper;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.dingmouren.layoutmanagergroup.viewpager.OnViewPagerListener;
 import com.dingmouren.layoutmanagergroup.viewpager.ViewPagerLayoutManager;
 import com.muppet.lifepartner.R;
@@ -21,7 +21,6 @@ import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.DrawStreamAd;
 import com.youyi.yesdk.business.AdPlacement;
-import com.youyi.yesdk.business.UEAdManager;
 import com.youyi.yesdk.listener.StreamAdExpress;
 import com.youyi.yesdk.listener.StreamAdInteractionListener;
 import com.youyi.yesdk.listener.StreamAdListener;
@@ -131,25 +130,25 @@ public class DrawStreamListActivity extends AppCompatActivity {
     private void bindInteractionListener(StreamAdExpress ad) {
         ad.setStreamAdInteractionListener(new StreamAdInteractionListener() {
             @Override
-            public void onAdClicked(@Nullable View view, int i) {
+            public void onAdClicked() {
                 Log.d(Constant.TAG,"onAdClicked ");
             }
 
             @Override
-            public void onAdShow(@Nullable View view, int i) {
+            public void onAdShow() {
                 Log.d(Constant.TAG,"onAdShow ");
             }
 
             @Override
-            public void onRenderSuccess(@Nullable View view, float v, float v1) {
+            public void onRenderSuccess() {
                 Log.d(Constant.TAG,"onRenderSuccess ");
                 datas.add(new Item(ad,-1,-1));
                 myAdapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onRenderFailed(@Nullable View view, @Nullable String s, int i) {
-                Log.d(Constant.TAG,"onRenderFailed ");
+            public void onRenderFailed(@Nullable Integer integer, @Nullable String s) {
+                Log.d(Constant.TAG,"onRenderFailed: "+ integer + " msg:"+s);
             }
         });
     }
