@@ -240,8 +240,8 @@ public class StreamAdActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onRenderFailed(@Nullable Integer integer, @Nullable String s) {
-                Log.d(Constant.TAG,"onRenderFailed: "+ integer + " msg:"+s);
+            public void onRenderFailed(@Nullable Integer code, @Nullable String msg) {
+                Log.d(Constant.TAG,"onRenderFailed: "+ code + " msg:"+msg);
             }
         });
         ad.setStreamAdDislikeCallback(new DislikeListener() {

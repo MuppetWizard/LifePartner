@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Demo/Demo.iml" filepath="$PROJECT_DIR$/.idea/modules/Demo/Demo.iml" group="LifePartner/Demo" />
       <module fileurl="file://$PROJECT_DIR$/LifePartner.iml" filepath="$PROJECT_DIR$/LifePartner.iml" group="LifePartner" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ShellCSJ/ShellCSJ.iml" filepath="$PROJECT_DIR$/.idea/modules/ShellCSJ/ShellCSJ.iml" group="LifePartner/ShellCSJ" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="LifePartner/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gdtShell/gdtShell.iml" filepath="$PROJECT_DIR$/.idea/modules/gdtShell/gdtShell.iml" group="LifePartner/gdtShell" />
     </modules>
   </component>
 </project>

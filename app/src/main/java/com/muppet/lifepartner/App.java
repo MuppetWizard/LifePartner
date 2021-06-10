@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.MobadsPermissionSettings;
+import com.inmobi.sdk.InMobiSdk;
 import com.mbridge.msdk.MBridgeSDK;
 import com.mbridge.msdk.out.MBridgeSDKFactory;
 import com.mbridge.msdk.out.SDKInitStatusListener;
@@ -34,7 +35,6 @@ public class App extends Application {
         initUEAdSdk();
 //        initMBSkd("144819","5462e2032d96955e966454fecb8e1580");
         //测试
-//        initMBSkd("","550d78c18791d7e161e788ed734eb064");
         initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
         //baidu
         AdView.setAppSid(application,"c9f473aa");
@@ -43,7 +43,7 @@ public class App extends Application {
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionAppList(true);
         //Inmob
-//        InMobiSdk.init(this, "");
+        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
     }
 
     private void initMBSkd(String appId,String appKey) {

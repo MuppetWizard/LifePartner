@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Life" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -28,381 +29,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca3e134a-f7b1-4367-84ea-3ca4e9a03811" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/consumer-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/libs/classes.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/libs/r-classes.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/androidTest/java/com/youyi/shellcsj/ExampleInstrumentedTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/assets/cid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/assets/tt_mime_type.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/arm64-v8a/libEncryptor.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/arm64-v8a/libbuffer_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/arm64-v8a/libfile_lock_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/arm64-v8a/libnms.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/arm64-v8a/libtobEmbedEncrypt.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi-v7a/libEncryptor.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi-v7a/libbuffer_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi-v7a/libfile_lock_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi-v7a/libnms.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi-v7a/libtobEmbedEncrypt.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi/libEncryptor.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi/libbuffer_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi/libfile_lock_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi/libnms.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/armeabi/libtobEmbedEncrypt.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/mips/libtobEmbedEncrypt.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/mips64/libtobEmbedEncrypt.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/x86/libbuffer_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/x86/libfile_lock_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/x86/libnms.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/x86/libtobEmbedEncrypt.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/x86_64/libbuffer_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/x86_64/libfile_lock_pg.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/x86_64/libnms.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/jni/x86_64/libtobEmbedEncrypt.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/anim/tt_dislike_animation_dismiss.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/anim/tt_dislike_animation_show.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-anydpi-v21/ttdownloader_icon_back_arrow.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-anydpi-v21/ttdownloader_icon_yes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-anydpi-v24/ttdownloader_icon_download.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-hdpi-v21/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-hdpi-v4/ttdownloader_icon_back_arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-hdpi-v4/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-hdpi-v4/ttdownloader_icon_yes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-ldpi-v21/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-ldpi-v4/ttdownloader_icon_back_arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-ldpi-v4/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-ldpi-v4/ttdownloader_icon_yes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-mdpi-v21/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-mdpi-v4/ttdownloader_icon_back_arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-mdpi-v4/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-mdpi-v4/ttdownloader_icon_yes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v21/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_ad_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_ad_logo_reward_full.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_ad_logo_small.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_ad_logo_small_rectangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_app_detail_back_btn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_app_detail_black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_app_detail_info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_back_video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_close_move_details_normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_close_move_details_pressed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_dislike_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_dislike_icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_download_btn_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_download_dialog_btn_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_enlarge_video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_forward_video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_lefterbackicon_titlebar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_lefterbackicon_titlebar_for_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_lefterbackicon_titlebar_press.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_lefterbackicon_titlebar_press_for_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_mute.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_new_pause_video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_new_pause_video_press.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_new_play_video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_normalscreen_loading.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_open_app_detail_download_btn_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_open_app_detail_list_item.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_playable_l_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_refreshing_video_textpage_normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_refreshing_video_textpage_pressed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_reward_dislike_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_right_arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_shadow_fullscreen_top.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_shadow_lefterback_titlebar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_shadow_lefterback_titlebar_press.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_shadow_lefterback_titlebar_press_withoutnight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_shadow_lefterback_titlebar_withoutnight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_shrink_fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_shrink_video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_splash_ad_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_splash_click_bar_go.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_splash_mute.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_splash_unmute.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_star_empty_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_star_full_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_suggestion_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_titlebar_close_drawable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_titlebar_close_for_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_titlebar_close_press.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_titlebar_close_press_for_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_unmute.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_video_close_drawable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_white_lefterbackicon_titlebar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/tt_white_lefterbackicon_titlebar_press.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/ttdownloader_icon_back_arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xhdpi-v4/ttdownloader_icon_yes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xxhdpi-v21/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xxhdpi-v4/ttdownloader_icon_back_arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xxhdpi-v4/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xxhdpi-v4/ttdownloader_icon_yes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xxxhdpi-v21/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xxxhdpi-v4/ttdownloader_icon_back_arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xxxhdpi-v4/ttdownloader_icon_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable-xxxhdpi-v4/ttdownloader_icon_yes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_ad_backup_bk.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_ad_backup_bk2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_ad_cover_btn_begin_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_ad_cover_btn_draw_begin_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_ad_download_progress_bar_horizontal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_ad_logo_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_ad_skip_btn_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_app_detail_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_appdownloader_action_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_appdownloader_action_new_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_appdownloader_ad_detail_download_progress.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_appdownloader_detail_download_success_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_appdownloader_download_progress_bar_horizontal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_appdownloader_download_progress_bar_horizontal_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_appdownloader_download_progress_bar_horizontal_night.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_backup_btn_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_backup_btn_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_browser_download_selector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_browser_progress_style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_circle_solid_mian.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_close_move_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_comment_tv.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_common_download_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_common_download_btn_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_custom_dialog_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_detail_video_btn_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_dislike_bottom_seletor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_dislike_cancle_bg_selector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_dislike_dialog_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_dislike_flowlayout_tv_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_dislike_middle_seletor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_dislike_son_tag.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_dislike_top_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_dislike_top_seletor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_download_corner_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_draw_back_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_install_bk.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_install_btn_bk.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_leftbackbutton_titlebar_photo_preview.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_leftbackicon_selector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_leftbackicon_selector_for_dark.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_mute_btn_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_play_movebar_textpage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_playable_btn_bk.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_playable_progress_style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_refreshing_video_textpage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_reward_countdown_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_reward_full_new_bar_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_reward_full_new_bar_btn_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_reward_full_video_backup_btn_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_reward_video_download_btn_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_seek_progress.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_seek_thumb.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_seek_thumb_fullscreen.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_seek_thumb_fullscreen_press.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_seek_thumb_fullscreen_selector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_seek_thumb_normal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_seek_thumb_press.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_shadow_btn_back.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_shadow_btn_back_withoutnight.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_skip_text_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_splash_click_bar_style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_stop_movebar_textpage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_titlebar_close_seletor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_titlebar_close_seletor_for_dark.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_video_black_desc_gradient.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_video_loading_progress_bar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_video_progress_drawable.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/tt_video_traffic_continue_play_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/ttdownloader_bg_appinfo_btn.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/ttdownloader_bg_appinfo_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/ttdownloader_bg_button_blue_corner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/ttdownloader_bg_kllk_btn1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/ttdownloader_bg_kllk_btn2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/ttdownloader_bg_transparent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/ttdownloader_bg_white_corner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/drawable/ttdownloader_dash_line.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_full_video.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_full_video_new_bar_3_style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_full_video_newstyle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_lite_web_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_middle_page.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_reward_and_full_video_bar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_reward_and_full_video_new_bar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_reward_video_newstyle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_rewardvideo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_rewardvideo_new_bar_3_style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_ttlandingpage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_ttlandingpage_playable.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_video_scroll_landingpage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_activity_videolandingpage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_app_detail_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_app_detail_full_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_app_detail_full_dialog_list_head.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_app_detail_listview_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_app_privacy_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_appdownloader_notification_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_ad.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_ad1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_ad2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_banner_layout1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_banner_layout2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_banner_layout3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_draw.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_feed_horizontal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_feed_img_group.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_feed_img_small.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_feed_vertical.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_feed_video.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_full_reward.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_insert_layout1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_insert_layout2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_backup_insert_layout3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_browser_download_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_browser_titlebar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_browser_titlebar_for_dark.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_common_download_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_custom_dailog_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_dialog_listview_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_dislike_comment_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_dislike_dialog_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_insert_ad_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_install_dialog_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_native_video_ad_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_native_video_img_cover_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_playable_loading_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_playable_view_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_splash_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_top_full_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_top_reward_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_top_reward_dislike_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_video_ad_cover_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_video_detail_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_video_draw_btn_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_video_play_layout_for_live.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_video_traffic_tip.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/tt_video_traffic_tips_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/ttdownloader_activity_app_detail_info.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/ttdownloader_activity_app_privacy_policy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/ttdownloader_dialog_appinfo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/ttdownloader_dialog_select_operation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/layout/ttdownloader_item_permission.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/values-v21/values-v21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/main/res/values/values.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShellCSJ/src/test/java/com/youyi/shellcsj/ExampleUnitTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/consumer-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/libs/classes.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/androidTest/java/com/youyi/gdtshell/ExampleInstrumentedTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/anim/slide_right_in.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/anim/slide_up.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-anydpi-v24/gdt_ic_native_back.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-anydpi-v24/gdt_ic_native_download.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-anydpi-v24/gdt_ic_native_volume_off.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-anydpi-v24/gdt_ic_native_volume_on.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_browse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_enter_fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_exit_fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_express_back_to_port.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_express_close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_express_enter_fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_express_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_express_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_express_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_express_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_native_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_native_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_native_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_native_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_progress_thumb_normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_replay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_seekbar_background.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_seekbar_progress.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-hdpi-v4/gdt_ic_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-ldpi-v4/gdt_ic_native_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-ldpi-v4/gdt_ic_native_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-ldpi-v4/gdt_ic_native_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-ldpi-v4/gdt_ic_native_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-mdpi-v4/gdt_ic_native_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-mdpi-v4/gdt_ic_native_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-mdpi-v4/gdt_ic_native_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-mdpi-v4/gdt_ic_native_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xhdpi-v4/gdt_ic_native_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xhdpi-v4/gdt_ic_native_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xhdpi-v4/gdt_ic_native_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xhdpi-v4/gdt_ic_native_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_browse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_enter_fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_exit_fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_express_back_to_port.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_express_close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_express_enter_fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_express_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_express_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_express_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_express_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_gesture_arrow_down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_gesture_arrow_right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_gesture_hand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_native_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_native_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_native_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_native_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_progress_thumb_normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_replay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_seekbar_background.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_seekbar_progress.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxhdpi-v4/gdt_ic_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxxhdpi-v4/gdt_ic_native_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxxhdpi-v4/gdt_ic_native_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxxhdpi-v4/gdt_ic_native_volume_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/drawable-xxxhdpi-v4/gdt_ic_native_volume_on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/values/values.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/main/res/xml/gdt_file_path.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gdtShell/src/test/java/com/youyi/gdtshell/ExampleUnitTest.java" afterDir="false" />
+    <list default="true" id="ca3e134a-f7b1-4367-84ea-3ca4e9a03811" name="Default Changelist" comment="another">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_0_2_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_0_0_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_0_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_0_0_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_1_0_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_core_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_core_1_2_0_aar.xml" afterDir="false" />
@@ -411,39 +64,31 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_ext_junit_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_ext_junit_1_1_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_2_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_bigkoo_ConvenientBanner_2_1_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_bigkoo_ConvenientBanner_2_1_4_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_lecho_hellocharts_library_1_5_8_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_lecho_hellocharts_library_1_5_8_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_10_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_10_2_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_runtime_10_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_runtime_10_2_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_youth_banner_banner_1_4_10_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_youth_banner_banner_1_4_10_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__me_yokeyword_fragmentation_1_3_6_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__me_yokeyword_fragmentation_core_1_3_6_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_xutils_xutils_3_5_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_xutils_xutils_3_5_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LifePartner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LifePartner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/libs/GDTSDK.unionNormal.aar" beforeDir="false" afterPath="$PROJECT_DIR$/gdtShell/src/main/assets/gdt_plugin/gdtadv2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/libs/youe_ad_sdk_release.aar" beforeDir="false" afterPath="$PROJECT_DIR$/app/libs/youe_ad_sdk_release.aar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/libs/youe_ad_sdk_v1.3.0.aar" beforeDir="false" afterPath="$PROJECT_DIR$/app/libs/youe_ad_sdk_v1.3.0.aar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/activity/ad/DrawStreamAdActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/activity/ad/DrawStreamAdActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/activity/ad/DrawStreamListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/activity/ad/DrawStreamListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/activity/ad/StreamAdActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muppet/lifepartner/activity/ad/StreamAdActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="dbfc68c" />
   <component name="ExternalProjectsData">
@@ -458,6 +103,12 @@
           <activation />
         </task>
         <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/gdtShell">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/ShellCSJ">
           <activation />
         </task>
         <projects_view>
@@ -478,11 +129,6 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="android" type="c8890929:TasksNode$1" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="LifePartner" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -493,10 +139,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Kotlin Script" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin Data Class" />
+        <option value="resourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -508,6 +157,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ProjectId" id="1b7m4zKrumHBXdzx8Ma2rJWgt8O" />
   <component name="ProjectLevelVcsManager">
@@ -515,34 +168,43 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="AnalyzeApkAction.lastApkPath" value="D:/apk/v1.0_3.apk" />
     <property name="ApkExportedModule" value="app" />
-    <property name="BundleExportedModule" value="LifePartner.app" />
+    <property name="BundleExportedModule" value="app" />
+    <property name="DEBUGGABLE_DEVICE" value="xiaomi-mi_8_se-dbfc68c" />
+    <property name="DEBUGGABLE_PROCESS" value="com.muppet.lifepartner" />
+    <property name="DEBUGGER_ID" value="Auto" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_XL_API_29_10" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-04-20T07:34:38.628Z" />
     <property name="ExportApk.ApkPath" value="D:\work_project\LifePartner\app" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="DRAWABLE" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android-custom-viewD:/work_project/LifePartner/app/src/main/java/com/muppet/lifepartner/view/CitySearchEdittext.java_SELECTED" value="CitySearchEdittext" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ShellCSJ/src/main" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="XML" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs" />
     <property name="multi-representation-previewD:/work_project/LifePartner/app/src/main/java/com/muppet/lifepartner/view/CitySearchEdittext.java_selected" value="Custom views" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.1343848098">
       <recent name="com.muppet.lifepartner.activity.ad" />
       <recent name="com.muppet.lifepartner.activity" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\work_project\LifePartner\ShellCSJ\src\main" />
-      <recent name="D:\work_project\LifePartner\ShellCSJ\libs" />
-      <recent name="D:\work_project\LifePartner\gdtShell\src\main" />
-      <recent name="D:\work_project\LifePartner\gdtShell\libs" />
-      <recent name="D:\work_project\LifePartner\app\libs" />
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.muppet.lifepartner.view" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.muppet.lifepartner.activity" />
@@ -555,6 +217,25 @@
       <recent name="com.muppet.lifepartner.activity.ad" />
       <recent name="com.muppet.lifepartner" />
     </key>
+    <key name="android.template.1376103454">
+      <recent name="com.muppet.lifepartner.activity.ad" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work_project\LifePartner\app\libs" />
+      <recent name="D:\work_project\LifePartner\app\src\main\jni" />
+      <recent name="D:\work_project\LifePartner\app\src\main\res\mipmap-xxhdpi" />
+      <recent name="D:\work_project\LifePartner\app\src\main\res\mipmap-mdpi" />
+      <recent name="D:\work_project\LifePartner\app\src\main\java\com\muppet\lifepartner\util" />
+    </key>
+    <key name="android.template.355681666">
+      <recent name="com.muppet.lifepartner.activity.ad" />
+    </key>
+    <key name="android.template.-1085395298">
+      <recent name="com.muppet.lifepartner.activity.ad.others" />
+    </key>
+    <key name="android.template.1331412988">
+      <recent name="com.muppet.lifepartner.activity.ad" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.muppet.lifepartner.util" />
       <recent name="com.muppet.lifepartner.adapter" />
@@ -566,6 +247,57 @@
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="Demo" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -640,10 +372,10 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LifePartner:app [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LifePartner:ShellCSJ [assembleRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ShellCSJ" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -651,7 +383,64 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="signingReport" />
+            <option value="assembleRelease" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LifePartner:ShellCSJ [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ShellCSJ" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LifePartner:gdtShell [assembleRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/gdtShell" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assembleRelease" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LifePartner:gdtShell [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/gdtShell" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -662,7 +451,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.LifePartner [signingReport]" />
-        <item itemvalue="Gradle.LifePartner:app [signingReport]" />
+        <item itemvalue="Gradle.LifePartner:ShellCSJ [assembleRelease]" />
+        <item itemvalue="Gradle.LifePartner:ShellCSJ [assemble]" />
+        <item itemvalue="Gradle.LifePartner:gdtShell [build]" />
+        <item itemvalue="Gradle.LifePartner:gdtShell [assembleRelease]" />
       </list>
     </recent_temporary>
   </component>
@@ -719,7 +511,231 @@
       <option name="project" value="LOCAL" />
       <updated>1618481796555</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="try to fix must to add all aar in project">
+      <created>1618568170636</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1618568170636</updated>
+    </task>
+    <task id="LOCAL-00008" summary="access Google ad">
+      <created>1618913895424</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1618913895424</updated>
+    </task>
+    <task id="LOCAL-00009" summary="another">
+      <created>1618999724548</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1618999724549</updated>
+    </task>
+    <task id="LOCAL-00010" summary="another">
+      <created>1619086981593</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619086981593</updated>
+    </task>
+    <task id="LOCAL-00011" summary="another">
+      <created>1619172787612</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1619172787612</updated>
+    </task>
+    <task id="LOCAL-00012" summary="another">
+      <created>1619345659942</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1619345659942</updated>
+    </task>
+    <task id="LOCAL-00013" summary="ks">
+      <created>1619432384237</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1619432384237</updated>
+    </task>
+    <task id="LOCAL-00014" summary="another">
+      <created>1619518210990</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1619518210990</updated>
+    </task>
+    <task id="LOCAL-00015" summary="another">
+      <created>1619605066992</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1619605066992</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ads">
+      <created>1619691895598</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1619691895598</updated>
+    </task>
+    <task id="LOCAL-00017" summary="another">
+      <created>1619778969172</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1619778969172</updated>
+    </task>
+    <task id="LOCAL-00018" summary="another">
+      <created>1620295544588</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1620295544588</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Ad test">
+      <created>1620382326173</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1620382326173</updated>
+    </task>
+    <task id="LOCAL-00020" summary="ad test">
+      <created>1620468554733</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1620468554733</updated>
+    </task>
+    <task id="LOCAL-00021" summary="another">
+      <created>1620727606303</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1620727606303</updated>
+    </task>
+    <task id="LOCAL-00022" summary="another">
+      <created>1620814350068</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1620814350068</updated>
+    </task>
+    <task id="LOCAL-00023" summary="another">
+      <created>1620986674002</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1620986674002</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat: 百度广告">
+      <created>1621332459775</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1621332459775</updated>
+    </task>
+    <task id="LOCAL-00025" summary="another">
+      <created>1621505613388</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1621505613388</updated>
+    </task>
+    <task id="LOCAL-00026" summary="another">
+      <created>1621591610504</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1621591610504</updated>
+    </task>
+    <task id="LOCAL-00027" summary="another">
+      <created>1621937553921</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1621937553921</updated>
+    </task>
+    <task id="LOCAL-00028" summary="ad: mintagral test">
+      <created>1622024157260</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1622024157260</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat: mintagral 、插屏、bannner、激励视频">
+      <created>1622110011769</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1622110011770</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat: ad test">
+      <created>1622196683271</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1622196683271</updated>
+    </task>
+    <task id="LOCAL-00031" summary="another">
+      <created>1622457901031</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1622457901031</updated>
+    </task>
+    <task id="LOCAL-00032" summary="perf: 自定义开屏广告测试">
+      <created>1622545242085</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1622545242085</updated>
+    </task>
+    <task id="LOCAL-00033" summary="another">
+      <created>1622633818068</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1622633818068</updated>
+    </task>
+    <task id="LOCAL-00034" summary="another">
+      <created>1622718691772</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1622718691772</updated>
+    </task>
+    <task id="LOCAL-00035" summary="perf: 广告测试">
+      <created>1622801537872</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1622801537872</updated>
+    </task>
+    <task id="LOCAL-00036" summary="perf: ad test">
+      <created>1623061066382</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1623061066382</updated>
+    </task>
+    <task id="LOCAL-00037" summary="perf: adtest">
+      <created>1623147211778</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1623147211779</updated>
+    </task>
+    <task id="LOCAL-00038" summary="ad test">
+      <created>1623233413425</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1623233413425</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -742,84 +758,135 @@
     <MESSAGE value="fix bug" />
     <MESSAGE value="add bannerAd &amp; FullScreen Video ad" />
     <MESSAGE value="add streamad &amp; drawStreamAD" />
-    <option name="LAST_COMMIT_MESSAGE" value="add streamad &amp; drawStreamAD" />
+    <MESSAGE value="try to fix must to add all aar in project" />
+    <MESSAGE value="access Google ad" />
+    <MESSAGE value="ks" />
+    <MESSAGE value="ads" />
+    <MESSAGE value="Ad test" />
+    <MESSAGE value="feat: 百度广告" />
+    <MESSAGE value="ad: mintagral test" />
+    <MESSAGE value="feat: mintagral 、插屏、bannner、激励视频" />
+    <MESSAGE value="feat: ad test" />
+    <MESSAGE value="perf: 自定义开屏广告测试" />
+    <MESSAGE value="another" />
+    <MESSAGE value="perf: 广告测试" />
+    <MESSAGE value="perf: ad test" />
+    <MESSAGE value="perf: adtest" />
+    <MESSAGE value="ad test" />
+    <option name="LAST_COMMIT_MESSAGE" value="ad test" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="757" y="335" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617931890886">
+    <state x="363" y="232" key="#PSD" timestamp="1622604099473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="335" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617931890886" />
-    <state x="781" y="278" key="#com.intellij.ide.util.MemberChooser" timestamp="1618366966382">
+    <state x="363" y="232" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1622604099473" />
+    <state x="757" y="335" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618800588402">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="781" y="278" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1618366966382" />
+    <state x="757" y="335" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1618800588402" />
+    <state x="781" y="278" key="#com.intellij.ide.util.MemberChooser" timestamp="1623225047821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="781" y="278" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1623225047821" />
     <state x="674" y="361" width="462" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1618564607578">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="674" y="361" width="462" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1618564607578" />
-    <state x="875" y="329" key="AndroidProcessChooserDialog" timestamp="1618452570627">
+    <state x="845" y="326" key="AndroidCreateXmlResourceDialog" timestamp="1620790253337">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="875" y="329" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618452570627" />
-    <state x="588" y="122" key="CommitChangelistDialog2" timestamp="1618481795480">
+    <state x="845" y="326" key="AndroidCreateXmlResourceDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620790253337" />
+    <state x="875" y="329" key="AndroidProcessChooserDialog" timestamp="1622021193798">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="588" y="122" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1618481795480" />
-    <state x="257" y="98" key="DiffContextDialog" timestamp="1617878357388">
+    <state x="875" y="329" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622021193798" />
+    <state x="588" y="122" width="1154" height="820" key="CommitChangelistDialog2" timestamp="1623233412209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="257" y="98" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617878357388" />
-    <state x="960" y="370" key="FileChooserDialogImpl" timestamp="1618552638032">
+    <state x="588" y="122" width="1154" height="820" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1623233412209" />
+    <state x="257" y="98" key="DiffContextDialog" timestamp="1619086858777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="960" y="370" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1618552638032" />
-    <state width="1435" height="408" key="GridCell.Tab.0.bottom" timestamp="1618564298627">
+    <state x="257" y="98" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619086858777" />
+    <state x="684" y="319" key="FileChooserDialogImpl" timestamp="1623136088959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1435" height="408" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618564298627" />
-    <state width="1435" height="408" key="GridCell.Tab.0.center" timestamp="1618564298627">
+    <state x="684" y="319" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623136088959" />
+    <state width="1566" height="409" key="GridCell.Tab.0.bottom" timestamp="1623308704241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1435" height="408" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618564298627" />
-    <state width="1435" height="408" key="GridCell.Tab.0.left" timestamp="1618564298627">
+    <state width="1566" height="409" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1623308704241" />
+    <state width="1566" height="409" key="GridCell.Tab.0.center" timestamp="1623308704241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1435" height="408" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618564298627" />
-    <state width="1435" height="408" key="GridCell.Tab.0.right" timestamp="1618564298627">
+    <state width="1566" height="409" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1623308704241" />
+    <state width="1566" height="409" key="GridCell.Tab.0.left" timestamp="1623308704241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1435" height="408" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618564298627" />
-    <state width="1435" height="411" key="GridCell.Tab.1.bottom" timestamp="1618481905497">
+    <state width="1566" height="409" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1623308704241" />
+    <state width="1566" height="409" key="GridCell.Tab.0.right" timestamp="1623308704241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1435" height="411" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618481905497" />
-    <state width="1435" height="411" key="GridCell.Tab.1.center" timestamp="1618481905496">
+    <state width="1566" height="409" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1623308704241" />
+    <state width="1515" height="454" key="GridCell.Tab.1.bottom" timestamp="1622021263313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1435" height="411" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618481905496" />
-    <state width="1435" height="411" key="GridCell.Tab.1.left" timestamp="1618481905496">
+    <state width="1515" height="454" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622021263313" />
+    <state width="1515" height="454" key="GridCell.Tab.1.center" timestamp="1622021263313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1435" height="411" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618481905496" />
-    <state width="1435" height="411" key="GridCell.Tab.1.right" timestamp="1618481905496">
+    <state width="1515" height="454" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622021263313" />
+    <state width="1515" height="454" key="GridCell.Tab.1.left" timestamp="1622021263313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1435" height="411" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618481905496" />
-    <state x="492" y="203" key="SettingsEditor" timestamp="1617696282412">
+    <state width="1515" height="454" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622021263313" />
+    <state width="1515" height="454" key="GridCell.Tab.1.right" timestamp="1622021263313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="492" y="203" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617696282412" />
-    <state x="470" y="234" key="Vcs.Push.Dialog.v2" timestamp="1618481807885">
+    <state width="1515" height="454" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622021263313" />
+    <state x="761" y="224" key="RollbackChangesDialog" timestamp="1622182592761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="470" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1618481807885" />
+    <state x="761" y="224" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622182592761" />
+    <state x="283" y="0" key="ScreenshotViewer.Dimensions" timestamp="1622181226064">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="283" y="0" key="ScreenshotViewer.Dimensions/0.0.1920.1040@0.0.1920.1040" timestamp="1622181226064" />
+    <state x="492" y="203" key="SettingsEditor" timestamp="1623117132556">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="492" y="203" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1623117132556" />
+    <state x="470" y="234" key="Vcs.Push.Dialog.v2" timestamp="1623233417064">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="470" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1623233417064" />
+    <state x="373" y="194" width="1295" height="741" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1623225612855">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="373" y="194" width="1295" height="741" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623225612855" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1617696208486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617696208486" />
-    <state x="662" y="252" width="801" height="668" key="find.popup" timestamp="1618396020988">
+    <state x="813" y="481" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618968710899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="662" y="252" width="801" height="668" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618396020988" />
+    <state x="813" y="481" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1618968710899" />
+    <state x="662" y="252" width="801" height="668" key="find.popup" timestamp="1623138596822">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="252" width="801" height="668" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1623138596822" />
+    <state x="746" y="202" key="refactoring.ChangeSignatureDialog" timestamp="1619400778256">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="746" y="202" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619400778256" />
+    <state x="502" y="232" key="run.anything.popup" timestamp="1622705566440">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="502" y="232" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622705566440" />
+    <state x="683" y="298" width="672" height="678" key="search.everywhere.popup" timestamp="1622021783149">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="683" y="298" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622021783149" />
   </component>
 </project>
