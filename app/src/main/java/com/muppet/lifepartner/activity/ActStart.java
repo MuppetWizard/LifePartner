@@ -19,10 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.SplashLpCloseListener;
 import com.inmobi.ads.InMobiAdRequestStatus;
-import com.inmobi.ads.InMobiInterstitial;
 import com.inmobi.ads.InMobiNative;
-import com.inmobi.ads.listeners.InterstitialAdEventListener;
 import com.inmobi.ads.listeners.NativeAdEventListener;
+import com.inmobi.sdk.InMobiSdk;
 import com.mbridge.msdk.out.MBSplashHandler;
 import com.mbridge.msdk.out.MBSplashLoadListener;
 import com.mbridge.msdk.out.MBSplashShowListener;
@@ -40,7 +39,6 @@ import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
-import java.util.Map;
 
 
 public class ActStart extends AppCompatActivity{
@@ -67,6 +65,9 @@ public class ActStart extends AppCompatActivity{
         initStatusBar();
         flSplash = findViewById(R.id.fl_splash);
         llLogo = findViewById(R.id.ll_logo);
+        //Inmob
+        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
+//        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
         mCount = (int) CookieUtil.get("isFirst",0);
         if (mCount == 0) {
             UserA dialog = new UserA(this);
@@ -75,17 +76,26 @@ public class ActStart extends AppCompatActivity{
             Intent intent = getIntent();
             if (intent != null && intent.hasExtra("splash")) {
                 splashType = intent.getIntExtra("splash", -1);
-                if (splashType == 200) {
-                    loadBaidu("7528454");
-                } else if (splashType == 100) {
-                    loadSplash("0000000032");
-                    //test
+                switch (splashType) {
+                    case 100:
+                        loadSplash("0000000032");
+                        //test
 //                    loadSplash("0000000020");
-                } else if (splashType == 300) {
-                    loadMBSplash("296049","474417");
-                    //测试
+                        break;
+                    case 200:
+                        loadBaidu("7528454");
+                        break;
+                    case 300 :
+                        loadMBSplash("296049","474417");
+                        //测试
 //                    loadMBSplash("173349","209547");
+                        break;
+                    case 400:
+                        loadInMobSplash(2000000000000938L);
+//                        loadInMobSplash(1546731836888L);
+                        break;
                 }
+
             }else {
                 loadSplash("0000000032");
             }
@@ -137,10 +147,10 @@ public class ActStart extends AppCompatActivity{
         TextView tvSkip = skip.findViewById(R.id.ue_tv_skip);
 
         skip.setVisibility(View.GONE);
-        CountDownTimer timer =  new CountDownTimer(6 * 1000,1000) {
+        CountDownTimer timer =  new CountDownTimer(5 * 1000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                tvSkip.setText(String.format(getResources().getString(R.string.ue_skip),millisUntilFinished / 1000) );
+                tvSkip.setText(String.format(getResources().getString(R.string.ue_skip),millisUntilFinished / 1000 + 1) );
             }
 
             @Override
@@ -250,8 +260,6 @@ public class ActStart extends AppCompatActivity{
 
     private void loadSplash(String id) {
         splashAd = new SplashAd();
-//        splashAd.setSplashConfig(this, id, false, 3500);
-//        splashAd.setSplashConfig(this, id,false,3500);
         splashAd.setSplashConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
@@ -316,134 +324,97 @@ public class ActStart extends AppCompatActivity{
 
     }
 
-    private void loadMTGBanner(long id) {
-        InMobiInterstitial interstitial = new InMobiInterstitial(this, id, new InterstitialAdEventListener() {
-            @Override
-            public void onAdLoadSucceeded(InMobiInterstitial inMobiInterstitial) {
-                super.onAdLoadSucceeded(inMobiInterstitial);
-            }
-
-            @Override
-            public void onAdLoadFailed(InMobiInterstitial inMobiInterstitial, InMobiAdRequestStatus inMobiAdRequestStatus) {
-                super.onAdLoadFailed(inMobiInterstitial, inMobiAdRequestStatus);
-            }
-
-            @Override
-            public void onAdReceived(InMobiInterstitial inMobiInterstitial) {
-                super.onAdReceived(inMobiInterstitial);
-            }
-
-            @Override
-            public void onAdClicked(InMobiInterstitial inMobiInterstitial, Map<Object, Object> map) {
-                super.onAdClicked(inMobiInterstitial, map);
-            }
-
-            @Override
-            public void onAdWillDisplay(InMobiInterstitial inMobiInterstitial) {
-                super.onAdWillDisplay(inMobiInterstitial);
-            }
-
-            @Override
-            public void onAdDisplayed(InMobiInterstitial inMobiInterstitial) {
-                super.onAdDisplayed(inMobiInterstitial);
-            }
-
-            @Override
-            public void onAdDisplayFailed(InMobiInterstitial inMobiInterstitial) {
-                super.onAdDisplayFailed(inMobiInterstitial);
-            }
-
-            @Override
-            public void onAdDismissed(InMobiInterstitial inMobiInterstitial) {
-                super.onAdDismissed(inMobiInterstitial);
-            }
-
-            @Override
-            public void onUserLeftApplication(InMobiInterstitial inMobiInterstitial) {
-                super.onUserLeftApplication(inMobiInterstitial);
-            }
-
-            @Override
-            public void onRewardsUnlocked(InMobiInterstitial inMobiInterstitial, Map<Object, Object> map) {
-                super.onRewardsUnlocked(inMobiInterstitial, map);
-            }
-
-            @Override
-            public void onRequestPayloadCreated(byte[] bytes) {
-                super.onRequestPayloadCreated(bytes);
-            }
-
-            @Override
-            public void onRequestPayloadCreationFailed(InMobiAdRequestStatus inMobiAdRequestStatus) {
-                super.onRequestPayloadCreationFailed(inMobiAdRequestStatus);
-            }
-        });
-           interstitial.load();
-    }
 
     private void loadInMobSplash(long id) {
-        InMobiNative mobiNative = new InMobiNative(this, id, new NativeAdEventListener() {
+        InMobiNative adNative = new InMobiNative(this, id, nativeAdEventListener());
+        adNative.setDownloaderEnabled(true);
+        adNative.load();
+    }
+
+    private NativeAdEventListener nativeAdEventListener() {
+        return new NativeAdEventListener() {
             @Override
             public void onAdReceived(InMobiNative inMobiNative) {
                 super.onAdReceived(inMobiNative);
+                Log.d(Constant.TAG,"onAdReceived");
             }
 
             @Override
             public void onAdLoadSucceeded(InMobiNative inMobiNative) {
                 super.onAdLoadSucceeded(inMobiNative);
+                Log.d(Constant.TAG,"onAdLoadSucceeded");
+                if (inMobiNative.isReady()) {
+                    flSplash.addView(
+                            inMobiNative.getPrimaryViewOfWidth(
+                                    ActStart.this,
+                                    flSplash,
+                                    flSplash,
+                                    flSplash.getWidth()
+                            )
+                    );
+                }
             }
 
             @Override
-            public void onAdLoadFailed(InMobiNative inMobiNative, InMobiAdRequestStatus inMobiAdRequestStatus) {
-                super.onAdLoadFailed(inMobiNative, inMobiAdRequestStatus);
+            public void onAdLoadFailed(InMobiNative inMobiNative, InMobiAdRequestStatus status) {
+                super.onAdLoadFailed(inMobiNative, status);
+                Log.d(Constant.TAG,"onAdLoadFailed: "+status.getMessage()+" code: "+status.getStatusCode());
             }
 
             @Override
             public void onAdFullScreenDismissed(InMobiNative inMobiNative) {
                 super.onAdFullScreenDismissed(inMobiNative);
+                Log.d(Constant.TAG,"onAdFullScreenDismissed");
             }
 
             @Override
             public void onAdFullScreenWillDisplay(InMobiNative inMobiNative) {
                 super.onAdFullScreenWillDisplay(inMobiNative);
+                Log.d(Constant.TAG,"onAdFullScreenWillDisplay");
             }
 
             @Override
             public void onAdFullScreenDisplayed(InMobiNative inMobiNative) {
                 super.onAdFullScreenDisplayed(inMobiNative);
+                Log.d(Constant.TAG,"onAdFullScreenDisplayed");
             }
 
             @Override
             public void onUserWillLeaveApplication(InMobiNative inMobiNative) {
                 super.onUserWillLeaveApplication(inMobiNative);
+                Log.d(Constant.TAG,"onUserWillLeaveApplication");
             }
 
             @Override
             public void onAdImpressed(InMobiNative inMobiNative) {
                 super.onAdImpressed(inMobiNative);
+                Log.d(Constant.TAG,"onAdImpressed");
             }
 
             @Override
             public void onAdClicked(InMobiNative inMobiNative) {
                 super.onAdClicked(inMobiNative);
+                Log.d(Constant.TAG,"onAdClicked");
             }
 
             @Override
             public void onAdStatusChanged(InMobiNative inMobiNative) {
                 super.onAdStatusChanged(inMobiNative);
+                Log.d(Constant.TAG,"onAdStatusChanged");
             }
 
             @Override
             public void onRequestPayloadCreated(byte[] bytes) {
                 super.onRequestPayloadCreated(bytes);
+                Log.d(Constant.TAG,"onRequestPayloadCreated");
             }
 
             @Override
-            public void onRequestPayloadCreationFailed(InMobiAdRequestStatus inMobiAdRequestStatus) {
-                super.onRequestPayloadCreationFailed(inMobiAdRequestStatus);
+            public void onRequestPayloadCreationFailed(InMobiAdRequestStatus status) {
+                super.onRequestPayloadCreationFailed(status);
+                Log.d(Constant.TAG,"onRequestPayloadCreationFailed: "+status.getMessage()+" code: "+status.getStatusCode());
             }
-        });
-
+        };
     }
 
     private void gotoMainActivity() {

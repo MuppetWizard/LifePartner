@@ -1,20 +1,15 @@
 package com.muppet.lifepartner.activity.ad;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.baidu.mobad.feeds.RequestParameters;
-import com.baidu.mobads.SplashLpCloseListener;
+import androidx.annotation.IdRes;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ActStart;
-import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 
 public class SplashAdActivity extends AppCompatActivity {
@@ -46,6 +41,7 @@ public class SplashAdActivity extends AppCompatActivity {
         bindItem(R.id.btn_google_splash);
         bindItem(R.id.btn_baidu_splash);
         bindItem(R.id.btn_mb_splash);
+        bindItem(R.id.btn_imb_splash);
     }
 
     private void bindItem(@IdRes int id) {
@@ -72,6 +68,10 @@ public class SplashAdActivity extends AppCompatActivity {
                         intent.putExtra("splash",300);
                         startActivity(intent);
                         break;
+                    case R.id.btn_imb_splash:
+                        intent = new Intent(SplashAdActivity.this,ActStart.class);
+                        intent.putExtra("splash",400);
+                        startActivity(intent);
                 }
             }
         });

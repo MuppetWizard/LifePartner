@@ -43,7 +43,10 @@ public class App extends Application {
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionAppList(true);
         //Inmob
-        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
+//        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
+//        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
+        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
+
     }
 
     private void initMBSkd(String appId,String appKey) {
