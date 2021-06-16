@@ -141,56 +141,6 @@ public class FullscreenVideoActivity extends AppCompatActivity {
 
     }
 
-    /*private void loadBaiduVideo(String id) {
-        FullScreenVideoAd.setAppSid("c9f473aa");
-        FullScreenVideoAd videoAd = new FullScreenVideoAd(this, id, new FullScreenVideoAd.FullScreenVideoAdListener() {
-            @Override
-            public void onAdShow() {
-                Log.d(Constant.TAG, "onAdShow");
-            }
-
-            @Override
-            public void onAdClick() {
-                Log.d(Constant.TAG, "onAdClick");
-            }
-
-            @Override
-            public void onAdClose(float v) {
-                Log.d(Constant.TAG, "onAdClose");
-            }
-
-            @Override
-            public void onAdFailed(String s) {
-                Log.d(Constant.TAG, "onAdFailed");
-            }
-
-            @Override
-            public void onVideoDownloadSuccess() {
-                Log.d(Constant.TAG, "onVideoDownloadSuccess");
-            }
-
-            @Override
-            public void onVideoDownloadFailed() {
-                Log.d(Constant.TAG, "onVideoDownloadFailed");
-            }
-
-            @Override
-            public void playCompletion() {
-                Log.d(Constant.TAG, "playCompletion");
-            }
-
-            @Override
-            public void onAdSkip(float v) {
-                Log.d(Constant.TAG, "onAdSkip");
-            }
-        });
-
-        videoAd.load();
-        if (videoAd.isReady()) {
-            videoAd.show();
-        }
-    }*/
-
 
     private void loadFullScreenVideo(String id, int orientation) {
         fullVideoAd = new FullVideoAd();

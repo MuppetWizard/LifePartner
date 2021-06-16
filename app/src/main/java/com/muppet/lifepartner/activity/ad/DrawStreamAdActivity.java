@@ -95,6 +95,11 @@ public class DrawStreamAdActivity extends AppCompatActivity {
         ad.setStreamAdInteractionListener(new StreamAdInteractionListener() {
 
             @Override
+            public void onAdClosed() {
+                flAdContainer.removeAllViews();
+            }
+
+            @Override
             public void onAdClicked() {
                 Log.d(Constant.TAG,"onAdClicked ");
 

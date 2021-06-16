@@ -319,7 +319,19 @@ public class InterstitialActivity extends AppCompatActivity {
                 .setAutoPlayMuted(false)
                 .setDetailPageMuted(false)
                 .build();
-        interstitialAd.loadInterstitialAd(option, new InterstitialAdListener() {
+        interstitialAd.loadInterstitialAd( new InterstitialAdListener() {
+
+            @Override
+            public void onVideoComplete() {
+                Log.e(Constant.TAG,"onVideoComplete");
+            }
+
+            @Override
+            public void onAdCached() {
+                Log.e(Constant.TAG,"onAdCached");
+                interstitialAd.show();
+                setDownloadListener(interstitialAd);
+            }
 
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
@@ -329,8 +341,6 @@ public class InterstitialActivity extends AppCompatActivity {
             @Override
             public void onAdLoaded() {
                 Log.e(Constant.TAG,"onAdLoaded");
-                interstitialAd.show();
-                setDownloadListener(interstitialAd);
             }
 
             @Override

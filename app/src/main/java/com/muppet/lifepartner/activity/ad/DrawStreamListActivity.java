@@ -130,6 +130,11 @@ public class DrawStreamListActivity extends AppCompatActivity {
     private void bindInteractionListener(StreamAdExpress ad) {
         ad.setStreamAdInteractionListener(new StreamAdInteractionListener() {
             @Override
+            public void onAdClosed() {
+
+            }
+
+            @Override
             public void onAdClicked() {
                 Log.d(Constant.TAG,"onAdClicked ");
             }

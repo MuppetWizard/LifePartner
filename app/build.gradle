@@ -79,7 +79,9 @@ dependencies {
     //游易
     implementation (name: 'youe_ad_sdk_v1.3.0', ext: 'aar')
     //Mintegral
-    implementation (name: 'mbridge_appwall', ext: 'aar')
+
+//    implementation (name: 'ShellMTG-release', ext: 'aar')
+   /* implementation (name: 'mbridge_appwall', ext: 'aar')
     implementation (name: 'mbridge_appwallext', ext: 'aar')
     implementation (name: 'mbridge_chinasame', ext: 'aar')
     implementation (name: 'mbridge_interactiveads', ext: 'aar')
@@ -95,7 +97,7 @@ dependencies {
     implementation (name: 'mbridge_playercommon', ext: 'aar')
     implementation (name: 'mbridge_reward', ext: 'aar')
     implementation (name: 'mbridge_videocommon', ext: 'aar')
-    implementation (name: 'mbridge_videojs', ext: 'aar')
+    implementation (name: 'mbridge_videojs', ext: 'aar')*/
 
     implementation files ('libs/oaid_sdk_1.0.25.aar')
 

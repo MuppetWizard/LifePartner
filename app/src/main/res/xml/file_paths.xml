@@ -2,11 +2,11 @@
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <external-path path="image/" name="image" />
     <!--百度-->
-    <external-path name="bd_lv_path" path="/" />
+    <!--<external-path name="bd_lv_path" path="/" />
     <external-files-path name="bdpath" path="bddownload/" />
     <external-path name="bdpathsd" path="bddownload/" />
     <files-path name="bd_files_path" path="bddownload/" />
-    <cache-path name="bd_cache_path" path="bddownload/" />
+    <cache-path name="bd_cache_path" path="bddownload/" />-->
     <!--InMob-->
     <external-path name="external_files" path="."/>
 </paths>

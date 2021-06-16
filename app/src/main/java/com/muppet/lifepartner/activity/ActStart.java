@@ -86,9 +86,9 @@ public class ActStart extends AppCompatActivity{
                         loadBaidu("7528454");
                         break;
                     case 300 :
-                        loadMBSplash("296049","474417");
+//                        loadMBSplash("296049","474417");
                         //测试
-//                    loadMBSplash("173349","209547");
+                    loadMBSplash("173349","209547");
                         break;
                     case 400:
                         loadInMobSplash(2000000000000938L);
@@ -263,7 +263,6 @@ public class ActStart extends AppCompatActivity{
         splashAd.setSplashConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .isCustomSkip(false)
                         .setTimeOut(3500)
                         .build());
         splashAd.loadSplashAd(flSplash, new SplashListener() {
