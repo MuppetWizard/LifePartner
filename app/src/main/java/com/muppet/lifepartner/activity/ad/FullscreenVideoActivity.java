@@ -28,10 +28,16 @@ import com.youyi.yesdk.listener.UEDownloadConfirmListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import mobi.oneway.export.Ad.OWInterstitialAd;
+import mobi.oneway.export.AdListener.OWInterstitialAdListener;
+import mobi.oneway.export.enums.OnewayAdCloseType;
+import mobi.oneway.export.enums.OnewaySdkError;
+
 public class FullscreenVideoActivity extends AppCompatActivity {
 
     private FullVideoAd fullVideoAd;
     private FullScreenVideoAd mFullScreenVideo;
+    private OWInterstitialAd owInterstitialAd;
 
     private RelativeLayout mVideoContainer;
     private FrameLayout mContainer;
@@ -53,6 +59,7 @@ public class FullscreenVideoActivity extends AppCompatActivity {
         bindView(R.id.btn_horizontal_video);
         bindView(R.id.btn_bd_video);
         bindView(R.id.btn_bd_show_video);
+        bindView(R.id.btn_ow_video);
     }
 
     @Override
@@ -90,9 +97,51 @@ public class FullscreenVideoActivity extends AppCompatActivity {
                                 Toast.makeText(FullscreenVideoActivity.this,"Not Ready",Toast.LENGTH_SHORT).show();
                             }
                             break;
+                        case R.id.btn_ow_video:
+                            loadOWChaping("5NZFY6IF20KW2L6H");
+                            break;
                     }
             }
         });
+    }
+
+    private void loadOWChaping(String id) {
+        owInterstitialAd = new OWInterstitialAd(this, id, new OWInterstitialAdListener() {
+            @Override
+            public void onAdReady() {
+                Log.d(Constant.TAG,"onAdReady");
+                if (owInterstitialAd.isReady()) {
+                    owInterstitialAd.show(FullscreenVideoActivity.this);
+                }
+            }
+
+            @Override
+            public void onAdShow(String s) {
+                Log.d(Constant.TAG,"onAdShow");
+            }
+
+            @Override
+            public void onAdClick(String s) {
+                Log.d(Constant.TAG,"onAdClick");
+            }
+
+
+            @Override
+            public void onAdClose(String s, OnewayAdCloseType onewayAdCloseType) {
+                Log.d(Constant.TAG,"onAdClose-"+onewayAdCloseType);
+            }
+
+            @Override
+            public void onAdFinish(String s, OnewayAdCloseType onewayAdCloseType, String s1) {
+                Log.d(Constant.TAG,"onAdFinish-"+onewayAdCloseType);
+            }
+
+            @Override
+            public void onSdkError(OnewaySdkError onewaySdkError, String s) {
+                Log.d(Constant.TAG,"onSdkError: "+s+"--"+onewaySdkError);
+            }
+        });
+        owInterstitialAd.loadAd();
     }
 
     private void loadBaiduVideo(String id) {

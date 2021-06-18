@@ -16,8 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
-import com.mbridge.msdk.out.BannerSize;
-import com.mbridge.msdk.out.MBBannerView;
+
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -48,7 +47,7 @@ public class BannerActivity extends AppCompatActivity {
     private View btnCancel;
     private BannerAd bannerAd;
     private AdView adView;
-    private MBBannerView mbBannerView;
+//    private MBBannerView mbBannerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +89,7 @@ public class BannerActivity extends AppCompatActivity {
                 if (v.getId() == R.id.btn_mb_banner) {
 //                    loadMBBannerAd("296241","474273");
                     //test
-                    loadMBBannerAd("138791","146879");
+//                    loadMBBannerAd("138791","146879");
                 }
                 if (v.getId() == R.id.btn_test) {
 //                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 500);
@@ -120,10 +119,10 @@ public class BannerActivity extends AppCompatActivity {
             adView.destroy();
         }
 
-        if (mbBannerView != null) {
-            mbBannerView.release();
-            mbBannerView = null;
-        }
+//        if (mbBannerView != null) {
+//            mbBannerView.release();
+//            mbBannerView = null;
+//        }
     }
 
     private void initStatusBar() {
@@ -289,7 +288,7 @@ public class BannerActivity extends AppCompatActivity {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    private void loadMBBannerAd(String placementId, String unitId) {
+    /*private void loadMBBannerAd(String placementId, String unitId) {
         mbBannerView = new MBBannerView(this);
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         mbBannerView.init(new BannerSize(BannerSize.DEV_SET_TYPE, 1,1),placementId,unitId);
@@ -344,7 +343,7 @@ public class BannerActivity extends AppCompatActivity {
         mbBannerView.load();
         //MB平台无法更改背景色
 
-    }
+    }*/
 
 
     private int toPixelUnits(int dipUnit) {

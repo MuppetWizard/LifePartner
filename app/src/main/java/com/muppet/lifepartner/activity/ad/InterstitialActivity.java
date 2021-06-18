@@ -24,7 +24,6 @@ import com.mbridge.msdk.out.NativeAdvancedAdListener;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
-import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.comm.util.AdError;
 import com.youyi.yesdk.ad.InterstitialAd;
 import com.youyi.yesdk.business.AdPlacement;
@@ -38,6 +37,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import butterknife.ButterKnife;
+import mobi.oneway.export.Ad.OWInterstitialImageAd;
+import mobi.oneway.export.AdListener.OWInterstitialImageAdListener;
+import mobi.oneway.export.enums.OnewayAdCloseType;
+import mobi.oneway.export.enums.OnewaySdkError;
 
 public class InterstitialActivity extends AppCompatActivity {
 
@@ -46,6 +49,8 @@ public class InterstitialActivity extends AppCompatActivity {
     private com.baidu.mobads.InterstitialAd baiDuInterstitial;
     private MBInterstitialVideoHandler mbInterstitialVideoHandler;
     private MBNativeAdvancedHandler mbNativeAdvancedHandler;
+    private OWInterstitialImageAd owInterstitialImageAd;
+
 
     private FrameLayout flContainer;
 
@@ -60,6 +65,7 @@ public class InterstitialActivity extends AppCompatActivity {
         bindView(R.id.btn_bd_cha);
         bindView(R.id.btn_mb_cha);
         bindView(R.id.btn_mb_autoRender);
+        bindView(R.id.btn_ow_interstitial);
         flContainer = findViewById(R.id.fl_container);
     }
 
@@ -89,9 +95,50 @@ public class InterstitialActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         break;
+                    case R.id.btn_ow_interstitial:
+                        loadOWInterstitialImage("FO1X8HSBTRP6ROA1");
+                        break;
                 }
             }
         });
+    }
+
+    private void loadOWInterstitialImage(String id) {
+        owInterstitialImageAd = new OWInterstitialImageAd(this, id, new OWInterstitialImageAdListener() {
+            @Override
+            public void onAdReady() {
+                Log.d(Constant.TAG,"onAdReady");
+                if (owInterstitialImageAd.isReady()) {
+                    owInterstitialImageAd.show(InterstitialActivity.this);
+                }
+            }
+
+            @Override
+            public void onAdShow(String s) {
+                Log.d(Constant.TAG,"onAdShow");
+            }
+
+            @Override
+            public void onAdClick(String s) {
+                Log.d(Constant.TAG,"onAdClick");
+            }
+
+            @Override
+            public void onAdClose(String s, OnewayAdCloseType onewayAdCloseType) {
+                Log.d(Constant.TAG,"onAdClose");
+            }
+
+            @Override
+            public void onAdFinish(String s, OnewayAdCloseType onewayAdCloseType, String s1) {
+                Log.d(Constant.TAG,"onAdFinish");
+            }
+
+            @Override
+            public void onSdkError(OnewaySdkError onewaySdkError, String s) {
+                Log.d(Constant.TAG,"onSdkError");
+            }
+        });
+        owInterstitialImageAd.loadAd();
     }
 
     @Override
@@ -124,6 +171,8 @@ public class InterstitialActivity extends AppCompatActivity {
         RelativeLayout llTop = findViewById(R.id.top);
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
     }
+
+
 
     private void loadMBChaping(String placementId, String unit) {
         mbInterstitialVideoHandler = new MBInterstitialVideoHandler(this,placementId,unit);
@@ -188,7 +237,7 @@ public class InterstitialActivity extends AppCompatActivity {
 
     private void loadMBNativeChaping(String placementId, String unitId) throws JSONException {
         ViewGroup mbNativeAdvancedView;
-        mbNativeAdvancedHandler = new MBNativeAdvancedHandler(this,placementId,unitId);
+//        mbNativeAdvancedHandler = new MBNativeAdvancedHandler(this,placementId,unitId);
         String style = "{\n" +
                 "\t\"list\": [{\n" +
                 "\t\t\"target\": \"title\",\n" +
@@ -314,11 +363,6 @@ public class InterstitialActivity extends AppCompatActivity {
                         .setMinVideoDuration(5)
                         .setMaxVideoDuration(61)
                         .build());
-        VideoOption option = new VideoOption.Builder()
-                .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.ALWAYS)
-                .setAutoPlayMuted(false)
-                .setDetailPageMuted(false)
-                .build();
         interstitialAd.loadInterstitialAd( new InterstitialAdListener() {
 
             @Override

@@ -42,6 +42,7 @@ public class SplashAdActivity extends AppCompatActivity {
         bindItem(R.id.btn_baidu_splash);
         bindItem(R.id.btn_mb_splash);
         bindItem(R.id.btn_imb_splash);
+        bindItem(R.id.btn_ow_splash);
     }
 
     private void bindItem(@IdRes int id) {
@@ -72,6 +73,12 @@ public class SplashAdActivity extends AppCompatActivity {
                         intent = new Intent(SplashAdActivity.this,ActStart.class);
                         intent.putExtra("splash",400);
                         startActivity(intent);
+                        break;
+                    case R.id.btn_ow_splash:
+                        intent = new Intent(SplashAdActivity.this,ActStart.class);
+                        intent.putExtra("splash",500);
+                        startActivity(intent);
+                        break;
                 }
             }
         });

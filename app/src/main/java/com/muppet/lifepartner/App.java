@@ -17,6 +17,12 @@ import org.xutils.x;
 
 import java.util.Map;
 
+import mobi.oneway.export.Ad.OnewaySdk;
+
+//import com.mbridge.msdk.MBridgeSDK;
+//import com.mbridge.msdk.out.MBridgeSDKFactory;
+//import com.mbridge.msdk.out.SDKInitStatusListener;
+
 public class App extends Application {
     public static Application application;
 //    private AppOpenManager openManager;
@@ -47,6 +53,9 @@ public class App extends Application {
 //        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
         InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
 
+        //oneway
+        OnewaySdk.configure(this,"cde1f85bdaf2435a");
+        OnewaySdk.setDebugMode(true);
     }
 
     private void initMBSkd(String appId,String appKey) {

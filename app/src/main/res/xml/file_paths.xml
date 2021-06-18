@@ -9,4 +9,5 @@
     <cache-path name="bd_cache_path" path="bddownload/" />-->
     <!--InMob-->
     <external-path name="external_files" path="."/>
+
 </paths>

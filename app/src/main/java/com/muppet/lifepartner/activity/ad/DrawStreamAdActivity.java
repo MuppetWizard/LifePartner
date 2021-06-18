@@ -14,7 +14,6 @@ import com.muppet.lifepartner.util.UIUtils;
 import com.youyi.yesdk.ad.DrawStreamAd;
 import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.StreamAdExpress;
-import com.youyi.yesdk.listener.StreamAdInteractionListener;
 import com.youyi.yesdk.listener.StreamAdListener;
 import com.youyi.yesdk.listener.UEVideoListener;
 
@@ -92,7 +91,7 @@ public class DrawStreamAdActivity extends AppCompatActivity {
     }
 
     private void bindAdListener(StreamAdExpress ad) {
-        ad.setStreamAdInteractionListener(new StreamAdInteractionListener() {
+      /*  ad.setStreamAdInteractionListener(new StreamAdInteractionListener() {
 
             @Override
             public void onAdClosed() {
@@ -121,7 +120,7 @@ public class DrawStreamAdActivity extends AppCompatActivity {
                 Log.d(Constant.TAG,"onRenderFailed: "+ integer + " msg:"+s);
             }
 
-        });
+        });*/
         ad.setStreamVideoAdListener(new UEVideoListener() {
             @Override
             public void onVideoAdLoad() {

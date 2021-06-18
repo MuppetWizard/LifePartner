@@ -22,9 +22,7 @@ import com.inmobi.ads.InMobiAdRequestStatus;
 import com.inmobi.ads.InMobiNative;
 import com.inmobi.ads.listeners.NativeAdEventListener;
 import com.inmobi.sdk.InMobiSdk;
-import com.mbridge.msdk.out.MBSplashHandler;
-import com.mbridge.msdk.out.MBSplashLoadListener;
-import com.mbridge.msdk.out.MBSplashShowListener;
+
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.CookieUtil;
@@ -40,6 +38,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
+import mobi.oneway.export.Ad.OWSplashAd;
+import mobi.oneway.export.AdListener.OWSplashAdListener;
+import mobi.oneway.export.enums.OnewaySdkError;
+
 
 public class ActStart extends AppCompatActivity{
 
@@ -49,7 +51,8 @@ public class ActStart extends AppCompatActivity{
     private com.baidu.mobads.SplashAd baiduSplash;
     private FrameLayout flSplash;
     private LinearLayout llLogo;
-    private MBSplashHandler mbSplashHandler;
+//    private MBSplashHandler mbSplashHandler;
+    private OWSplashAd oWsplashAd;
 
     private View skip;
 
@@ -88,11 +91,14 @@ public class ActStart extends AppCompatActivity{
                     case 300 :
 //                        loadMBSplash("296049","474417");
                         //测试
-                    loadMBSplash("173349","209547");
+//                    loadMBSplash("173349","209547");
                         break;
                     case 400:
                         loadInMobSplash(2000000000000938L);
 //                        loadInMobSplash(1546731836888L);
+                        break;
+                    case 500:
+                        loadOWSplash("EMLRUIU2CM5YIFHZ");
                         break;
                 }
 
@@ -102,12 +108,45 @@ public class ActStart extends AppCompatActivity{
         }
     }
 
+    private void loadOWSplash(String id) {
+        oWsplashAd = new OWSplashAd(this, id, new OWSplashAdListener() {
+            @Override
+            public void onAdReady() {
+                Log.d(Constant.TAG,"onAdReady");
+                oWsplashAd.showSplashAd(flSplash);
+            }
+
+            @Override
+            public void onAdShow() {
+                Log.d(Constant.TAG,"onAdShow");
+            }
+
+            @Override
+            public void onAdError(OnewaySdkError onewaySdkError, String s) {
+                Log.d(Constant.TAG,"onAdError: "+onewaySdkError +" msg: "+s);
+
+            }
+
+            @Override
+            public void onAdFinish() {
+                Log.d(Constant.TAG,"onAdFinish");
+            }
+
+            @Override
+            public void onAdClick() {
+                Log.d(Constant.TAG,"onAdClick");
+            }
+        },3500);
+        oWsplashAd.loadSplashAd();
+
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        if (mbSplashHandler != null) {
+        /*if (mbSplashHandler != null) {
             mbSplashHandler.onResume();
-        }
+        }*/
         if (canJump) {
             gotoMainActivity();
         }
@@ -117,21 +156,24 @@ public class ActStart extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
-        if (mbSplashHandler != null) {
+       /* if (mbSplashHandler != null) {
             mbSplashHandler.onPause();
-        }
+        }*/
         canJump = false;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mbSplashHandler != null) {
+       /* if (mbSplashHandler != null) {
             mbSplashHandler.onDestroy();
-        }
+        }*/
         if (baiduSplash != null) {
             baiduSplash.destroy();
             baiduSplash = null;
+        }
+        if (oWsplashAd != null) {
+            oWsplashAd.destory();
         }
     }
 
@@ -211,7 +253,7 @@ public class ActStart extends AppCompatActivity{
         });
     }
 
-    private void loadMBSplash(String placementId,String unitId) {
+/*    private void loadMBSplash(String placementId,String unitId) {
         mbSplashHandler = new MBSplashHandler(this,placementId,unitId,true,5);
         mbSplashHandler.setLoadTimeOut(3500);
 //        mbSplashHandler.setLogoView(llLogo, ViewGroup.LayoutParams.MATCH_PARENT, 500);
@@ -256,9 +298,10 @@ public class ActStart extends AppCompatActivity{
             }
         });
         mbSplashHandler.loadAndShow(flSplash);
-    }
+    }*/
 
     private void loadSplash(String id) {
+
         splashAd = new SplashAd();
         splashAd.setSplashConfig(this,
                 new AdPlacement.Builder()

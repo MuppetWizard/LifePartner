@@ -65,15 +65,35 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <!--oneway-->
+        <activity
+            android:name="mobi.oneway.export.AdShowActivity"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <provider
+            android:name="mobi.oneway.export.OWProvider"
+            android:authorities="${applicationId}.OWProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ow_file_paths" />
+        </provider>
 
-        <activity android:name=".activity.ad.others.OtherActivity" />
-        <activity android:name=".activity.ad.InterstitialActivity" /> <!-- 正式 -->
+        <!-- 正式 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2343173165030471~8840447584" /> <!-- 测试 -->
+            android:value="ca-app-pub-2343173165030471~8840447584" />
+        <!-- 测试 -->
         <!-- <meta-data -->
         <!-- android:name="com.google.android.gms.ads.APPLICATION_ID" -->
         <!-- android:value="ca-app-pub-3940256099942544~3347511713"/> -->
+
+        <!--  -->
+
+        <activity android:name=".activity.ad.others.OtherActivity" />
+        <activity android:name=".activity.ad.InterstitialActivity" />
         <activity android:name=".activity.ad.SplashAdActivity" />
         <activity
             android:name=".activity.ad.RewardVideoActivity"

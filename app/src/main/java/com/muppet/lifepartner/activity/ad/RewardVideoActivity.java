@@ -29,10 +29,17 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
+import mobi.oneway.export.Ad.OWRewardedAd;
+import mobi.oneway.export.AdListener.OWRewardedAdListener;
+import mobi.oneway.export.enums.OnewayAdCloseType;
+import mobi.oneway.export.enums.OnewaySdkError;
+
 public class RewardVideoActivity extends AppCompatActivity {
 
     private com.baidu.mobads.rewardvideo.RewardVideoAd reWardVideo;
     private MBRewardVideoHandler mbRewardVideoHandler;
+
+    private OWRewardedAd owRewardedAd ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +51,7 @@ public class RewardVideoActivity extends AppCompatActivity {
         bindView(R.id.btn_temp2_reward);
         bindView(R.id.btn_bd_reward);
         bindView(R.id.btn_mb_reward);
-
+        bindView(R.id.btn_ow_reward);
     }
 
     private void initStatusBar() {
@@ -74,10 +81,53 @@ public class RewardVideoActivity extends AppCompatActivity {
 //                        loadMBReward("296580","475142");
                         //debug
                         loadMBReward("138786","146874");
+                        break;
+                    case R.id.btn_ow_reward:
+                        loadOWReward("UN8VPSTSX2DUP7NI");
+                        break;
                 }
 
             }
         });
+    }
+
+    private void loadOWReward(String id) {
+
+        owRewardedAd = new OWRewardedAd(this, id, new OWRewardedAdListener() {
+            @Override
+            public void onAdReady() {
+                Log.d(Constant.TAG,"onAdReady");
+                if (owRewardedAd.isReady()) {
+                    owRewardedAd.show(RewardVideoActivity.this);
+                }
+            }
+
+            @Override
+            public void onAdShow(String s) {
+                Log.d(Constant.TAG,"onAdShow");
+            }
+
+            @Override
+            public void onAdClick(String s) {
+                Log.d(Constant.TAG,"onAdClick");
+            }
+
+            @Override
+            public void onAdClose(String s, OnewayAdCloseType onewayAdCloseType) {
+                Log.d(Constant.TAG,"onAdClose"+onewayAdCloseType);
+            }
+
+            @Override
+            public void onAdFinish(String tag, OnewayAdCloseType onewayAdCloseType, String sessionId) {
+                Log.d(Constant.TAG,"onAdFinish"+onewayAdCloseType);
+            }
+
+            @Override
+            public void onSdkError(OnewaySdkError onewaySdkError, String message) {
+                Log.d(Constant.TAG,"onSdkError");
+            }
+        });
+        owRewardedAd.loadAd();
     }
 
     private void loadMBReward(String placementId, String unitId) {
