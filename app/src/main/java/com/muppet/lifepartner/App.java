@@ -19,10 +19,6 @@ import java.util.Map;
 
 import mobi.oneway.export.Ad.OnewaySdk;
 
-//import com.mbridge.msdk.MBridgeSDK;
-//import com.mbridge.msdk.out.MBridgeSDKFactory;
-//import com.mbridge.msdk.out.SDKInitStatusListener;
-
 public class App extends Application {
     public static Application application;
 //    private AppOpenManager openManager;

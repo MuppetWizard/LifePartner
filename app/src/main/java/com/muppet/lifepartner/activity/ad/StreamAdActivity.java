@@ -1,5 +1,6 @@
 package com.muppet.lifepartner.activity.ad;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.muppet.lifepartner.App;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -24,7 +26,11 @@ import com.youyi.yesdk.ad.StreamAd;
 import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.DislikeListener;
 import com.youyi.yesdk.listener.StreamAdExpress;
+import com.youyi.yesdk.listener.StreamAdInteractionListener;
 import com.youyi.yesdk.listener.StreamAdListener;
+import com.youyi.yesdk.listener.UEConfirmCallBack;
+import com.youyi.yesdk.listener.UEDownloadConfirmListener;
+import com.youyi.yesdk.listener.UEVideoListener;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -216,86 +222,73 @@ public class StreamAdActivity extends AppCompatActivity {
     }
 
     private void bindAdListener(StreamAdExpress ad) {
-        //交互监听
-//        ad.setStreamAdInteractionListener(new  StreamAdInteractionListener() {
-//            @Override
-//            public void onAdClosed() {
-//                Log.d(Constant.TAG,"onAdClosed ");
-//                flAdView.removeAllViews();
-//            }
-//
-//            @Override
-//            public void onAdClicked() {
-//                Log.d(Constant.TAG,"onAdClicked ");
-//
-//            }
-//
-//            @Override
-//            public void onAdShow() {
-//                Log.d(Constant.TAG,"onAdShow ");
-//            }
-//
-//            @Override
-//            public void onRenderSuccess() {
-//                Log.d(Constant.TAG,"onRenderSuccess ");
-//                flAdView.removeAllViews();
-//                ad.getStreamView().setBackgroundColor(App.application.getResources().getColor(R.color.app_light_blue));
-//
-//                flAdView.addView(ad.getStreamView());
-//            }
-//
-//            @Override
-//            public void onRenderFailed(@Nullable Integer code, @Nullable String msg) {
-//                Log.d(Constant.TAG,"onRenderFailed: "+ code + " msg:"+msg);
-//            }
-//        });
-//        //视频监听
-//        ad.setStreamVideoAdListener(new UEVideoListener() {
-//           /* @Override
-//            public void onClickRetry() {
-//                Log.d(Constant.TAG,"onClickRetry ");
-//            }
-//*/
-//            @Override
-//            public void onVideoAdLoad() {
-//                Log.d(Constant.TAG,"onVideoAdLoad ");
-//            }
-//            @Override
-//            public void onVideoAdError(int errorCode, int extraCode) {
-//                Log.d(Constant.TAG,"onVideoAdError "+errorCode+ " :"+extraCode);
-//            }
-//
-//            @Override
-//            public void onVideoAdStartPlay() {
-//                Log.d(Constant.TAG,"onVideoAdStartPlay ");
-//            }
-//
-//            @Override
-//            public void onVideoAdPaused() {
-//                Log.d(Constant.TAG,"onVideoAdPaused ");
-//            }
-//
-//            /*@Override
-//            public void onVideoAdContinuePlay() {
-//                Log.d(Constant.TAG,"onVideoAdContinuePlay ");
-//            }
-//*/
-//           /* @Override
-//            public void onProgressUpdate(long l, long l1) {
-//                Log.d(Constant.TAG,"onProgressUpdate ");
-//            }*/
-//
-//            @Override
-//            public void onVideoAdComplete() {
-//                Log.d(Constant.TAG,"onVideoAdComplete ");
-//            }
-//        });
-//        ad.setDownloadConfirmListener(new UEDownloadConfirmListener() {
-//            @Override
-//            public void onDownloadConfirm(@Nullable Activity activity, @NotNull UEConfirmCallBack ueConfirmCallBack) {
-//                Log.d(Constant.TAG,"onDownloadConfirm ");
-//            }
-//        });
+//        交互监听
+        ad.setStreamAdInteractionListener(new  StreamAdInteractionListener() {
+            @Override
+            public void onAdClosed() {
+                Log.d(Constant.TAG,"onAdClosed ");
+                flAdView.removeAllViews();
+            }
+
+            @Override
+            public void onAdClicked() {
+                Log.d(Constant.TAG,"onAdClicked ");
+
+            }
+
+            @Override
+            public void onAdShow() {
+                Log.d(Constant.TAG,"onAdShow ");
+                ad.setDownloadConfirmListener(new UEDownloadConfirmListener() {
+                    @Override
+                    public void onDownloadConfirm(@Nullable Activity activity, @NotNull UEConfirmCallBack ueConfirmCallBack) {
+                        Log.d(Constant.TAG,"onDownloadConfirm ");
+                    }
+                });
+            }
+
+            @Override
+            public void onRenderSuccess() {
+                Log.d(Constant.TAG,"onRenderSuccess ");
+                flAdView.removeAllViews();
+                ad.getStreamView().setBackgroundColor(App.application.getResources().getColor(R.color.app_light_blue));
+
+                flAdView.addView(ad.getStreamView());
+            }
+
+            @Override
+            public void onRenderFailed(@Nullable Integer code, @Nullable String msg) {
+                Log.d(Constant.TAG,"onRenderFailed: "+ code + " msg:"+msg);
+            }
+        });
+        //视频监听
+        ad.setStreamVideoAdListener(new UEVideoListener() {
+
+            @Override
+            public void onVideoAdLoad() {
+                Log.d(Constant.TAG,"onVideoAdLoad ");
+            }
+            @Override
+            public void onVideoAdError(int errorCode, int extraCode) {
+                Log.d(Constant.TAG,"onVideoAdError "+errorCode+ " :"+extraCode);
+            }
+
+            @Override
+            public void onVideoAdStartPlay() {
+                Log.d(Constant.TAG,"onVideoAdStartPlay ");
+            }
+
+            @Override
+            public void onVideoAdPaused() {
+                Log.d(Constant.TAG,"onVideoAdPaused ");
+            }
+
+            @Override
+            public void onVideoAdComplete() {
+                Log.d(Constant.TAG,"onVideoAdComplete ");
+            }
+        });
+
         //dislike监听
         ad.setStreamAdDislikeCallback(new DislikeListener() {
             @Override

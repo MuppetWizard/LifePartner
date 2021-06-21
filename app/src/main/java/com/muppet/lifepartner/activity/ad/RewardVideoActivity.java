@@ -281,17 +281,17 @@ public class RewardVideoActivity extends AppCompatActivity {
 
             @Override
             public void onVideoBarClick() {
-                Log.d(Constant.TAG,"onADComplete");
+                Log.d(Constant.TAG,"onVideoBarClick");
             }
 
             @Override
             public void onSKipVideo() {
-                Log.d(Constant.TAG,"onADComplete");
+                Log.d(Constant.TAG,"onSKipVideo");
             }
 
             @Override
             public void onClosed() {
-                Log.d(Constant.TAG,"onADComplete");
+                Log.d(Constant.TAG,"onClosed");
             }
         });
 

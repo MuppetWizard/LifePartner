@@ -65,7 +65,9 @@ public class FullscreenVideoActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        if (fullVideoAd != null) {
+            fullVideoAd.destroy();
+        }
     }
 
     private void initStatusBar() {
