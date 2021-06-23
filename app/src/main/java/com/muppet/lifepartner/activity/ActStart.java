@@ -69,8 +69,9 @@ public class ActStart extends AppCompatActivity{
         flSplash = findViewById(R.id.fl_splash);
         llLogo = findViewById(R.id.ll_logo);
         //Inmob
-        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
-//        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
+//        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
+        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
+        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
         mCount = (int) CookieUtil.get("isFirst",0);
         if (mCount == 0) {
             UserA dialog = new UserA(this);
@@ -88,14 +89,14 @@ public class ActStart extends AppCompatActivity{
                     case 200:
                         loadBaidu("7528454");
                         break;
-                    case 300 :
+                    case 300:
 //                        loadMBSplash("296049","474417");
                         //测试
 //                    loadMBSplash("173349","209547");
                         break;
                     case 400:
-                        loadInMobSplash(2000000000000938L);
-//                        loadInMobSplash(1546731836888L);
+//                        loadInMobSplash(2000000000000938L);
+                        loadInMobSplash(1546731836888L);
                         break;
                     case 500:
                         loadOWSplash("EMLRUIU2CM5YIFHZ");

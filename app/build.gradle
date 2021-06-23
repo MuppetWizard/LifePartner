@@ -79,7 +79,7 @@ dependencies {
     //游易
     implementation (name: 'youe_ad_sdk_v1.3.0', ext: 'aar')
     //oneway
-    implementation (name: 'oneway-common-core-1.0.10', ext: 'aar')
+//    implementation (name: 'oneway-common-core-1.0.10', ext: 'aar')
 //    implementation files('libs/Oneway-2.4.9-release.jar')
     //Mintegral
 

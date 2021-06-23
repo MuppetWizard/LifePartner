@@ -3,8 +3,6 @@ package com.muppet.lifepartner;
 import android.app.Application;
 import android.util.Log;
 
-import com.baidu.mobads.AdView;
-import com.baidu.mobads.MobadsPermissionSettings;
 import com.inmobi.sdk.InMobiSdk;
 import com.mbridge.msdk.MBridgeSDK;
 import com.mbridge.msdk.out.MBridgeSDKFactory;
@@ -16,8 +14,6 @@ import com.youyi.yesdk.business.YOUEAdManager;
 import org.xutils.x;
 
 import java.util.Map;
-
-import mobi.oneway.export.Ad.OnewaySdk;
 
 public class App extends Application {
     public static Application application;
@@ -35,23 +31,26 @@ public class App extends Application {
                 .debug(BuildConfig.DEBUG)
                 .install();*/
         initUEAdSdk();
+
 //        initMBSkd("144819","5462e2032d96955e966454fecb8e1580");
         //测试
-        initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
+//        initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
+
         //baidu
-        AdView.setAppSid(application,"c9f473aa");
+//        AdView.setAppSid(application,"c9f473aa");
         //debug
 //        AdView.setAppSid(application,"e866cfb0");
-        MobadsPermissionSettings.setPermissionReadDeviceID(true);
-        MobadsPermissionSettings.setPermissionAppList(true);
+//        MobadsPermissionSettings.setPermissionReadDeviceID(true);
+//        MobadsPermissionSettings.setPermissionAppList(true);
+
         //Inmob
 //        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
 //        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
         InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
 
         //oneway
-        OnewaySdk.configure(this,"cde1f85bdaf2435a");
-        OnewaySdk.setDebugMode(true);
+//        OnewaySdk.configure(this,"cde1f85bdaf2435a");
+//        OnewaySdk.setDebugMode(true);
     }
 
     private void initMBSkd(String appId,String appKey) {
@@ -77,7 +76,7 @@ public class App extends Application {
                 new YOUEAdManager()
                         .appId("000012")
                         .appName("游易")
-                        .deBug(false)
+                        .deBug(true)
                         .setChannel(10)
                         .supportMultiProcess(false)
                         .build()
