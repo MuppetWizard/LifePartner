@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.activity.ad.others.OtherActivity;
+import com.muppet.lifepartner.activity.ad.third.ThirdAdActivity;
+import com.muppet.lifepartner.activity.ad.third.baidu.BDSplashActivity;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.youyi.yesdk.YOUEAdSdk;
 
@@ -44,8 +46,8 @@ public class ActAdMain extends AppCompatActivity {
         bindItem(R.id.btn_reward, RewardVideoActivity.class);
         bindItem(R.id.btn_stream, StreamAdActivity.class);
         bindItem(R.id.btn_draw_stream, DrawStreamAdActivity.class);
+        bindItem(R.id.btn_other_ad, ThirdAdActivity.class);
         bindItem(R.id.btn_other, OtherActivity.class);
-
     }
 
     private void bindItem(@IdRes int id, final Class clz) {

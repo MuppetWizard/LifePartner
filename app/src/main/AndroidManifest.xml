@@ -27,9 +27,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label">
-        <activity android:name=".activity.ad.others.ViewTestActivity"></activity>
-        <!-- 百度 -->
-        <!--<activity
+        <activity android:name=".activity.ad.third.mtg.MTGSplashActivity"></activity>
+        <activity android:name=".activity.ad.third.mtg.MintegralAdActivity" />
+        <activity android:name=".activity.ad.third.baidu.BaiduAdActivity" />
+        <activity android:name=".activity.ad.third.baidu.BDSplashActivity" />
+        <activity android:name=".activity.ad.third.ThirdAdActivity" />
+        <activity android:name=".activity.ad.others.ViewTestActivity" /> <!-- 百度 -->
+        <!--
+<activity
             android:name="com.baidu.mobads.AppActivity"
             android:configChanges="screenSize|keyboard|keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
@@ -42,9 +47,9 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>-->
-
-        <!--inMob-->
+        </provider>
+        -->
+        <!-- inMob -->
         <activity
             android:name="com.inmobi.rendering.InMobiAdActivity"
             android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
@@ -52,10 +57,11 @@
             android:resizeableActivity="false"
             android:theme="@android:style/Theme.NoTitleBar"
             tools:ignore="UnusedAttribute" />
+
         <service
             android:name="com.inmobi.ads.ApkDownloader$ApkDownloadService"
-            android:enabled="true">
-        </service>
+            android:enabled="true" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="{appPackageName}.fileprovider"
@@ -64,9 +70,9 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-        <!--oneway-->
-        <activity
+        </provider> <!-- oneway -->
+        <!--
+  <activity
             android:name="mobi.oneway.export.AdShowActivity"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
             android:hardwareAccelerated="true"
@@ -80,18 +86,15 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/ow_file_paths" />
         </provider>
-
+        -->
         <!-- 正式 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2343173165030471~8840447584" />
-        <!-- 测试 -->
+            android:value="ca-app-pub-2343173165030471~8840447584" /> <!-- 测试 -->
         <!-- <meta-data -->
         <!-- android:name="com.google.android.gms.ads.APPLICATION_ID" -->
         <!-- android:value="ca-app-pub-3940256099942544~3347511713"/> -->
-
         <!--  -->
-
         <activity android:name=".activity.ad.others.OtherActivity" />
         <activity android:name=".activity.ad.InterstitialActivity" />
         <activity android:name=".activity.ad.SplashAdActivity" />

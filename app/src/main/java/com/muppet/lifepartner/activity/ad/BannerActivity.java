@@ -137,7 +137,7 @@ public class BannerActivity extends AppCompatActivity {
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,100)
+                        .setExpressViewAcceptedSize(expressViewWidth,54)
                         .isCarousel(false)
                         .build()
         );

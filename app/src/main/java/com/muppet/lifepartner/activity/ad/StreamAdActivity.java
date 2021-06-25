@@ -251,7 +251,7 @@ public class StreamAdActivity extends AppCompatActivity {
             public void onRenderSuccess() {
                 Log.d(Constant.TAG,"onRenderSuccess ");
                 flAdView.removeAllViews();
-                ad.getStreamView().setBackgroundColor(App.application.getResources().getColor(R.color.app_light_blue));
+//                ad.getStreamView().setBackgroundColor(App.application.getResources().getColor(R.color.app_light_blue));
 
                 flAdView.addView(ad.getStreamView());
             }

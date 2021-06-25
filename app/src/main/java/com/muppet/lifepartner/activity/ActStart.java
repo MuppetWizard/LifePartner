@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,6 +24,9 @@ import com.inmobi.ads.InMobiNative;
 import com.inmobi.ads.listeners.NativeAdEventListener;
 import com.inmobi.sdk.InMobiSdk;
 
+import com.mbridge.msdk.out.MBSplashHandler;
+import com.mbridge.msdk.out.MBSplashLoadListener;
+import com.mbridge.msdk.out.MBSplashShowListener;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.CookieUtil;
@@ -51,7 +55,7 @@ public class ActStart extends AppCompatActivity{
     private com.baidu.mobads.SplashAd baiduSplash;
     private FrameLayout flSplash;
     private LinearLayout llLogo;
-//    private MBSplashHandler mbSplashHandler;
+
     private OWSplashAd oWsplashAd;
 
     private View skip;
@@ -68,10 +72,7 @@ public class ActStart extends AppCompatActivity{
         initStatusBar();
         flSplash = findViewById(R.id.fl_splash);
         llLogo = findViewById(R.id.ll_logo);
-        //Inmob
-//        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
-        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
-        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
+
         mCount = (int) CookieUtil.get("isFirst",0);
         if (mCount == 0) {
             UserA dialog = new UserA(this);
@@ -87,12 +88,8 @@ public class ActStart extends AppCompatActivity{
 //                    loadSplash("0000000020");
                         break;
                     case 200:
-                        loadBaidu("7528454");
-                        break;
                     case 300:
-//                        loadMBSplash("296049","474417");
-                        //测试
-//                    loadMBSplash("173349","209547");
+
                         break;
                     case 400:
 //                        loadInMobSplash(2000000000000938L);
@@ -145,9 +142,6 @@ public class ActStart extends AppCompatActivity{
     @Override
     protected void onResume() {
         super.onResume();
-        /*if (mbSplashHandler != null) {
-            mbSplashHandler.onResume();
-        }*/
         if (canJump) {
             gotoMainActivity();
         }
@@ -157,18 +151,12 @@ public class ActStart extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
-       /* if (mbSplashHandler != null) {
-            mbSplashHandler.onPause();
-        }*/
         canJump = false;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-       /* if (mbSplashHandler != null) {
-            mbSplashHandler.onDestroy();
-        }*/
         if (baiduSplash != null) {
             baiduSplash.destroy();
             baiduSplash = null;
@@ -183,123 +171,6 @@ public class ActStart extends AppCompatActivity{
         FrameLayout llTop = findViewById(R.id.top);
         llTop.setPadding(0, StatusUtils.getStatusBarHeight(this), 0, 0);
     }
-
-    private void loadBaidu(String id) {
-        skip = getLayoutInflater().inflate(R.layout.btn_skip,null);
-
-        TextView tvSkip = skip.findViewById(R.id.ue_tv_skip);
-
-        skip.setVisibility(View.GONE);
-        CountDownTimer timer =  new CountDownTimer(5 * 1000,1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                tvSkip.setText(String.format(getResources().getString(R.string.ue_skip),millisUntilFinished / 1000 + 1) );
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        };
-
-        final RequestParameters parameters = new RequestParameters.Builder()
-                .setHeight(1920)
-                .setWidth(1080)
-                .build();
-        final SplashLpCloseListener listener = new SplashLpCloseListener() {
-            @Override
-            public void onLpClosed() {
-                Log.d(Constant.TAG,"onLpClosed");
-                gotoMainActivity();
-            }
-
-            @Override
-            public void onAdPresent() {
-                Log.d(Constant.TAG,"onAdPresent");
-                flSplash.addView(skip);
-                skip.setVisibility(View.VISIBLE);
-                timer.start();
-            }
-
-            @Override
-            public void onAdDismissed() {
-                Log.d(Constant.TAG,"onAdDismissed");
-                timer.cancel();
-                gotoMainActivity();
-            }
-
-            @Override
-            public void onADLoaded() {
-                Log.d(Constant.TAG,"onADLoaded");
-                 HashMap map = baiduSplash.getExtData();
-                Log.d(Constant.TAG,"data  "+map.toString());
-            }
-
-            @Override
-            public void onAdFailed(String s) {
-                Log.d(Constant.TAG,"onAdFailed  "+s);
-                timer.cancel();
-                gotoMainActivity();
-            }
-
-            @Override
-            public void onAdClick() {
-                Log.d(Constant.TAG,"onAdClick");
-            }
-        };
-
-        baiduSplash = new com.baidu.mobads.SplashAd(this, flSplash, listener, id, true, parameters,3500);
-        tvSkip.setOnClickListener(v -> {
-            listener.onAdDismissed();
-        });
-    }
-
-/*    private void loadMBSplash(String placementId,String unitId) {
-        mbSplashHandler = new MBSplashHandler(this,placementId,unitId,true,5);
-        mbSplashHandler.setLoadTimeOut(3500);
-//        mbSplashHandler.setLogoView(llLogo, ViewGroup.LayoutParams.MATCH_PARENT, 500);
-        mbSplashHandler.setSplashLoadListener(new MBSplashLoadListener() {
-            @Override
-            public void onLoadSuccessed(int i) {
-                Log.d(Constant.TAG,"onLoadSuccessed");
-            }
-
-            @Override
-            public void onLoadFailed(String msg, int reqType) {
-                Log.d(Constant.TAG,"onLoadFailed "+msg + reqType);
-                gotoMainActivity();
-            }
-        });
-        mbSplashHandler.setSplashShowListener(new MBSplashShowListener() {
-            @Override
-            public void onShowSuccessed() {
-                Log.d(Constant.TAG,"onShowSuccessed");
-            }
-
-            @Override
-            public void onShowFailed(String s) {
-                Log.d(Constant.TAG,"onShowFailed "+s);
-                gotoMainActivity();
-            }
-
-            @Override
-            public void onAdClicked() {
-                Log.d(Constant.TAG,"onAdClicked");
-            }
-
-            @Override
-            public void onDismiss(int i) {
-                Log.d(Constant.TAG,"onDismiss "+i);
-                gotoMainActivity();
-            }
-
-            @Override
-            public void onAdTick(long l) {
-//                Log.d(Constant.TAG,"onAdTick " + l);
-            }
-        });
-        mbSplashHandler.loadAndShow(flSplash);
-    }*/
 
     private void loadSplash(String id) {
 

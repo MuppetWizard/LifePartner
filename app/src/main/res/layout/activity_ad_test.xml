@@ -35,7 +35,7 @@
         android:theme="@style/PrimaryButton" />
     <FrameLayout
         android:id="@+id/fl_ad"
-        android:background="@color/app_mainColor"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

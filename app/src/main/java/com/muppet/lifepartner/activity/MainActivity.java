@@ -10,7 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.muppet.lifepartner.R;
-import com.muppet.lifepartner.activity.ad.SplashVPlusAd;
+
 import com.muppet.lifepartner.fragment.ExpressPage;
 import com.muppet.lifepartner.fragment.HomePage;
 import com.muppet.lifepartner.fragment.MePage;
