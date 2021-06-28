@@ -73,6 +73,8 @@ public class RewardVideoActivity extends AppCompatActivity {
                         break;
                     case R.id.btn_temp2_reward:
                         loadRewardVideo("0000000033", YOUEAdConstants.VERTICAL);
+                        //beta
+//                        loadRewardVideo("0000000227",YOUEAdConstants.VERTICAL);
                         break;
                     case R.id.btn_bd_reward:
                         loadBaiduReward("7528547");

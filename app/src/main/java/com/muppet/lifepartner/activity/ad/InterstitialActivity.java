@@ -318,8 +318,7 @@ public class InterstitialActivity extends AppCompatActivity {
         baiDuInterstitial = new com.baidu.mobads.InterstitialAd(this,id);
         baiDuInterstitial.setListener(baiDuListener());
         baiDuInterstitial.loadAd();
-        if (baiDuInterstitial.isAdReady()) {
-        }
+
 
     }
 
@@ -328,7 +327,9 @@ public class InterstitialActivity extends AppCompatActivity {
             @Override
             public void onAdReady() {
                 Log.d(Constant.TAG,"onAdReady");
-                baiDuInterstitial.showAd(InterstitialActivity.this);
+                if (baiDuInterstitial.isAdReady()) {
+                    baiDuInterstitial.showAd(InterstitialActivity.this);
+                }
             }
 
             @Override

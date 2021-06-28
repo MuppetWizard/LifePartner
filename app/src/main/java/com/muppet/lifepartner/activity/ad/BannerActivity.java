@@ -59,8 +59,9 @@ public class BannerActivity extends AppCompatActivity {
 
         AppActivity.setActionBarColorTheme(AppActivity.ActionBarColorTheme.ACTION_BAR_WHITE_THEME);
 
-        bindView(R.id.btn_csj_banner);
-        bindView(R.id.btn_gdt_banner);
+        bindView(R.id.btn_187_banner);
+        bindView(R.id.btn_54_banner);
+        bindView(R.id.btn_250_banner);
         bindView(R.id.btn_mb_banner);
         bindView(R.id.btn_bd_banner);
         bindView(R.id.btn_test);
@@ -70,15 +71,20 @@ public class BannerActivity extends AppCompatActivity {
         findViewById(id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v.getId() == R.id.btn_csj_banner) {
+                if (v.getId() == R.id.btn_187_banner) {
                     loadBanner("0000000039");
+
+//                    loadBanner("0000000226");
                     //162
 //                    loadBanner("0000000110");
                     //test
 //                    loadBanner("0000000021");
                 }
-                if (v.getId() == R.id.btn_gdt_banner){
+                if (v.getId() == R.id.btn_54_banner){
                     loadBanner("0000000040");
+                }
+                if (v.getId() == R.id.btn_250_banner) {
+                    loadBanner("0000000229");
                 }
                 if (v.getId() == R.id.btn_bd_banner) {
                     //3:2
@@ -137,7 +143,7 @@ public class BannerActivity extends AppCompatActivity {
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,54)
+                        .setExpressViewAcceptedSize(expressViewWidth,120)
                         .isCarousel(false)
                         .build()
         );

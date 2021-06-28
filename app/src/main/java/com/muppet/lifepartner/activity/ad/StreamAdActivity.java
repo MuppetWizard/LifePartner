@@ -198,7 +198,7 @@ public class StreamAdActivity extends AppCompatActivity {
         streamAd.setStreamConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth, 0)
+                        .setExpressViewAcceptedSize(expressViewWidth, 200)
                         .setAdCount(3)
                         .build());
         streamAd.loadStreamAd(new StreamAdListener() {

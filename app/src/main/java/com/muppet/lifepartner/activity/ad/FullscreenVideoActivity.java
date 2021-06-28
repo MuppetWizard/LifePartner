@@ -83,6 +83,7 @@ public class FullscreenVideoActivity extends AppCompatActivity {
                     switch (v.getId()) {
                         case R.id.btn_vertical_video:
                             loadFullScreenVideo("0000000046", YOUEAdConstants.VERTICAL);
+//                            loadFullScreenVideo("0000000228", YOUEAdConstants.VERTICAL);
                             break;
                         case R.id.btn_horizontal_video:
                             loadFullScreenVideo("0000000113",YOUEAdConstants.HORIZONTAL);

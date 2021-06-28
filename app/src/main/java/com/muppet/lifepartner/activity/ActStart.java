@@ -58,8 +58,6 @@ public class ActStart extends AppCompatActivity{
 
     private OWSplashAd oWsplashAd;
 
-    private View skip;
-
 
     private int splashType = -1;
     private boolean canJump = false;
