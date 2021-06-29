@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -17,6 +18,8 @@ import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
 
+import com.mbridge.msdk.out.BannerSize;
+import com.mbridge.msdk.out.MBBannerView;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -47,7 +50,7 @@ public class BannerActivity extends AppCompatActivity {
     private View btnCancel;
     private BannerAd bannerAd;
     private AdView adView;
-//    private MBBannerView mbBannerView;
+    private MBBannerView mbBannerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,7 @@ public class BannerActivity extends AppCompatActivity {
 
         AppActivity.setActionBarColorTheme(AppActivity.ActionBarColorTheme.ACTION_BAR_WHITE_THEME);
 
+        bindView(R.id.btn_162_banner);
         bindView(R.id.btn_187_banner);
         bindView(R.id.btn_54_banner);
         bindView(R.id.btn_250_banner);
@@ -71,38 +75,43 @@ public class BannerActivity extends AppCompatActivity {
         findViewById(id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v.getId() == R.id.btn_187_banner) {
-                    loadBanner("0000000039");
+                switch (v.getId()) {
+                    case R.id.btn_54_banner:
+                        loadBanner("0000000040");
+                        break;
 
+                    case R.id.btn_162_banner:
+                        //162
+                        loadBanner("0000000110");
+                        break;
+
+                    case R.id.btn_187_banner:
+                        loadBanner("0000000039");
 //                    loadBanner("0000000226");
-                    //162
-//                    loadBanner("0000000110");
-                    //test
+                        //test
 //                    loadBanner("0000000021");
-                }
-                if (v.getId() == R.id.btn_54_banner){
-                    loadBanner("0000000040");
-                }
-                if (v.getId() == R.id.btn_250_banner) {
-                    loadBanner("0000000229");
-                }
-                if (v.getId() == R.id.btn_bd_banner) {
-                    //3:2
+                        break;
+                    case R.id.btn_250_banner:
+                        loadBanner("0000000274");
+//                        loadBanner("0000000229");
+                        break;
+                    case R.id.btn_bd_banner:
+                        //3:2
 //                    loadBaiduBanner("7528551");
-                    //20:3
-                    loadBaiduBanner("7528544");
-                }
-                if (v.getId() == R.id.btn_mb_banner) {
+                        //20:3
+                        loadBaiduBanner("7528544");
+                        break;
+                    case R.id.btn_mb_banner:
 //                    loadMBBannerAd("296241","474273");
-                    //test
-//                    loadMBBannerAd("138791","146879");
-                }
-                if (v.getId() == R.id.btn_test) {
+                        //test
+                    loadMBBannerAd("138791","146879");
+                        break;
+                    case R.id.btn_test:
 //                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 500);
 //                    flBanner.setLayoutParams(params);
-                    test();
+                        test();
+                        break;
                 }
-
             }
         });
     }
@@ -138,12 +147,14 @@ public class BannerActivity extends AppCompatActivity {
     }
 
     private void loadBanner(String id) {
-        float expressViewWidth = UIUtils.getScreenWidthDp(this);
+        float viewWidth2 = UIUtils.getScreenWidthDp(this);
+        float viewWidth = UIUtils.px2dip(this,750);
+        float viewHeight = UIUtils.px2dip(this,400);
         bannerAd = new BannerAd();
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(expressViewWidth,120)
+                        .setExpressViewAcceptedSize(viewWidth,viewHeight)
                         .isCarousel(false)
                         .build()
         );
@@ -294,11 +305,12 @@ public class BannerActivity extends AppCompatActivity {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    /*private void loadMBBannerAd(String placementId, String unitId) {
+    private void loadMBBannerAd(String placementId, String unitId) {
         mbBannerView = new MBBannerView(this);
         float expressViewWidth = UIUtils.getScreenWidthDp(this);
         mbBannerView.init(new BannerSize(BannerSize.DEV_SET_TYPE, 1,1),placementId,unitId);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,400);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(750,400);
+        params.gravity = Gravity.CENTER;
         mbBannerView.setLayoutParams(params);
         mbBannerView.setAllowShowCloseBtn(true);
         mbBannerView.setRefreshTime(30);
@@ -349,7 +361,7 @@ public class BannerActivity extends AppCompatActivity {
         mbBannerView.load();
         //MB平台无法更改背景色
 
-    }*/
+    }
 
 
     private int toPixelUnits(int dipUnit) {

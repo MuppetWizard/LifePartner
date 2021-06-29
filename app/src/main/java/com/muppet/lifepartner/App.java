@@ -34,7 +34,7 @@ public class App extends Application {
 
 //        initMBSkd("144819","5462e2032d96955e966454fecb8e1580");
         //测试
-//        initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
+        initMBSkd("118690","7c22942b749fe6a6e361b675e96b3ee9");
 
         //baidu
 //        AdView.setAppSid(application,"c9f473aa");
@@ -45,8 +45,8 @@ public class App extends Application {
 
         //Inmob
 //        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
-        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
-        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
+//        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
+//        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
 
         //oneway
 //        OnewaySdk.configure(this,"cde1f85bdaf2435a");

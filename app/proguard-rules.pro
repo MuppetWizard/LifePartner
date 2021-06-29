@@ -147,50 +147,36 @@
 # for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 -dontwarn com.bumptech.glide.**
-
-# 穿山甲
+##游易
+-keep class com.youyi.yesdk.** { *;}
 -keep class com.bytedance.sdk.openadsdk.** { *; }
 -keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
 -keep class com.pgl.sys.ces.** {*;}
 -keep class com.bytedance.embed_dr.** {*;}
 -keep class com.bytedance.embedapplog.** {*;}
-#广点通
 -keep class com.qq.e.** { *;}
--dontwarn sun.misc.**
-#游易
--keep class com.youyi.yesdk.**{*;}
-#快手联盟
--keep class org.chromium.** {*;}
--keep class org.chromium.** { *; }
--keep class aegon.chrome.** { *; }
--keep class com.kwai.**{ *; }
--dontwarn com.kwai.**
--dontwarn com.kwad.**
--dontwarn com.ksad.**
--dontwarn aegon.chrome.**
-# mintagral
--keepattributes Signature
--keepattributes *Annotation*
 -keep class com.mbridge.** {*; }
 -keep interface com.mbridge.** {*; }
--keep interface androidx.** { *; }
--keep class androidx.** { *; }
--keep public class * extends androidx.** { *; }
 -dontwarn com.mbridge.**
 -keep class **.R$* { public static final int mbridge*; }
-#baidu
--keepclassmembers class * extends android.app.Activity {
-   public void *(android.view.View);
-}
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
 -keep class com.baidu.mobads.** { *; }
 -keep class com.baidu.mobad.** { *; }
 -keep class com.bun.miitmdid.core.** {*;}
-
 #InMob
+-keepattributes SourceFile,LineNumberTable
+-keep class com.inmobi.** { *; }
+-dontwarn com.inmobi.**
+-dontwarn com.squareup.picasso.**
+#skip the Picasso library classes
+-keep class com.squareup.picasso.** {*;}
+-dontwarn com.squareup.picasso.**
+-dontwarn com.squareup.okhttp.**
+#skip AVID classes
+-keep class com.integralads.avid.library.** {*;}
+#skip IAB classes
+-keep class com.iab.** {*;}
+-dontwarn com.iab.**
+
 -keepattributes SourceFile,LineNumberTable
 -keep class com.inmobi.** { *; }
 -dontwarn com.inmobi.**

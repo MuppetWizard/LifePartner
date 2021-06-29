@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -162,12 +163,15 @@ public class ActStart extends AppCompatActivity{
         if (oWsplashAd != null) {
             oWsplashAd.destory();
         }
+        if (splashAd != null) {
+            splashAd.destroy();
+        }
     }
 
     private void initStatusBar() {
-        StatusUtils.setSystemStatus(this, true, true);
-        FrameLayout llTop = findViewById(R.id.top);
-        llTop.setPadding(0, StatusUtils.getStatusBarHeight(this), 0, 0);
+        StatusUtils.setSystemStatus(this, true, false);
+//        FrameLayout llTop = findViewById(R.id.top);
+//        llTop.setPadding(0, StatusUtils.getStatusBarHeight(this), 0, 0);
     }
 
     private void loadSplash(String id) {
@@ -340,6 +344,15 @@ public class ActStart extends AppCompatActivity{
             Log.d(Constant.TAG,"Jumped");
         }else {
             canJump = true;
+        }
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }else {
+            return super.dispatchKeyEvent(event);
         }
     }
 }
