@@ -6,59 +6,46 @@
     android:layout_height="match_parent"
     android:id="@+id/top"
     android:orientation="vertical"
-    tools:context=".activity.ad.third.ThirdAdActivity">
-    <Button
-        android:id="@+id/btn_baidu"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="百度"
-        android:gravity="center"
-        android:textColor="@color/app_mainColor"
-        android:textSize="14sp"
-        android:theme="@style/PrimaryButton" />
-    <Button
-        android:id="@+id/btn_mtg"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Mintegral"
-        android:gravity="center"
-        android:textColor="@color/app_mainColor"
-        android:textSize="14sp"
-        android:theme="@style/PrimaryButton" />
-    <Button
-        android:id="@+id/btn_ow"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="OneWay"
-        android:gravity="center"
-        android:textColor="@color/app_mainColor"
-        android:textSize="14sp"
-        android:theme="@style/PrimaryButton" />
-    <Button
-        android:id="@+id/btn_reward"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="InMobi"
-        android:gravity="center"
-        android:textColor="@color/app_mainColor"
-        android:textSize="14sp"
-        android:theme="@style/PrimaryButton" />
+    tools:context=".activity.ad.third.ow.OWActivity">
 
+    <Button
+        android:id="@+id/btn_ow_splash"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Splash"
+        android:gravity="center"
+        android:textColor="@color/app_mainColor"
+        android:textSize="14sp"
+        android:theme="@style/PrimaryButton" />
+    <Button
+        android:id="@+id/btn_ow_fullscreen_video"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Fullscreen Video"
+        android:gravity="center"
+        android:textColor="@color/app_mainColor"
+        android:textSize="14sp"
+        android:theme="@style/PrimaryButton" />
+    <Button
+        android:id="@+id/btn_ow_reward"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="RewardVideo"
+        android:gravity="center"
+        android:textColor="@color/app_mainColor"
+        android:textSize="14sp"
+        android:theme="@style/PrimaryButton" />
 
 </LinearLayout>

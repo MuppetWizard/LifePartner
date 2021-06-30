@@ -27,7 +27,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label">
-        <activity android:name=".activity.ad.third.mtg.MTGSplashActivity"></activity>
+        <activity android:name=".activity.ad.third.ow.OWActivity"></activity>
+        <activity android:name=".activity.ad.third.mtg.MTGSplashActivity" />
         <activity android:name=".activity.ad.third.mtg.MintegralAdActivity" />
         <activity android:name=".activity.ad.third.baidu.BaiduAdActivity" />
         <activity android:name=".activity.ad.third.baidu.BDSplashActivity" />

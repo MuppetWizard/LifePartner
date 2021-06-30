@@ -169,60 +169,7 @@ public class HomePage extends SupportFragment implements OnBannerListener {
         });
 
     }
-    private void loadFullScreenVideo(String id, int orientation) {
-        fullVideoAd = new FullVideoAd();
-        fullVideoAd.setVideoConfig(getActivity(),
-                new AdPlacement.Builder()
-                        .setAdId(id)
-                        .setExpressViewAcceptedSize(500,500)
-                        .setOrientation(orientation)
-                        .setMinVideoDuration(5)
-                        .setMaxVideoDuration(20)
-                        .build());
-        fullVideoAd.loadFullVideo( new FullVideoListener() {
-            @Override
-            public void onError(@Nullable Integer integer, @Nullable String s) {
-                Log.d(Constant.TAG,"onError : code: "+ integer+" msg : "+ s);
-            }
 
-            @Override
-            public void onAdLoaded() {
-                Log.d(Constant.TAG,"onAdLoaded");
-            }
-
-            @Override
-            public void onAdCached() {
-                Log.d(Constant.TAG,"onAdCached");
-                fullVideoAd.show();
-//                setDownloadListener(fullVideoAd);
-            }
-
-            @Override
-            public void onAdShow() {
-                Log.d(Constant.TAG,"onAdShow");
-            }
-
-            @Override
-            public void onAdSkipped() {
-                Log.d(Constant.TAG,"onAdSkipped");
-            }
-
-            @Override
-            public void onAdClicked() {
-                Log.d(Constant.TAG,"onAdClicked");
-            }
-
-            @Override
-            public void onAdComplete() {
-                Log.d(Constant.TAG,"onAdComplete");
-            }
-
-            @Override
-            public void onAdClosed() {
-                Log.d(Constant.TAG,"onAdClosed");
-            }
-        });
-    }
     /**
      * 初始化recyclerview
      */

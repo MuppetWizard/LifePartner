@@ -81,34 +81,16 @@ dependencies {
     //oneway
 //    implementation (name: 'oneway-common-core-1.0.10', ext: 'aar')
 //    implementation files('libs/Oneway-2.4.9-release.jar')
-    //Mintegral
 
-//    implementation (name: 'ShellMTG-release', ext: 'aar')
-   /* implementation (name: 'mbridge_appwall', ext: 'aar')
-    implementation (name: 'mbridge_appwallext', ext: 'aar')
-    implementation (name: 'mbridge_chinasame', ext: 'aar')
-    implementation (name: 'mbridge_interactiveads', ext: 'aar')
-    implementation (name: 'mbridge_interstitial', ext: 'aar')
-    implementation (name: 'mbridge_interstitialvideo', ext: 'aar')
-    implementation (name: 'mbridge_mbsplash', ext: 'aar')
-    implementation (name: 'mbridge_mbbanner', ext: 'aar')
-    implementation (name: 'mbridge_mbbid', ext: 'aar')
-    implementation (name: 'mbridge_mbjscommon', ext: 'aar')
-    implementation (name: 'mbridge_mbnative', ext: 'aar')
-    implementation (name: 'mbridge_mbnativeadvanced', ext: 'aar')
-    implementation (name: 'mbridge_nativeex', ext: 'aar')
-    implementation (name: 'mbridge_playercommon', ext: 'aar')
-    implementation (name: 'mbridge_reward', ext: 'aar')
-    implementation (name: 'mbridge_videocommon', ext: 'aar')
-    implementation (name: 'mbridge_videojs', ext: 'aar')*/
+    implementation (name: 'baidu_plus_9.12', ext: 'aar')
 
     implementation files ('libs/oaid_sdk_1.0.25.aar')
 
     //inmobi 广告
     implementation files('libs/InMobi-7.5.1.jar')
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'com.android.support:support-v4:27.1.0'
-    implementation 'com.android.support:recyclerview-v7:27.1.0'
+//    implementation 'com.android.support:support-v4:27.1.0'
+//    implementation 'com.android.support:recyclerview-v7:27.1.0'
 
 //    implementation 'androidx.multidex:multidex:2.0.1'
     //Admob 广告

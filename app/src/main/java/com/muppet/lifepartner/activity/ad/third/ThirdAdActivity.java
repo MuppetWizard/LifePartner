@@ -21,6 +21,9 @@ import com.muppet.lifepartner.activity.ad.RewardVideoActivity;
 import com.muppet.lifepartner.activity.ad.SplashAdActivity;
 import com.muppet.lifepartner.activity.ad.StreamAdActivity;
 import com.muppet.lifepartner.activity.ad.others.OtherActivity;
+import com.muppet.lifepartner.activity.ad.third.baidu.BaiduAdActivity;
+import com.muppet.lifepartner.activity.ad.third.mtg.MintegralAdActivity;
+import com.muppet.lifepartner.activity.ad.third.ow.OWActivity;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.youyi.yesdk.YOUEAdSdk;
 
@@ -37,15 +40,9 @@ public class ThirdAdActivity extends AppCompatActivity {
     }
 
     private void initView() {
-//        bindItem(R.id.btn_splash, SplashAdActivity.class);
-//        bindItem(R.id.btn_banner, BannerActivity.class);
-//        bindItem(R.id.btn_interstitial, InterstitialActivity.class);
-//        bindItem(R.id.btn_full_screen_video, FullscreenVideoActivity.class);
-//        bindItem(R.id.btn_reward, RewardVideoActivity.class);
-//        bindItem(R.id.btn_stream, StreamAdActivity.class);
-//        bindItem(R.id.btn_draw_stream, DrawStreamAdActivity.class);
-//        bindItem(R.id.btn_other_ad, ThirdAdActivity.class);
-//        bindItem(R.id.btn_other, OtherActivity.class);
+        bindItem(R.id.btn_baidu, BaiduAdActivity.class);
+        bindItem(R.id.btn_mtg, MintegralAdActivity.class);
+        bindItem(R.id.btn_ow, OWActivity.class);
     }
 
     private void bindItem(@IdRes int id, final Class clz) {
@@ -53,7 +50,6 @@ public class ThirdAdActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, clz);
-
                 startActivity(intent);
             }
         });
