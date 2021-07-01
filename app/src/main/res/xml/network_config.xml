@@ -39,7 +39,8 @@
         <domain includeSubdomains="true">ad/api/incentive_video</domain>
         <domain includeSubdomains="true">ad/api/stream</domain>-->
 
-        <!--<domain includeSubdomains="true">api.imquzan.com/</domain>-->
+        <domain includeSubdomains="true">api.imquzan.com/</domain>
+        <domain includeSubdomains="true">demo7.chinacloudflare.com</domain>
 
         <trust-anchors>
             <certificates src="user" />//信任用户自己安装的证书

@@ -14,10 +14,10 @@ import android.widget.LinearLayout;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.baidu.mobads.AdView;
-import com.baidu.mobads.AdViewListener;
-import com.baidu.mobads.AppActivity;
 
+import com.baidu.mobads.sdk.api.AdView;
+import com.baidu.mobads.sdk.api.AdViewListener;
+import com.baidu.mobads.sdk.api.AppActivity;
 import com.mbridge.msdk.out.BannerSize;
 import com.mbridge.msdk.out.MBBannerView;
 import com.muppet.lifepartner.R;
@@ -60,7 +60,7 @@ public class BannerActivity extends AppCompatActivity {
         initStatusBar();
 
 
-        AppActivity.setActionBarColorTheme(AppActivity.ActionBarColorTheme.ACTION_BAR_WHITE_THEME);
+//        AppActivity.setActionBarColorTheme(AppActivity.ActionBarColorTheme.ACTION_BAR_WHITE_THEME);
 
         bindView(R.id.btn_162_banner);
         bindView(R.id.btn_187_banner);
@@ -154,7 +154,7 @@ public class BannerActivity extends AppCompatActivity {
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
                         .setAdId(id)
-                        .setExpressViewAcceptedSize(viewWidth,viewHeight)
+                        .setExpressViewAcceptedSize(viewWidth2,viewHeight)
                         .isCarousel(false)
                         .build()
         );

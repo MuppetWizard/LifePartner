@@ -36,7 +36,7 @@ import mobi.oneway.export.enums.OnewaySdkError;
 
 public class RewardVideoActivity extends AppCompatActivity {
 
-    private com.baidu.mobads.rewardvideo.RewardVideoAd reWardVideo;
+//    private com.baidu.mobads.rewardvideo.RewardVideoAd reWardVideo;
     private MBRewardVideoHandler mbRewardVideoHandler;
 
     private OWRewardedAd owRewardedAd ;
@@ -77,7 +77,7 @@ public class RewardVideoActivity extends AppCompatActivity {
 //                        loadRewardVideo("0000000227",YOUEAdConstants.VERTICAL);
                         break;
                     case R.id.btn_bd_reward:
-                        loadBaiduReward("7528547");
+//                        loadBaiduReward("7528547");
                         break;
                     case R.id.btn_mb_reward:
 //                        loadMBReward("296580","475142");
@@ -189,7 +189,7 @@ public class RewardVideoActivity extends AppCompatActivity {
         mbRewardVideoHandler.load();
     }
 
-    private void loadBaiduReward(String id) {
+    /*private void loadBaiduReward(String id) {
         if (reWardVideo == null) {
             reWardVideo = new com.baidu.mobads.rewardvideo.RewardVideoAd(this, id, new com.baidu.mobads.rewardvideo.RewardVideoAd.RewardVideoAdListener() {
                 @Override
@@ -236,7 +236,7 @@ public class RewardVideoActivity extends AppCompatActivity {
 
         reWardVideo.load();
 
-    }
+    }*/
 
     private void loadRewardVideo(String id, int orientation) {
         RewardVideoAd ad = new RewardVideoAd();

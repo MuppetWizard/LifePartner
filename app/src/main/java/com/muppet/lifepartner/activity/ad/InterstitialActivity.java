@@ -46,7 +46,7 @@ public class InterstitialActivity extends AppCompatActivity {
 
     private InterstitialAd interstitialAd;
 
-    private com.baidu.mobads.InterstitialAd baiDuInterstitial;
+//    private com.baidu.mobads.InterstitialAd baiDuInterstitial;
     private MBInterstitialVideoHandler mbInterstitialVideoHandler;
     private MBNativeAdvancedHandler mbNativeAdvancedHandler;
     private OWInterstitialImageAd owInterstitialImageAd;
@@ -81,7 +81,7 @@ public class InterstitialActivity extends AppCompatActivity {
                         loadInterstitial("0000000112",false);
                         break;
                     case R.id.btn_bd_cha:
-                        loadBaiduChaping("7528546");
+//                        loadBaiduChaping("7528546");
                         break;
                     case R.id.btn_mb_cha:
 //                        loadMBChaping("296503","474882");
@@ -314,7 +314,7 @@ public class InterstitialActivity extends AppCompatActivity {
         }
     }
 
-    private void loadBaiduChaping(String id) {
+/*    private void loadBaiduChaping(String id) {
         baiDuInterstitial = new com.baidu.mobads.InterstitialAd(this,id);
         baiDuInterstitial.setListener(baiDuListener());
         baiDuInterstitial.loadAd();
@@ -350,7 +350,7 @@ public class InterstitialActivity extends AppCompatActivity {
                 Log.d(Constant.TAG,"onAdFailed");
             }
         };
-    }
+    }*/
 
     private void loadInterstitial(String id,boolean vertical) {
         interstitialAd = new InterstitialAd();

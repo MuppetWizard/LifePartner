@@ -10,22 +10,19 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.baidu.mobad.feeds.RequestParameters;
-import com.baidu.mobads.SplashAd;
-import com.baidu.mobads.SplashLpCloseListener;
+import com.baidu.mobads.sdk.api.RequestParameters;
 import com.baidu.mobads.sdk.api.SplashInteractionListener;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 
-import java.util.HashMap;
 
 public class BDSplashActivity extends AppCompatActivity {
 
     private FrameLayout flSplash;
     private View skip;
 
-    private SplashAd baiduSplash;
+
     private RequestParameters parameters;
 
     private com.baidu.mobads.sdk.api.SplashAd splashPlus;
@@ -47,7 +44,7 @@ public class BDSplashActivity extends AppCompatActivity {
             int key = intent.getIntExtra("v",-1);
             switch (key) {
                 case 100:
-                    loadBaidu("7528454");
+//                    loadBaidu("7528454");
                     break;
                 case 200://plus
                     loadBaiduPlus("7528454");
@@ -107,7 +104,7 @@ public class BDSplashActivity extends AppCompatActivity {
         splashPlus.loadAndShow(flSplash);
     }
 
-    private void loadBaidu(String id) {
+    /*private void loadBaidu(String id) {
         skip = getLayoutInflater().inflate(R.layout.btn_skip,null);
 
         TextView tvSkip = skip.findViewById(R.id.ue_tv_skip);
@@ -176,7 +173,7 @@ public class BDSplashActivity extends AppCompatActivity {
             listener.onAdDismissed();
         });
     }
-
+*/
     private void initStatusBar() {
         StatusUtils.setSystemStatus(this, true, true);
         FrameLayout llTop = findViewById(R.id.top);
@@ -190,9 +187,9 @@ public class BDSplashActivity extends AppCompatActivity {
             splashPlus.destroy();
             splashPlus = null;
         }
-        if (baiduSplash != null) {
-            baiduSplash.destroy();
+        /*if (baiduSplash != null) {
+//            baiduSplash.destroy();
             baiduSplash = null;
-        }
+        }*/
     }
 }

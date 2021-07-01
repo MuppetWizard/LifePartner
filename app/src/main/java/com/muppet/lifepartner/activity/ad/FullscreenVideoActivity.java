@@ -14,7 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.baidu.mobads.rewardvideo.FullScreenVideoAd;
+
+import com.baidu.mobads.sdk.api.FullScreenVideoAd;
 import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -89,7 +90,7 @@ public class FullscreenVideoActivity extends AppCompatActivity {
                             loadFullScreenVideo("0000000113",YOUEAdConstants.HORIZONTAL);
                             break;
                         case R.id.btn_bd_video:
-                            loadBaiduVideo("7528545");
+//                            loadBaiduVideo("7528545");
                             //debug
 //                            loadBaiduVideo("7339862");
                             break;
@@ -147,7 +148,7 @@ public class FullscreenVideoActivity extends AppCompatActivity {
         owInterstitialAd.loadAd();
     }
 
-    private void loadBaiduVideo(String id) {
+    /*private void loadBaiduVideo(String id) {
         mFullScreenVideo = new FullScreenVideoAd(this, id, new FullScreenVideoAd.FullScreenVideoAdListener() {
             @Override
             public void onAdShow() {
@@ -191,7 +192,7 @@ public class FullscreenVideoActivity extends AppCompatActivity {
         },false);
         mFullScreenVideo.load();
 
-    }
+    }*/
 
 
     private void loadFullScreenVideo(String id, int orientation) {

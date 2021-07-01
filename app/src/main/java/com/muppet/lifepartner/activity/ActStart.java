@@ -18,8 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.baidu.mobad.feeds.RequestParameters;
-import com.baidu.mobads.SplashLpCloseListener;
+
 import com.inmobi.ads.InMobiAdRequestStatus;
 import com.inmobi.ads.InMobiNative;
 import com.inmobi.ads.listeners.NativeAdEventListener;
@@ -53,7 +52,7 @@ public class ActStart extends AppCompatActivity{
     private int mCount;
 
     private SplashAd splashAd;
-    private com.baidu.mobads.SplashAd baiduSplash;
+//    private com.baidu.mobads.SplashAd baiduSplash;
     private FrameLayout flSplash;
     private LinearLayout llLogo;
 
@@ -84,7 +83,7 @@ public class ActStart extends AppCompatActivity{
                     case 100:
                         loadSplash("0000000032");
                         //test
-//                    loadSplash("0000000020");
+//                    loadSplash("0000000225");
                         break;
                     case 200:
                     case 300:
@@ -101,6 +100,8 @@ public class ActStart extends AppCompatActivity{
 
             }else {
                 loadSplash("0000000032");
+                //test
+//                loadSplash("0000000225");
             }
         }
     }
@@ -156,10 +157,10 @@ public class ActStart extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (baiduSplash != null) {
-            baiduSplash.destroy();
-            baiduSplash = null;
-        }
+//        if (baiduSplash != null) {
+//            baiduSplash.destroy();
+//            baiduSplash = null;
+//        }
         if (oWsplashAd != null) {
             oWsplashAd.destory();
         }
@@ -347,13 +348,13 @@ public class ActStart extends AppCompatActivity{
         }
     }
 
-    @Override
+   /* @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
             return true;
         }else {
             return super.dispatchKeyEvent(event);
         }
-    }
+    }*/
 }
 
