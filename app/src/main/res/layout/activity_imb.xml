@@ -6,59 +6,31 @@
     android:layout_height="match_parent"
     android:id="@+id/top"
     android:orientation="vertical"
-    tools:context=".activity.ad.third.ThirdAdActivity">
+    tools:context=".activity.ad.third.inmobi.IMBActivity">
     <Button
-        android:id="@+id/btn_baidu"
+        android:id="@+id/btn_imb_splash"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="百度"
+        android:text="SPLASH"
         android:gravity="center"
         android:textColor="@color/app_mainColor"
         android:textSize="14sp"
         android:theme="@style/PrimaryButton" />
     <Button
-        android:id="@+id/btn_mtg"
+        android:id="@+id/btn_imb_banner"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Mintegral"
+        android:text="BANNER"
         android:gravity="center"
         android:textColor="@color/app_mainColor"
         android:textSize="14sp"
         android:theme="@style/PrimaryButton" />
-    <Button
-        android:id="@+id/btn_ow"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="OneWay"
-        android:gravity="center"
-        android:textColor="@color/app_mainColor"
-        android:textSize="14sp"
-        android:theme="@style/PrimaryButton" />
-    <Button
-        android:id="@+id/btn_inombi"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="InMobi"
-        android:gravity="center"
-        android:textColor="@color/app_mainColor"
-        android:textSize="14sp"
-        android:theme="@style/PrimaryButton" />
-
-
 </LinearLayout>

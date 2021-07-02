@@ -61,9 +61,8 @@ public class App extends Application {
 //        MobadsPermissionSettings.setPermissionAppList(true);
 
         //Inmob
-//        InMobiSdk.init(this, "550d78c18791d7e161e788ed734eb064");
-//        InMobiSdk.init(this,"35cd4640484c490d8d7b59484fa52952");
-//        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
+        InMobiSdk.init(this,"983358235abae54f8afada172cdea9f0\n");
+        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
 
         //oneway
 //        OnewaySdk.configure(this,"cde1f85bdaf2435a");

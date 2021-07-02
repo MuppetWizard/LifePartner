@@ -22,6 +22,7 @@ import com.muppet.lifepartner.activity.ad.SplashAdActivity;
 import com.muppet.lifepartner.activity.ad.StreamAdActivity;
 import com.muppet.lifepartner.activity.ad.others.OtherActivity;
 import com.muppet.lifepartner.activity.ad.third.baidu.BaiduAdActivity;
+import com.muppet.lifepartner.activity.ad.third.inmobi.IMBActivity;
 import com.muppet.lifepartner.activity.ad.third.mtg.MintegralAdActivity;
 import com.muppet.lifepartner.activity.ad.third.ow.OWActivity;
 import com.muppet.lifepartner.util.StatusUtils;
@@ -43,6 +44,8 @@ public class ThirdAdActivity extends AppCompatActivity {
         bindItem(R.id.btn_baidu, BaiduAdActivity.class);
         bindItem(R.id.btn_mtg, MintegralAdActivity.class);
         bindItem(R.id.btn_ow, OWActivity.class);
+        bindItem(R.id.btn_inombi, IMBActivity.class);
+
     }
 
     private void bindItem(@IdRes int id, final Class clz) {
