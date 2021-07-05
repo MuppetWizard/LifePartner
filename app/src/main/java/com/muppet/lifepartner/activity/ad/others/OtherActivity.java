@@ -1,5 +1,8 @@
 package com.muppet.lifepartner.activity.ad.others;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -8,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,6 +32,8 @@ import java.net.URL;
 
 public class OtherActivity extends AppCompatActivity {
 
+    private Context context = OtherActivity.this;
+
     private String googleKey = "com.google.android.gms.ads.APPLICATION_ID";
     private TextView tvOutput;
     private ImageView ivImg;
@@ -46,13 +52,10 @@ public class OtherActivity extends AppCompatActivity {
         bindItem(R.id.btn_write);
         bindItem(R.id.btn_read);
         bindItem(R.id.btn_other);
-        tvOutput.setText(TestUtils.INSTANCE.testFor("13465431|65465"));
-    }
-
-    private void initStatusBar() {
-        StatusUtils.setSystemStatus(this,true,true);
-        LinearLayout llTop = findViewById(R.id.page_container);
-        llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
+        String deviceID = Settings.System.getString(context.getContentResolver(), Settings.System.ANDROID_ID);
+//        tvOutput.setText(TestUtils.INSTANCE.testFor("13465431|65465"));
+        tvOutput.setText(deviceID);
+        setOnclick();
     }
 
     private void bindItem(@IdRes int id) {
@@ -77,6 +80,18 @@ public class OtherActivity extends AppCompatActivity {
         });
     }
 
+    private void setOnclick() {
+        tvOutput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager manager = (ClipboardManager) OtherActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
+                String deviceID = Settings.System.getString(context.getContentResolver(), Settings.System.ANDROID_ID);
+                manager.setPrimaryClip(ClipData.newPlainText(null,deviceID));
+
+            }
+        });
+    }
+
     //子线程不能操作UI，通过Handler设置图片
     private Handler handler = new Handler() {
         @Override
@@ -95,7 +110,6 @@ public class OtherActivity extends AppCompatActivity {
             }
         }
     };
-
     private void loadImg(String path) {
         new Thread() {
             @Override
@@ -167,5 +181,11 @@ public class OtherActivity extends AppCompatActivity {
             return "wrong";
         }
         return value;
+    }
+
+    private void initStatusBar() {
+        StatusUtils.setSystemStatus(this,true,true);
+        LinearLayout llTop = findViewById(R.id.page_container);
+        llTop.setPadding(0, StatusUtils.getStatusBarHeight(this),0,0);
     }
 }

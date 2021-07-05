@@ -27,7 +27,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label">
-        <activity android:name=".activity.ad.third.inmobi.IMBSplashActivity"></activity>
+        <activity android:name=".activity.ad.third.inmobi.IMBBannerActivity"></activity>
+        <activity android:name=".activity.ad.third.inmobi.IMBSplashActivity" />
         <activity android:name=".activity.ad.third.inmobi.IMBActivity" />
         <activity android:name=".activity.ad.third.ow.OWActivity" />
         <activity android:name=".activity.ad.third.mtg.MTGSplashActivity" />
@@ -60,9 +61,11 @@
             android:resizeableActivity="false"
             android:theme="@android:style/Theme.NoTitleBar"
             tools:ignore="UnusedAttribute" />
+
         <service
             android:name="com.inmobi.ads.ApkDownloader$ApkDownloadService"
             android:enabled="true" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="{appPackageName}.fileprovider"

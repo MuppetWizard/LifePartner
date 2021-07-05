@@ -23,7 +23,7 @@ public class IMBActivity extends AppCompatActivity {
         setContentView(R.layout.activity_imb);
         initStatusBar();
         bindItem(R.id.btn_imb_splash,IMBSplashActivity.class);
-//        bindItem(R.id.btn_imb_banner);
+        bindItem(R.id.btn_imb_banner,IMBBannerActivity.class);
     }
 
     private void bindItem(@IdRes int id, final Class clz) {

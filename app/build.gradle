@@ -89,8 +89,7 @@ dependencies {
     //inmobi 广告
     implementation files('libs/InMobi-7.5.1.jar')
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'com.android.support:support-v4:27.1.0'
-    implementation 'com.android.support:recyclerview-v7:27.1.0'
+
 
 //    implementation 'androidx.multidex:multidex:2.0.1'
     //Admob 广告
