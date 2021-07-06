@@ -27,7 +27,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label">
-        <activity android:name=".activity.ad.third.inmobi.IMBBannerActivity"></activity>
+        <activity android:name=".activity.ad.third.inmobi.IMBInterstitialActivity"></activity>
+        <activity android:name=".activity.ad.third.inmobi.IMBBannerActivity" />
         <activity android:name=".activity.ad.third.inmobi.IMBSplashActivity" />
         <activity android:name=".activity.ad.third.inmobi.IMBActivity" />
         <activity android:name=".activity.ad.third.ow.OWActivity" />

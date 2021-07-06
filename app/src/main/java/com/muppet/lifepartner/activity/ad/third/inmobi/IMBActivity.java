@@ -24,6 +24,7 @@ public class IMBActivity extends AppCompatActivity {
         initStatusBar();
         bindItem(R.id.btn_imb_splash,IMBSplashActivity.class);
         bindItem(R.id.btn_imb_banner,IMBBannerActivity.class);
+        bindItem(R.id.btn_imb_interstitial,IMBInterstitialActivity.class);
     }
 
     private void bindItem(@IdRes int id, final Class clz) {

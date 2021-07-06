@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:id="@+id/top"
-    android:orientation="vertical"
-    tools:context=".activity.ad.third.inmobi.IMBBannerActivity">
+    tools:context=".activity.ad.third.inmobi.IMBInterstitialActivity"
+    android:orientation="horizontal">
     <FrameLayout
-        android:id="@+id/fl_banner_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#48A69F"
+        android:id="@+id/fl_container"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
         android:foregroundGravity="fill"
-        />
+        android:background="@color/app_green">
+
+    </FrameLayout>
+
 </LinearLayout>
