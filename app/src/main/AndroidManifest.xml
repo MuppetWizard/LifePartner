@@ -55,7 +55,7 @@
         </provider>
         -->
         <!-- inMob -->
-        <activity
+       <!-- <activity
             android:name="com.inmobi.rendering.InMobiAdActivity"
             android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
             android:hardwareAccelerated="true"
@@ -75,9 +75,9 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider> <!-- oneway -->
-        <!--
-  <activity
+        </provider>-->
+        <!-- oneway -->
+        <!--<activity
             android:name="mobi.oneway.export.AdShowActivity"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
             android:hardwareAccelerated="true"

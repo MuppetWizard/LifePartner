@@ -9,7 +9,7 @@
     tools:context=".activity.ad.third.inmobi.IMBBannerActivity">
     <FrameLayout
         android:id="@+id/fl_banner_container"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#48A69F"
         android:foregroundGravity="fill"

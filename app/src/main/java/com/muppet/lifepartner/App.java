@@ -61,8 +61,8 @@ public class App extends Application {
 //        MobadsPermissionSettings.setPermissionAppList(true);
 
         //Inmob
-        InMobiSdk.init(this,"983358235abae54f8afada172cdea9f0\n");
-        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
+//        InMobiSdk.init(this,"983358235abae54f8afada172cdea9f0\n");
+//        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
 
         //oneway
 //        OnewaySdk.configure(this,"cde1f85bdaf2435a");
@@ -91,7 +91,7 @@ public class App extends Application {
         //beta-000002
         YOUEAdSdk.INSTANCE.initSDK(application,
                 new YOUEAdManager()
-                        .appId("000012")
+                        .appId("000002")
                         .appName("游易")
                         .deBug(true)
                         .setChannel(10)

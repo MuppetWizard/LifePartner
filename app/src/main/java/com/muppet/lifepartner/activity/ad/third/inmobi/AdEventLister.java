@@ -3,11 +3,14 @@ package com.muppet.lifepartner.activity.ad.third.inmobi;
 import android.content.Context;
 import android.util.Log;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.inmobi.ads.InMobiAdRequestStatus;
 import com.inmobi.ads.InMobiNative;
 import com.inmobi.ads.listeners.NativeAdEventListener;
 import com.muppet.lifepartner.util.Constant;
+import com.muppet.lifepartner.util.UIUtils;
+import com.youyi.yesdk.utils.DensityUtil;
 
 /**
  * des：
@@ -38,16 +41,16 @@ public class AdEventLister extends NativeAdEventListener {
         super.onAdLoadSucceeded(inMobiNative);
         Log.d(TAG,"onAdLoadSucceeded");
         if (inMobiNative.isReady()) {
-//                    FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(container.getWidth(),100 );
+            int width = UIUtils.getScreenWidth(context);
+            int height = DensityUtil.Companion.dip2px(context,50);
+            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams( width,-2);
             container.addView(
                     inMobiNative.getPrimaryViewOfWidth(
                             context,
                             container,
                             container,
                             container.getWidth()
-                    )
-
-            );
+                    ),lp);
 //            inMobiNative.getPrimaryViewOfWidthAndHeight(
 //                    context,
 //                    container,container,container.getWidth(),container.getHeight());
