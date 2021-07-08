@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -30,6 +31,7 @@ import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.BannerAdListener;
 import com.youyi.yesdk.listener.UEConfirmCallBack;
 import com.youyi.yesdk.listener.UEDownloadConfirmListener;
+import com.youyi.yesdk.utils.DensityUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -86,9 +88,9 @@ public class BannerActivity extends AppCompatActivity {
                         break;
 
                     case R.id.btn_187_banner:
-                        loadBanner("0000000039");
-//                    loadBanner("0000000226");
+//                        loadBanner("0000000039");
                         //test
+                    loadBanner("0000000226");
 //                    loadBanner("0000000021");
                         break;
                     case R.id.btn_250_banner:
@@ -149,7 +151,7 @@ public class BannerActivity extends AppCompatActivity {
     private void loadBanner(String id) {
         float viewWidth2 = UIUtils.getScreenWidthDp(this);
         float viewWidth = UIUtils.px2dip(this,750);
-        float viewHeight = UIUtils.px2dip(this,400);
+        float viewHeight = DensityUtil.Companion.dip2px(this,80);
         bannerAd = new BannerAd();
         bannerAd.setBannerConfig(this,
                 new AdPlacement.Builder()
@@ -164,12 +166,12 @@ public class BannerActivity extends AppCompatActivity {
             View mView = null;
             @Override
             public void onLoaded(@Nullable View view) {
-//                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(UIUtils.getScreenWidth(BannerActivity.this),ViewGroup.LayoutParams.WRAP_CONTENT );
+                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(UIUtils.getScreenWidth(BannerActivity.this),ViewGroup.LayoutParams.WRAP_CONTENT );
                 if (view != null) {
 
                     Log.e(Constant.TAG,"onLoaded");
                     mView = view;
-                    flBanner.addView(view);
+                    flBanner.addView(view,params);
                 }
             }
 

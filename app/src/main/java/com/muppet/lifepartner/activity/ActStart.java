@@ -99,9 +99,9 @@ public class ActStart extends AppCompatActivity{
                 }
 
             }else {
-                loadSplash("0000000032");
+//                loadSplash("0000000032");
                 //test
-//                loadSplash("0000000225");
+                loadSplash("0000000225");
             }
         }
     }

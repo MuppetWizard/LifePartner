@@ -89,6 +89,7 @@ public class App extends Application {
     private void initUEAdSdk() {
         //release-000012
         //beta-000002
+        //beta-000007
         YOUEAdSdk.INSTANCE.initSDK(application,
                 new YOUEAdManager()
                         .appId("000002")
