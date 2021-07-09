@@ -81,9 +81,9 @@ public class ActStart extends AppCompatActivity{
                 splashType = intent.getIntExtra("splash", -1);
                 switch (splashType) {
                     case 100:
-//                        loadSplash("0000000032");
+                        loadSplash("0000000032");
                         //test
-                    loadSplash("0000000225");
+//                    loadSplash("0000000225");
                         break;
                     case 200:
                     case 300:
@@ -99,9 +99,9 @@ public class ActStart extends AppCompatActivity{
                 }
 
             }else {
-//                loadSplash("0000000032");
+                loadSplash("0000000032");
                 //test
-                loadSplash("0000000225");
+//                loadSplash("0000000225");
             }
         }
     }

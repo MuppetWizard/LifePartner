@@ -88,9 +88,9 @@ public class BannerActivity extends AppCompatActivity {
                         break;
 
                     case R.id.btn_187_banner:
-//                        loadBanner("0000000039");
+                        loadBanner("0000000039");
                         //test
-                    loadBanner("0000000226");
+//                    loadBanner("0000000226");
 //                    loadBanner("0000000021");
                         break;
                     case R.id.btn_250_banner:

@@ -36,6 +36,7 @@ public class OtherActivity extends AppCompatActivity {
 
     private String googleKey = "com.google.android.gms.ads.APPLICATION_ID";
     private TextView tvOutput;
+    private TextView tvOutput2;
     private ImageView ivImg;
 
     public static final int GET_DATA_SUCCESS = 1;
@@ -48,6 +49,7 @@ public class OtherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_other);
         initStatusBar();
         tvOutput = findViewById(R.id.tv_output);
+        tvOutput2 = findViewById(R.id.tv_output2);
         ivImg = findViewById(R.id.iv_bg);
         bindItem(R.id.btn_write);
         bindItem(R.id.btn_read);

@@ -35,18 +35,18 @@ public class App extends Application {
         initUEAdSdk();
 
         //baidu Plus
-        BDAdConfig adConfig = new BDAdConfig.Builder()
-                .setAppsid("c9f473aa")
-                .setAppName("游易")
-                .build(this);
-        adConfig.init();
-        // 设置SDK可以使用的权限，包含：设备信息、定位、存储、APP LIST
-        // 注意：建议授权SDK读取设备信息，SDK会在应用获得系统权限后自行获取IMEI等设备信息
-        // 授权SDK获取设备信息会有助于提升ECPM
-        MobadsPermissionSettings.setPermissionReadDeviceID(true);
-        MobadsPermissionSettings.setPermissionLocation(true);
-        MobadsPermissionSettings.setPermissionStorage(true);
-        MobadsPermissionSettings.setPermissionAppList(true);
+//        BDAdConfig adConfig = new BDAdConfig.Builder()
+//                .setAppsid("c9f473aa")
+//                .setAppName("游易")
+//                .build(this);
+//        adConfig.init();
+//        // 设置SDK可以使用的权限，包含：设备信息、定位、存储、APP LIST
+//        // 注意：建议授权SDK读取设备信息，SDK会在应用获得系统权限后自行获取IMEI等设备信息
+//        // 授权SDK获取设备信息会有助于提升ECPM
+//        MobadsPermissionSettings.setPermissionReadDeviceID(true);
+//        MobadsPermissionSettings.setPermissionLocation(true);
+//        MobadsPermissionSettings.setPermissionStorage(true);
+//        MobadsPermissionSettings.setPermissionAppList(true);
 
         //
 //        initMBSkd("144819","5462e2032d96955e966454fecb8e1580");
@@ -92,7 +92,7 @@ public class App extends Application {
         //beta-000007
         YOUEAdSdk.INSTANCE.initSDK(application,
                 new YOUEAdManager()
-                        .appId("000002")
+                        .appId("000012")
                         .appName("游易")
                         .deBug(true)
                         .setChannel(10)
