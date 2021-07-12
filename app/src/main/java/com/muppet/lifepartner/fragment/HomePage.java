@@ -29,9 +29,11 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
+import com.youyi.yesdk.YOUEAdSdk;
 import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.ad.FullVideoAd;
 import com.youyi.yesdk.business.AdPlacement;
+import com.youyi.yesdk.business.YOUEAdManager;
 import com.youyi.yesdk.listener.BannerAdListener;
 import com.youyi.yesdk.listener.FullVideoListener;
 
@@ -48,6 +50,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
+
+import static com.muppet.lifepartner.App.application;
 
 
 public class HomePage extends SupportFragment implements OnBannerListener {
@@ -123,6 +127,7 @@ public class HomePage extends SupportFragment implements OnBannerListener {
             @Override
             public void onError(@Nullable Integer integer, @Nullable String s) {
                 Log.e(Constant.TAG,"code:"+integer+" msg: "+ s);
+//                initUEAdSdk();
             }
 
             @Override
@@ -168,6 +173,22 @@ public class HomePage extends SupportFragment implements OnBannerListener {
             }
         });
 
+    }
+
+    private void initUEAdSdk() {
+        //release-000012
+        //beta-000002
+        //beta-000007
+        YOUEAdSdk.INSTANCE.initSDK(application,
+                new YOUEAdManager()
+                        .appId("000012")
+                        .appName("游易")
+                        .deBug(true)
+                        .setChannel(10)
+                        .supportMultiProcess(false)
+                        .build()
+        );
+        YOUEAdSdk.INSTANCE.getSDKVersion();
     }
 
     /**
