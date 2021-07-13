@@ -25,7 +25,7 @@ import com.muppet.lifepartner.R;
 import com.muppet.lifepartner.util.Constant;
 import com.muppet.lifepartner.util.StatusUtils;
 import com.muppet.lifepartner.util.UIUtils;
-import com.muppet.lifepartner.view.YYBannerView;
+//import com.muppet.lifepartner.view.YYBannerView;
 import com.youyi.yesdk.ad.BannerAd;
 import com.youyi.yesdk.business.AdPlacement;
 import com.youyi.yesdk.listener.BannerAdListener;
@@ -111,24 +111,25 @@ public class BannerActivity extends AppCompatActivity {
                     case R.id.btn_test:
 //                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 500);
 //                    flBanner.setLayoutParams(params);
-                        test();
+//                        test();
                         break;
                 }
             }
         });
     }
 
-    private void test() {
+   /* private void test() {
         YYBannerView view = new YYBannerView(this);
         float expressViewWidth = UIUtils.getScreenWidth(this);
         view.setConfig(expressViewWidth,400);
         view.loadResource("https://img.hlhjapp.com/ad/ad_img.jpg","");
         flBanner.addView(view);
-    }
+    }*/
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        flBanner.removeAllViews();
         if (bannerAd != null) {
             bannerAd.destroy();
         }

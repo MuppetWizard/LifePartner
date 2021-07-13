@@ -17,6 +17,9 @@ import org.xutils.x;
 
 import java.util.Map;
 
+import leakcanary.LeakCanary;
+import leakcanary.internal.LeakCanaryDelegate;
+
 public class App extends Application {
     public static Application application;
 //    private AppOpenManager openManager;
@@ -32,6 +35,7 @@ public class App extends Application {
                 .stackViewMode(Fragmentation.BUBBLE)
                 .debug(BuildConfig.DEBUG)
                 .install();*/
+
         initUEAdSdk();
 
         //baidu Plus

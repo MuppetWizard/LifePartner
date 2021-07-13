@@ -41,7 +41,7 @@ public class ViewTestActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.btn_test_splash:
-                        SplashController splashController = new SplashController(ViewTestActivity.this);
+                        /*SplashController splashController = new SplashController(ViewTestActivity.this);
                         splashController.startTimer(6);
                         container.addView(splashController);
                         int  minHeight = UIUtils.getScreenHeight(ViewTestActivity.this) ;
@@ -61,7 +61,7 @@ public class ViewTestActivity extends AppCompatActivity {
                                         "\n minWidth:"+minWidth+ " minHeight: "+minHeight+ " %: "+bb);
                             }
                         });
-
+*/
                         break;
                 }
             }

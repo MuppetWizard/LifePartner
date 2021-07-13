@@ -23,7 +23,7 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <RadioButton
+        <!--<RadioButton
             android:id="@+id/home_btn"
             android:textColor="@color/app_black"
             android:drawableTop="@drawable/navigation_img_home"
@@ -34,13 +34,14 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" />-->
         <RadioButton
             android:id="@+id/tools_btn"
             android:textColor="@color/app_black"
             android:drawableTop="@drawable/navigation_img_tools"
             android:text="天气"
             android:textSize="13dp"
+            android:checked="true"
             android:button="@null"
             android:gravity="center"
             android:layout_weight="1"
